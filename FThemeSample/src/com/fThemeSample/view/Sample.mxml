@@ -33,7 +33,7 @@
 		</toolbar:Toolbar>
 		
 		<s:HGroup paddingLeft="10" paddingRight="10" gap="10">
-				
+			
 			<s:VGroup gap="10">
 				
 				<s:Button label="Spark Button"/>
@@ -51,7 +51,7 @@
 						like Aldus PageMaker including versions of Lorem Ipsum.
 					</s:text>
 				</s:TextArea>
-					
+				
 				<s:ButtonBar>
 					<s:ArrayCollection>
 						<fx:String>First</fx:String>
@@ -166,7 +166,7 @@
 					<mx:Box label="Two"/>
 					<mx:Box label="Three"/>
 				</mx:Accordion>
-
+				
 				<mx:Button label="MX Button"/>
 				
 				<mx:ButtonBar>
@@ -182,12 +182,20 @@
 					<mx:CheckBox label="MX Check Box"/>
 					
 					<mx:CheckBox label="Selected" selected="true"/>
-						
+					
 				</s:HGroup>
 				
 				<mx:ColorPicker labelField="Color Picker"/>
 				
 				<mx:ComboBox text="MX Combo Box">
+					<s:ArrayCollection>
+						<fx:String>First</fx:String>
+						<fx:String>Middle</fx:String>
+						<fx:String>Last</fx:String>
+					</s:ArrayCollection>
+				</mx:ComboBox>
+				
+				<mx:ComboBox text="MX Editable Combo Box" editable="true">
 					<s:ArrayCollection>
 						<fx:String>First</fx:String>
 						<fx:String>Middle</fx:String>
@@ -205,13 +213,80 @@
 				
 			</s:VGroup>
 			
+			<s:VGroup gap="10">
+				
+				<mx:DateChooser/>
+				
+				<mx:HRule/>
+				
+				<mx:HDividedBox>
+					<mx:Label text="HDividedBox"/>
+					<mx:Label text="HDividedBox"/>
+				</mx:HDividedBox>
+				
+				<mx:HorizontalList labelField="name">
+					<s:ArrayCollection>
+						<fx:Object name="MX List"/>
+						<fx:Object name="Horizontal"/>
+					</s:ArrayCollection>
+				</mx:HorizontalList>
+				
+				<mx:List labelField="name" height="60">
+					<s:ArrayCollection>
+						<fx:Object name="MX"/>
+						<fx:Object name="List"/>
+					</s:ArrayCollection>
+				</mx:List>
+				
+				<mx:LinkButton label="MX Link Button"/>
+				
+				<mx:MenuBar labelField="name">
+					<mx:dataProvider>
+						<s:ArrayCollection>
+							<fx:Object name="MX Menu Bar"/>
+							<fx:Object name="Click here" children="{[ 'Item 1', 'Item 2' ]}"/>
+						</s:ArrayCollection>
+					</mx:dataProvider>
+				</mx:MenuBar>
+				
+				<mx:NumericStepper/>
+				
+			</s:VGroup>
+			
+			<s:VGroup gap="10">
+				
+				<mx:Panel title="MX Panel">
+					<mx:Spacer width="21" height="21"/>
+				</mx:Panel>
+				
+				<mx:Panel title="MX Panel with ControlBar">
+					<mx:Spacer width="21" height="21"/>
+					<mx:ControlBar>
+						<mx:Label text="MX ControlBar"/>
+					</mx:ControlBar>
+				</mx:Panel>
+				
+				<mx:PopUpButton label="MX PopUpButton">
+					<mx:popUp>
+						<mx:Menu labelField="name">
+							<s:ArrayCollection>
+								<fx:Object name="One"/>
+								<fx:Object name="Two"/>
+								<fx:Object name="Three"/>
+							</s:ArrayCollection>
+						</mx:Menu>
+					</mx:popUp>
+				</mx:PopUpButton>
+				
+			</s:VGroup>
+			
 		</s:HGroup>
 		
 		<controlbar:Controlbar>
 			
 			<s:Button label="Save"/>
 			
-			<s:Button label="Cancel"/>
+			<mx:LinkButton label="Cancel"/>
 			
 		</controlbar:Controlbar>
 		

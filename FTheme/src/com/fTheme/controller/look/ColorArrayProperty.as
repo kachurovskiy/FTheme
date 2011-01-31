@@ -13,10 +13,24 @@ public class ColorArrayProperty extends LookProperty
 	//
 	//--------------------------------------------------------------------------
 
-	public function ColorArrayProperty(name:String, defaultValue:String)
+	public function ColorArrayProperty(name:String, defaultValue:String, minLength:int = 1,
+		maxLength:int = int.MAX_VALUE)
 	{
 		super(name, defaultValue);
+		
+		this.minLength = minLength;
+		this.maxLength = maxLength;
 	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Variables
+	//
+	//--------------------------------------------------------------------------
+
+	private var minLength:int;
+	
+	private var maxLength:int;
 	
 	//--------------------------------------------------------------------------
 	//
@@ -32,10 +46,23 @@ public class ColorArrayProperty extends LookProperty
 			return [];
 		var array:Array = string.split(/\s/);
 		var n:int = array.length;
-		for (var i:int = 0; i < n; i++)
+		var i:int;
+		for (i = 0; i < n; i++)
 		{
 			array[i] = ColorUtil.stringToUint(array[i]);
 		}
+		
+		// add colors until minLength
+		for (i = n; i < minLength; i++)
+		{
+			array.push(0x000000);
+		}
+		// remove colors until maxLength
+		for (i = n; i > maxLength; i--)
+		{
+			array.pop();
+		}
+		
 		return array;
 	}
 	

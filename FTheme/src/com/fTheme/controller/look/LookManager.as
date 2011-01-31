@@ -23,6 +23,8 @@ public class LookManager
 		addProperty(new ColorArrayProperty("alternatingItemColors", ""));
 		
 		addProperty(new ColorProperty("color", "0x000000"));
+		addProperty(new ColorProperty("rollOverColor", "0xCEDBEF"));
+		addProperty(new ColorProperty("selectionColor", "0xA8C6EE"));
 		addProperty(new ColorProperty("errorColor", "0xCC0000"));
 		
 		addProperty(new FillProperty("applicationFill", "0xFFFFFF"));
@@ -42,15 +44,15 @@ public class LookManager
 		addProperty(new StrokeProperty("borderStroke", "0x888888"));
 		
 		addProperty(new FillProperty("buttonUpFill", 
-			"0xFFFFFF 0xF3F3F3 ratio 0.5 0xEAEAEA ratio 0.51 0xD3D3D3 rotation 90"));
+			"0xFFFFFF 0xF3F3F3 ratio 0.5 0xEAEAEA ratio 0.51 0xD3D3D3"));
 		addProperty(new FillProperty("buttonOverFill", 
-			"0xD0D1D1 0xC7C9C9 ratio 0.5 0xB5B6B7 ratio 0.51 0xA4A5A6 rotation 90"));
+			"0xD0D1D1 0xC7C9C9 ratio 0.5 0xB5B6B7 ratio 0.51 0xA4A5A6"));
 		addProperty(new FillProperty("buttonDownFill",
-			"0xBCBCBC 0xB5B6B7 ratio 0.5 0xAAAAAB ratio 0.51 0x9C9E9F rotation 90"));
+			"0xBCBCBC 0xB5B6B7 ratio 0.5 0xAAAAAB ratio 0.51 0x9C9E9F"));
 		addProperty(new FillProperty("buttonSelectedFill",
-			"0xBCBCBC 0xB5B6B7 ratio 0.5 0xAAAAAB ratio 0.51 0x9C9E9F rotation 90"));
+			"0xBCBCBC 0xB5B6B7 ratio 0.5 0xAAAAAB ratio 0.51 0x9C9E9F"));
 		addProperty(new FillProperty("buttonDisabledFill", 
-			"0xFFFFFF 0xFAFAFA ratio 0.5 0xF5F5F5 ratio 0.51 0xEAEAEA rotation 90"));
+			"0xFFFFFF 0xFAFAFA ratio 0.5 0xF5F5F5 ratio 0.51 0xEAEAEA"));
 		addProperty(new StrokeProperty("buttonStroke", "0x444444"));
 		addProperty(new NumberProperty("buttonCornerRadius", "3"));
 		addProperty(new NumberProperty("buttonMinWidth", "21"));
@@ -60,6 +62,13 @@ public class LookManager
 		
 		addProperty(new NumberProperty("radioButtonSize", "13"));
 		addProperty(new NumberProperty("radioButtonDotSize", "5"));
+		
+		addProperty(new FillProperty("headerFill", 
+			"0xFFFFFF 0xF7F7F7 ratio 0.35 0xF2F2F2 ratio 0.36 0xD5D5D5"));
+		
+		// headerColors are used in DateChooser header (allows only 2 colors)
+		addProperty(new ColorArrayProperty("headerColors", 
+			"0xFFFFFF 0xD8D8D8", 2, 2));
 		
 		addProperty(new StrokeProperty("highlightStroke", "0xFFFFFF alpha 0.2"));
 		
@@ -81,12 +90,12 @@ public class LookManager
 		
 		addProperty(new FillProperty("hScrollBarTrackFill", "0xCACACA"));
 		addProperty(new FillProperty("vScrollBarTrackFill", "0xCACACA"));
-		addProperty(new FillProperty("hScrollBarThumbUpFill", "0xFAFAFA 0xF0F0F0 rotation 90"));
-		addProperty(new FillProperty("hScrollBarThumbOverFill", "0xC7C7C7 0xB2B2B2 rotation 90"));
-		addProperty(new FillProperty("hScrollBarThumbDownFill", "0xBBBBBB 0x8B8B8B rotation 90"));
-		addProperty(new FillProperty("vScrollBarThumbUpFill", "0xFAFAFA 0xF0F0F0 rotation 90"));
-		addProperty(new FillProperty("vScrollBarThumbOverFill", "0xC7C7C7 0xB2B2B2 rotation 90"));
-		addProperty(new FillProperty("vScrollBarThumbDownFill", "0xBBBBBB 0x8B8B8B rotation 90"));
+		addProperty(new FillProperty("hScrollBarThumbUpFill", "0xFAFAFA 0xF0F0F0"));
+		addProperty(new FillProperty("hScrollBarThumbOverFill", "0xC7C7C7 0xB2B2B2"));
+		addProperty(new FillProperty("hScrollBarThumbDownFill", "0xBBBBBB 0x8B8B8B"));
+		addProperty(new FillProperty("vScrollBarThumbUpFill", "0xFAFAFA 0xF0F0F0 rotation 0"));
+		addProperty(new FillProperty("vScrollBarThumbOverFill", "0xC7C7C7 0xB2B2B2 rotation 0"));
+		addProperty(new FillProperty("vScrollBarThumbDownFill", "0xBBBBBB 0x8B8B8B rotation 0"));
 		addProperty(new NumberProperty("scrollBarButtonSize", "17"));
 		addProperty(new NumberProperty("scrollBarThumbMinSize", "17"));
 		addProperty(new NumberProperty("scrollBarSize", "14"));
