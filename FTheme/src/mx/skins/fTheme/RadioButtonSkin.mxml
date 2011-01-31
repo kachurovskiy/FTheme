@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+ADOBE SYSTEMS INCORPORATED
+Copyright 2008 Adobe Systems Incorporated
+All Rights Reserved.
+
+NOTICE: Adobe permits you to use, modify, and distribute this file
+in accordance with the terms of the license agreement accompanying it.
+
+-->
+<local:SparkSkinForHalo xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:local="mx.skins.spark.*"
+	disabledAlpha="0.5">
+	<!-- have to use disabledAlpha style rather than alpha.disabled as in most of our skins 
+	because the enabled property gets pushed down in here from the Halo button, and since 
+	the skin is a Group, it handles setting of alpha when disabled via the disabledAlpha style -->
+	
+	<local:states>
+		<s:State name="up" />
+		<s:State name="over" stateGroups="overStates" />
+		<s:State name="down" stateGroups="downStates" />
+		<s:State name="disabled" stateGroups="disabledStates" />
+		<s:State name="selectedUp" stateGroups="selectedStates" />
+		<s:State name="selectedOver" stateGroups="overStates, selectedStates" />
+		<s:State name="selectedDown" stateGroups="downStates, selectedStates" />
+		<s:State name="selectedDisabled" stateGroups="disabledStates, selectedStates" />
+	</local:states>
+	
+	<!-- hit area -->
+	<s:Rect left="0" right="0" top="0" bottom="0" alpha="0">
+		<s:fill>
+			<s:SolidColor/>
+		</s:fill>
+	</s:Rect>
+	
+	<s:Group verticalCenter="0" width="{getStyle('radioButtonSize')}"
+		height="{getStyle('radioButtonSize')}">
+		
+		<s:Ellipse left="1" right="1" top="1" bottom="1"
+			fill.up="{getStyle('buttonUpFill')}"
+			fill.over="{getStyle('buttonOverFill')}"
+			fill.down="{getStyle('buttonDownFill')}"
+			fill.disabled="{getStyle('buttonDisabledFill')}"
+			fill.selectedStates="{getStyle('buttonSelectedFill')}"/>
+		
+		<s:Ellipse left="0" right="0" top="0" bottom="0"
+			stroke="{getStyle('buttonStroke')}"/>
+		
+		<!-- dot -->
+		<!--- Defines the appearance of the RadioButton's dot. To customize the appearance of the dot, create a custom RadioButtonSkin class. -->
+		<s:Ellipse includeIn="selectedStates"
+			horizontalCenter="0" verticalCenter="0"
+			width="{getStyle('radioButtonDotSize')}"
+			height="{getStyle('radioButtonDotSize')}"
+			fill="{getStyle('symbolFill')}"/>
+		
+	</s:Group>
+	
+</local:SparkSkinForHalo>

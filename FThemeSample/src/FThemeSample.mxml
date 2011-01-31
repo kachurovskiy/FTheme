@@ -5,7 +5,7 @@
 	xmlns:view="com.fThemeSample.view.*"
 	xmlns:selector="com.fTheme.view.selector.*"
 	xmlns:look="com.fTheme.controller.look.*"
-	preinitialize="new Controller();" xmlns:local="*">
+	preinitialize="new Controller();">
 	
 	<fx:Script>
 	<![CDATA[
@@ -20,7 +20,6 @@
 			<selector:LookSelector selectedIndex="0">
 				<s:ArrayCollection>
 					<look:Look name="Default"/>
-					<local:PlasticLook/>
 				</s:ArrayCollection>
 			</selector:LookSelector>
 			

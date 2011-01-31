@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx" 
+	xmlns:view="com.fThemeSample.view.*" 
+	xmlns:toolbar="com.fTheme.view.toolbar.*" 
+	xmlns:controlbar="com.fTheme.view.controlbar.*"
+	paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10"
+	title="MX Panel" layout="vertical">
+	
+	<fx:Script>
+	<![CDATA[
+		import com.fThemeSample.model.Model;
+		
+		[Bindable("__NoChangeEvent__")]
+		private var model:Model = Model.instance;
+	]]>
+	</fx:Script>
+	
+	<s:HGroup gap="10">
+		
+		<s:VGroup gap="10">
+			
+			<mx:Accordion height="100">
+				<mx:Box label="One"/>
+				<mx:Box label="Two"/>
+				<mx:Box label="Three"/>
+			</mx:Accordion>
+			
+			<mx:Button label="MX Button"/>
+			
+			<mx:ButtonBar>
+				<s:ArrayCollection>
+					<fx:String>First</fx:String>
+					<fx:String>Middle</fx:String>
+					<fx:String>Last</fx:String>
+				</s:ArrayCollection>
+			</mx:ButtonBar>
+			
+			<s:HGroup>
+				
+				<mx:CheckBox label="MX Check Box"/>
+				
+				<mx:CheckBox label="Selected" selected="true"/>
+				
+			</s:HGroup>
+			
+			<mx:ColorPicker labelField="Color Picker"/>
+			
+			<mx:ComboBox text="MX Combo Box">
+				<s:ArrayCollection>
+					<fx:String>First</fx:String>
+					<fx:String>Middle</fx:String>
+					<fx:String>Last</fx:String>
+				</s:ArrayCollection>
+			</mx:ComboBox>
+			
+			<mx:ComboBox text="MX Editable Combo Box" editable="true">
+				<s:ArrayCollection>
+					<fx:String>First</fx:String>
+					<fx:String>Middle</fx:String>
+					<fx:String>Last</fx:String>
+				</s:ArrayCollection>
+			</mx:ComboBox>
+			
+		</s:VGroup>
+		
+		<s:VGroup gap="10">
+			
+			<mx:DataGrid>
+				<s:ArrayCollection>
+					<fx:Object name="One"/>
+					<fx:Object name="Two"/>
+					<fx:Object name="Three"/>
+				</s:ArrayCollection>
+			</mx:DataGrid>
+			
+			<mx:LinkButton label="MX Link Button"/>
+			
+			<mx:MenuBar labelField="name">
+				<mx:dataProvider>
+					<s:ArrayCollection>
+						<fx:Object name="MX Menu Bar"/>
+						<fx:Object name="Click here" children="{[ 'Item 1', 'Item 2' ]}"/>
+					</s:ArrayCollection>
+				</mx:dataProvider>
+			</mx:MenuBar>
+			
+			<mx:NumericStepper/>
+			
+		</s:VGroup>
+		
+		<s:VGroup gap="10">
+			
+			<mx:DateChooser/>
+			
+			<mx:HRule/>
+			
+			<mx:HDividedBox>
+				<mx:Label text="HDividedBox"/>
+				<mx:Label text="HDividedBox"/>
+			</mx:HDividedBox>
+			
+			<mx:HorizontalList labelField="name">
+				<s:ArrayCollection>
+					<fx:Object name="MX List"/>
+					<fx:Object name="Horizontal"/>
+				</s:ArrayCollection>
+			</mx:HorizontalList>
+			
+			<mx:List labelField="name" height="60">
+				<s:ArrayCollection>
+					<fx:Object name="MX"/>
+					<fx:Object name="List"/>
+				</s:ArrayCollection>
+			</mx:List>
+			
+		</s:VGroup>
+		
+		<s:VGroup gap="10">
+			
+			<mx:Panel title="MX Panel">
+				<mx:Spacer width="21" height="21"/>
+			</mx:Panel>
+			
+			<mx:Panel title="MX Panel with ControlBar">
+				<mx:Spacer width="21" height="21"/>
+				<mx:ControlBar>
+					<mx:Label text="MX ControlBar"/>
+				</mx:ControlBar>
+			</mx:Panel>
+			
+			<mx:PopUpButton label="MX PopUpButton">
+				<mx:popUp>
+					<mx:Menu labelField="name">
+						<s:ArrayCollection>
+							<fx:Object name="One"/>
+							<fx:Object name="Two"/>
+							<fx:Object name="Three"/>
+						</s:ArrayCollection>
+					</mx:Menu>
+				</mx:popUp>
+			</mx:PopUpButton>
+			
+			<mx:ProgressBar id="progressBar" mode="manual"
+				creationComplete="progressBar.setProgress(50, 100);" maximum="100"/>
+			
+			<mx:RadioButton label="MX RadioButton"/>
+			
+			<mx:RadioButton label="Selected" selected="true"/>
+			
+		</s:VGroup>
+		
+		<s:VGroup gap="10">
+			
+			<!-- MX Scrollbars -->
+			<mx:VBox width="100" height="100">
+				<s:Label text="MX ScrollBars"/>
+				<mx:Spacer width="200" height="200"/>
+			</mx:VBox>
+			
+			<mx:Slider/>
+			
+			<mx:Slider direction="vertical" height="50"/>
+			
+			<mx:TabNavigator width="150" height="50">
+				<mx:Canvas label="One"/>
+				<mx:Canvas label="Two"/>
+				<mx:Canvas label="Three"/>
+			</mx:TabNavigator>
+			
+			<mx:TextInput text="MX TextInput" width="100"/>
+			
+			<mx:TextArea text="MX TextArea" height="30" width="100"/>
+			
+		</s:VGroup>
+		
+		<s:VGroup gap="10">
+			
+			<mx:TitleWindow title="MX TitleWindow">
+				<mx:Spacer width="120" height="10"/>
+			</mx:TitleWindow>
+			
+		</s:VGroup>
+		
+	</s:HGroup>
+	
+</mx:Panel>

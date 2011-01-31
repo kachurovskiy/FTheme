@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+ADOBE SYSTEMS INCORPORATED
+Copyright 2008 Adobe Systems Incorporated
+All Rights Reserved.
+
+NOTICE: Adobe permits you to use, modify, and distribute this file
+in accordance with the terms of the license agreement accompanying it.
+
+-->
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009"
+	xmlns:s="library://ns.adobe.com/flex/spark">
+	
+	<!-- layer 1: fill -->
+	<s:Rect left="1" right="1" top="1" bottom="1" fill="{getStyle('progressBarFill')}"/>
+	
+	<!-- layer 2: border
+	<s:Rect left="2" right="2" top="2" bottom="2" stroke="{getStyle('progressBarStroke')}"/> -->
+	
+	<!-- layer 3: right edge -->
+	<s:Line right="1" top="1" bottom="1" stroke="{getStyle('progressBarStroke')}"/>
+	
+</s:SparkSkin>

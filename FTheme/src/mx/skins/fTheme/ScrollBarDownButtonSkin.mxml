@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+ADOBE SYSTEMS INCORPORATED
+Copyright 2008 Adobe Systems Incorporated
+All Rights Reserved.
+
+NOTICE: Adobe permits you to use, modify, and distribute this file
+in accordance with the terms of the license agreement accompanying it.
+
+-->
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:fb="http://ns.adobe.com/flashbuilder/2009">
+	
+	<s:states>
+		<s:State name="up" />
+		<s:State name="over" />
+		<s:State name="down" />
+		<s:State name="disabled" />
+	</s:states>
+	
+	<s:Rect left="1" right="1" top="0" bottom="1" minWidth="12" minHeight="17"
+		fill.up="{getStyle('buttonUpFill')}"
+		fill.over="{getStyle('buttonOverFill')}"
+		fill.down="{getStyle('buttonDownFill')}"
+		fill.disabled="{getStyle('buttonDisabledFill')}"/>
+	
+	<s:Line left="0" right="0" top="-1"
+		stroke="{getStyle('scrollBarStroke')}"/>
+	
+	<s:Path horizontalCenter="0" verticalCenter="0" id="arrow"
+		data="M 3.5 7.0 L 0.0 0.0 L 7.0 0.0 L 3.5 7.0" fill="{getStyle('symbolFill')}"/>            
+	
+</s:SparkSkin>

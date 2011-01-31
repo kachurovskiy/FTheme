@@ -15,10 +15,10 @@ public class Look implements IMXMLObject
 	
 	public var assetFileName:String;
 	
-	public var customizationPropertyValues:Array = [];
+	public var lookPropertyValues:Array = [];
 	
 	/**
-	 * Fills <code>customizationPropertyValues</code> using given object
+	 * Fills <code>lookPropertyValues</code> using given object
 	 * properties and their values.
 	 */
 	public function set data(value:Object):void
@@ -26,12 +26,12 @@ public class Look implements IMXMLObject
 		if (!value)
 			return;
 		
-		customizationPropertyValues = [];
+		lookPropertyValues = [];
 		for (var name:String in value)
 		{
-			var customizationPropertyValue:PropertyValue = new
+			var propertyValue:PropertyValue = new
 				PropertyValue(name, value[name]);
-			customizationPropertyValues.push(customizationPropertyValue);
+			lookPropertyValues.push(propertyValue);
 		}
 	}
 	

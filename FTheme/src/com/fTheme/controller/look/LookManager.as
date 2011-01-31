@@ -150,7 +150,7 @@ public class LookManager
 	
 	public function applyLook(customization:Look):void
 	{
-		var array:Array = customization.customizationPropertyValues;
+		var array:Array = customization.lookPropertyValues;
 		var n:int = array.length;
 		var appliedProperties:Object = {};
 		var i:int;

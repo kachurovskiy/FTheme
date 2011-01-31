@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Panel xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx" 
+	xmlns:view="com.fThemeSample.view.*" 
+	xmlns:toolbar="com.fTheme.view.toolbar.*" 
+	xmlns:controlbar="com.fTheme.view.controlbar.*" 
+	title="Spark Panel">
+	
+	<fx:Script>
+	<![CDATA[
+		import com.fThemeSample.model.Model;
+		
+		[Bindable("__NoChangeEvent__")]
+		private var model:Model = Model.instance;
+	]]>
+	</fx:Script>
+	
+	<s:layout>
+		<s:VerticalLayout gap="10" horizontalAlign="justify"/>
+	</s:layout>
+	
+	<toolbar:Toolbar>
+		
+		<toolbar:ToolbarButton label="Toolbar button 1" 
+			icon="{model.assets.icon1}"/>
+		
+		<toolbar:ToolbarButton label="Toolbar button 2"
+			icon="{model.assets.icon2}"/>
+		
+	</toolbar:Toolbar>
+	
+	<s:HGroup paddingLeft="10" paddingRight="10" gap="10">
+		
+		<s:VGroup gap="10">
+			
+			<s:Button label="Spark Button"/>
+			
+			<s:TextArea editable="false" borderVisible="false" width="100%">
+				<s:text>
+					Lorem Ipsum is simply dummy text of the printing and typesetting 
+					industry. Lorem Ipsum has been the industry's standard dummy text 
+					ever since the 1500s, when an unknown printer took a galley of 
+					type and scrambled it to make a type specimen book. It has 
+					survived not only five centuries, but also the leap into electronic 
+					typesetting, remaining essentially unchanged. It was popularised 
+					in the 1960s with the release of Letraset sheets containing Lorem 
+					Ipsum passages, and more recently with desktop publishing software 
+					like Aldus PageMaker including versions of Lorem Ipsum.
+				</s:text>
+			</s:TextArea>
+			
+			<s:ButtonBar>
+				<s:ArrayCollection>
+					<fx:String>First</fx:String>
+					<fx:String>Middle</fx:String>
+					<fx:String>Last</fx:String>
+				</s:ArrayCollection>
+			</s:ButtonBar>
+			
+			<s:HGroup>
+				
+				<s:CheckBox label="Check Box"/>
+				
+				<s:CheckBox label="Selected" selected="true"/>
+				
+			</s:HGroup>
+			
+		</s:VGroup>
+		
+		<s:VGroup gap="10">
+			
+			<s:ComboBox requireSelection="true">
+				<s:ArrayCollection>
+					<fx:String>One</fx:String>
+					<fx:String>Two</fx:String>
+				</s:ArrayCollection>
+			</s:ComboBox>
+			
+			<s:DropDownList requireSelection="true">
+				<s:ArrayCollection>
+					<fx:String>One</fx:String>
+					<fx:String>Two</fx:String>
+				</s:ArrayCollection>
+			</s:DropDownList>
+			
+			<s:HScrollBar minimum="0" maximum="500" width="200" value="200"/>
+			
+			<s:HScrollBar enabled="false"/>
+			
+		</s:VGroup>
+		
+		<s:VGroup gap="10">
+			
+			<s:HSlider maximum="100" value="50"/>
+			
+			<s:VSlider maximum="100" value="50"/>
+			
+			<s:List height="70">
+				<s:ArrayCollection>
+					<fx:String>One</fx:String>
+					<fx:String>Two</fx:String>
+					<fx:String>Three</fx:String>
+					<fx:String>Four</fx:String>
+					<fx:String>Five</fx:String>
+					<fx:String>Six</fx:String>
+					<fx:String>Seven</fx:String>
+				</s:ArrayCollection>
+			</s:List>
+			
+		</s:VGroup>
+		
+		<s:VGroup gap="10">
+			
+			<s:NumericStepper maximum="20" value="10"/>
+			
+			<s:RadioButton selected="true" label="Selected"/>
+			
+			<s:RadioButton selected="false" label="Radio Button"/>
+			
+			<s:Spinner/>
+			
+			<s:TabBar>
+				<s:ArrayCollection>
+					<fx:String>One</fx:String>
+					<fx:String>Two</fx:String>
+					<fx:String>Three</fx:String>
+				</s:ArrayCollection>
+			</s:TabBar>
+			
+		</s:VGroup>
+		
+		<s:VGroup gap="10">
+			
+			<s:TextArea text="Text Area" width="100" height="30"/>
+			
+			<s:TextInput text="Text Input"/>
+			
+			<s:ToggleButton label="Toggle Button"/>
+			
+			<s:TitleWindow title="Title Window">
+				
+				<mx:Spacer width="30" height="30"/>
+				
+			</s:TitleWindow>
+			
+		</s:VGroup>
+		
+	</s:HGroup>
+	
+	<controlbar:Controlbar>
+		
+		<s:Button label="Save"/>
+		
+		<mx:LinkButton label="Cancel"/>
+		
+	</controlbar:Controlbar>
+	
+</s:Panel>
