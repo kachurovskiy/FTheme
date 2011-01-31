@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+ADOBE SYSTEMS INCORPORATED
+Copyright 2008 Adobe Systems Incorporated
+All Rights Reserved.
+
+NOTICE: Adobe permits you to use, modify, and distribute this file
+in accordance with the terms of the license agreement accompanying it.
+
+-->
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:fb="http://ns.adobe.com/flashbuilder/2009" alpha.disabledStates="0.5">
+	
+	<fx:Metadata>
+		[HostComponent("spark.components.CheckBox")]
+	</fx:Metadata> 
+	
+	<fx:Script fb:purpose="styling">
+	<![CDATA[
+		static private const exclusions:Array = ["labelDisplay", "check"];
+		
+		override public function get colorizeExclusions():Array {return exclusions;}
+		
+		static private const symbols:Array = ["checkMarkFill"];
+		
+		override public function get symbolItems():Array {return symbols};
+
+		private static const focusExclusions:Array = ["labelDisplay"];
+		
+		override public function get focusSkinExclusions():Array { return focusExclusions;};
+	]]>
+	</fx:Script>
+	
+	<s:states>
+		<s:State name="up" />
+		<s:State name="over" stateGroups="overStates" />
+		<s:State name="down" stateGroups="downStates" />
+		<s:State name="disabled" stateGroups="disabledStates" />
+		<s:State name="upAndSelected" stateGroups="selectedStates" />
+		<s:State name="overAndSelected" stateGroups="overStates, selectedStates" />
+		<s:State name="downAndSelected" stateGroups="downStates, selectedStates" />
+		<s:State name="disabledAndSelected" stateGroups="disabledStates, selectedStates" />
+	</s:states>
+	
+	<s:Group verticalCenter="0" width="{getStyle('checkBoxSize')}" 
+		height="{getStyle('checkBoxSize')}" layoutDirection="ltr">
+		
+		<s:Rect left="1" right="1" top="1" bottom="1"
+			fill.up="{getStyle('buttonUpFill')}"
+			fill.over="{getStyle('buttonOverFill')}"
+			fill.down="{getStyle('buttonDownFill')}"
+			fill.disabled="{getStyle('buttonDisabledFill')}"
+			fill.selectedStates="{getStyle('buttonSelectedFill')}"
+			radiusX="{getStyle('buttonCornerRadius')}"/>
+		
+		<s:Rect left="0" right="0" top="0" bottom="0"
+			stroke="{getStyle('buttonStroke')}"
+			radiusX="{getStyle('buttonCornerRadius')}"/>
+		
+		<!-- checkmark -->
+		<s:Path horizontalCenter="0" verticalCenter="0" 
+			includeIn="selectedStates" id="check" itemCreationPolicy="immediate"
+			data="M 9.2 0.1 L 4.05 6.55 L 3.15 5.0 L 0.05 5.0 L 4.6 9.7 L 12.05 0.1 L 9.2 0.1">        
+			<s:fill>
+				<s:SolidColor id="checkMarkFill" color="0" alpha="0.8" />
+			</s:fill>
+		</s:Path>
+	</s:Group>
+	
+	<!-- Label -->
+	<s:Label id="labelDisplay"
+		textAlign="start"
+		verticalAlign="middle"
+		maxDisplayedLines="1"
+		left="{getStyle('checkBoxSize') + 5}" right="0" top="3" bottom="3" verticalCenter="2" />
+	
+</s:SparkSkin>

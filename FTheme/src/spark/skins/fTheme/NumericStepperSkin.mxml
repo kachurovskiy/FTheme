@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+ADOBE SYSTEMS INCORPORATED
+Copyright 2008 Adobe Systems Incorporated
+All Rights Reserved.
+
+NOTICE: Adobe permits you to use, modify, and distribute this file
+in accordance with the terms of the license agreement accompanying it.
+
+-->
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:fb="http://ns.adobe.com/flashbuilder/2009" minHeight="23" minWidth="40" 
+	alpha.disabled="0.5">
+	
+	<fx:Metadata>
+		[HostComponent("spark.components.NumericStepper")]
+	</fx:Metadata> 
+	
+	<fx:Script fb:purpose="styling">
+		private var borderStylesChanged:Boolean;
+		
+		override protected function commitProperties():void
+		{
+			super.commitProperties();
+			
+			if (borderStylesChanged)
+			{
+				textDisplay.setStyle("borderAlpha", getStyle("borderAlpha"));
+				textDisplay.setStyle("borderColor", getStyle("borderColor"));
+				textDisplay.setStyle("borderVisible", getStyle("borderVisible"));
+				borderStylesChanged = false;
+			}
+		}
+		
+		override public function styleChanged(styleProp:String):void
+		{
+			var allStyles:Boolean = !styleProp || styleProp == "styleName";
+			
+			super.styleChanged(styleProp);
+			
+			if (allStyles || styleProp.indexOf("border") == 0)
+			{
+				borderStylesChanged = true;
+				invalidateProperties();
+			}
+		}
+	</fx:Script>
+	
+	<s:states>
+		<s:State name="normal" />
+		<s:State name="disabled" />
+	</s:states>
+	
+	<s:Button id="incrementButton" right="0" top="0" height="50%" 
+		skinClass="spark.skins.fTheme.NumericStepperIncrementButtonSkin" />
+	
+	<s:Button id="decrementButton" right="0" bottom="0" height="50%" 
+		skinClass="spark.skins.fTheme.NumericStepperDecrementButtonSkin" />
+	
+	<s:TextInput id="textDisplay" left="0" top="0" right="18" bottom="0"
+		skinClass="spark.skins.fTheme.NumericStepperTextInputSkin" />
+	
+</s:SparkSkin>

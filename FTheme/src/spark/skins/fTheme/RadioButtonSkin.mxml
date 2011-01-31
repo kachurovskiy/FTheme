@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+ADOBE SYSTEMS INCORPORATED
+Copyright 2008 Adobe Systems Incorporated
+All Rights Reserved.
+
+NOTICE: Adobe permits you to use, modify, and distribute this file
+in accordance with the terms of the license agreement accompanying it.
+
+-->
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:fb="http://ns.adobe.com/flashbuilder/2009" alpha.disabledStates="0.5">
+	
+	<fx:Metadata>
+		[HostComponent("spark.components.RadioButton")]
+	</fx:Metadata> 
+	
+	<fx:Script fb:purpose="styling">
+		private static const focusExclusions:Array = ["labelDisplay"];
+		
+		override public function get focusSkinExclusions():Array { return focusExclusions;};
+	</fx:Script>
+	
+	<s:states>
+		<s:State name="up" />
+		<s:State name="over" stateGroups="overStates" />
+		<s:State name="down" stateGroups="downStates" />
+		<s:State name="disabled" stateGroups="disabledStates" />
+		<s:State name="upAndSelected" stateGroups="selectedStates" />
+		<s:State name="overAndSelected" stateGroups="overStates, selectedStates" />
+		<s:State name="downAndSelected" stateGroups="downStates, selectedStates" />
+		<s:State name="disabledAndSelected" stateGroups="disabledStates, selectedStates" />
+	</s:states>
+	
+	<!-- hit area -->
+	<s:Rect left="0" right="0" top="0" bottom="0" alpha="0">
+		<s:fill>
+			<s:SolidColor/>
+		</s:fill>
+	</s:Rect>
+	
+	<s:Group verticalCenter="0" width="{getStyle('radioButtonSize')}"
+		height="{getStyle('radioButtonSize')}">
+		
+		<s:Ellipse left="1" right="1" top="1" bottom="1"
+			fill.up="{getStyle('buttonUpFill')}"
+			fill.over="{getStyle('buttonOverFill')}"
+			fill.down="{getStyle('buttonDownFill')}"
+			fill.disabled="{getStyle('buttonDisabledFill')}"
+			fill.selectedStates="{getStyle('buttonSelectedFill')}"/>
+		
+		<s:Ellipse left="0" right="0" top="0" bottom="0"
+			stroke="{getStyle('buttonStroke')}"/>
+		
+		<!-- dot -->
+		<!--- Defines the appearance of the RadioButton's dot. To customize the appearance of the dot, create a custom RadioButtonSkin class. -->
+		<s:Ellipse includeIn="selectedStates" id="dot"
+			horizontalCenter="0" verticalCenter="0"
+			width="{getStyle('radioButtonDotSize')}"
+			height="{getStyle('radioButtonDotSize')}"
+			fill="{getStyle('symbolFill')}"/>
+		
+	</s:Group>
+	
+	<!-- Label -->
+	<s:Label id="labelDisplay"
+		textAlign="start"
+		verticalAlign="middle"
+		maxDisplayedLines="1"
+		left="{getStyle('radioButtonSize') + 5}" right="0" top="3" bottom="3" verticalCenter="2" />
+	
+</s:SparkSkin>

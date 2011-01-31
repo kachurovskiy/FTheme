@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+ADOBE SYSTEMS INCORPORATED
+Copyright 2008 Adobe Systems Incorporated
+All Rights Reserved.
+
+NOTICE: Adobe permits you to use, modify, and distribute this file
+in accordance with the terms of the license agreement accompanying it.
+
+-->
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:fb="http://ns.adobe.com/flashbuilder/2009"
+	minWidth="{getStyle('scrollBarSize')}" 
+	minHeight="{getStyle('scrollBarSize')}">
+	
+	<fx:Metadata>
+		<![CDATA[ 
+		[HostComponent("spark.components.Button")]
+		]]>
+	</fx:Metadata> 
+	
+	<s:states>
+		<s:State name="up" />
+		<s:State name="down" />
+		<s:State name="over" />
+		<s:State name="disabled" />
+	</s:states>
+	
+	<s:Rect top="0" bottom="0" left="0" right="0" 
+		fill="{getStyle('vScrollBarTrackFill')}" 
+		stroke="{getStyle('scrollBarStroke')}"
+		radiusX="{getStyle('scrollBarCornerRadius')}"/>
+	
+</s:SparkSkin>

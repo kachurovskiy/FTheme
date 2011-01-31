@@ -1,0 +1,387 @@
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+s|Application
+{
+	skinClass: ClassReference("spark.skins.fTheme.ApplicationSkin");
+}
+
+s|Button
+{
+	skinClass: ClassReference("spark.skins.fTheme.ButtonSkin");
+}
+
+s|Button.emphasized
+{
+	skinClass: ClassReference("spark.skins.fTheme.ButtonSkin");
+}
+
+s|ButtonBar 
+{
+	skinClass: ClassReference("spark.skins.fTheme.ButtonBarSkin");
+}
+
+s|CheckBox
+{
+	skinClass: ClassReference("spark.skins.fTheme.CheckBoxSkin");
+}
+
+s|ComboBox
+{
+	skinClass: ClassReference("spark.skins.fTheme.ComboBoxSkin");
+}
+
+s|DropDownList
+{
+	skinClass: ClassReference("spark.skins.fTheme.DropDownListSkin");
+}
+
+s|HScrollBar
+{
+	skinClass: ClassReference("spark.skins.fTheme.HScrollBarSkin");
+}
+
+s|HSlider
+{
+	skinClass: ClassReference("spark.skins.fTheme.HSliderSkin");
+}
+
+s|List
+{
+	skinClass: ClassReference("spark.skins.fTheme.ListSkin");
+}
+
+/*s|MuteButton
+{
+	skinClass: ClassReference("spark.skins.fTheme.mediaClasses.MuteButtonSkin");
+}*/
+
+s|NumericStepper
+{
+	skinClass: ClassReference("spark.skins.fTheme.NumericStepperSkin");
+}
+
+s|Panel
+{
+	skinClass: ClassReference("spark.skins.fTheme.PanelSkin");
+}
+
+s|RadioButton
+{
+	skinClass: ClassReference("spark.skins.fTheme.RadioButtonSkin");
+}
+
+/*s|ScrubBar
+{
+	skinClass: ClassReference("spark.skins.fTheme.mediaClasses.ScrubBarSkin");
+}*/
+
+s|Spinner
+{
+	skinClass: ClassReference("spark.skins.fTheme.SpinnerSkin");    
+}
+
+s|TabBar
+{
+	skinClass: ClassReference("spark.skins.fTheme.TabBarSkin");    
+}
+
+s|TextArea
+{
+	skinClass: ClassReference("spark.skins.fTheme.TextAreaSkin");
+}
+
+s|TextInput
+{
+	skinClass: ClassReference("spark.skins.fTheme.TextInputSkin");
+}
+
+s|TitleWindow
+{
+	skinClass: ClassReference("spark.skins.fTheme.TitleWindowSkin");
+}
+
+s|ToggleButton
+{
+	skinClass: ClassReference("spark.skins.fTheme.ToggleButtonSkin");
+}
+
+/*s|VideoPlayer
+{
+	skinClass: ClassReference("spark.skins.fTheme.VideoPlayerSkin");
+}*/
+
+/*s|VolumeBar
+{
+	skinClass: ClassReference("spark.skins.fTheme.mediaClasses.VolumeBarSkin");
+}*/
+
+s|VScrollBar
+{
+	skinClass: ClassReference("spark.skins.fTheme.VScrollBarSkin");
+}
+
+s|VSlider
+{
+	skinClass: ClassReference("spark.skins.fTheme.VSliderSkin");
+}
+
+mx|Accordion
+{
+	border-skin: ClassReference("mx.skins.fTheme.BorderSkin");
+}
+
+mx|AccordionHeader
+{
+	skin: ClassReference("mx.skins.fTheme.AccordionHeaderSkin");
+}
+
+mx|Button
+{
+	skin: ClassReference("mx.skins.fTheme.ButtonSkin");
+	emphasizedSkin: ClassReference("mx.skins.fTheme.ButtonSkin");
+}
+
+mx|ButtonBar
+{
+	firstButtonStyleName: buttonBarFirstButton;
+	buttonStyleName: buttonBarMiddleButton;
+	lastButtonStyleName: buttonBarLastButton;
+}
+
+.buttonBarFirstButton
+{
+	skin: ClassReference("mx.skins.fTheme.ButtonBarFirstButtonSkin");
+}
+
+.buttonBarMiddleButton
+{
+	skin: ClassReference("mx.skins.fTheme.ButtonBarMiddleButtonSkin");
+}
+
+.buttonBarLastButton
+{
+	skin: ClassReference("mx.skins.fTheme.ButtonBarLastButtonSkin");
+}
+
+mx|CheckBox
+{
+	icon: ClassReference("mx.skins.fTheme.CheckBoxSkin");
+}
+
+mx|ColorPicker
+{
+	skin: ClassReference("mx.skins.fTheme.ColorPickerSkin");
+}
+
+/*mx|SwatchPanel
+{
+	backgroundColor:	 	#FFFFFF;
+	highlightColor:	 	#FFFFFF;
+	borderColor:	#5380D0;
+	shadowColor:	#5380D0;
+	swatch-border-color:	#000000;
+}
+
+mx|ComboBox
+{
+	skin: ClassReference("mx.skins.fTheme.ComboBoxSkin");
+	editableSkin: ClassReference("mx.skins.fTheme.EditableComboBoxSkin");
+}
+
+mx|DataGrid
+{
+	borderSkin:	ClassReference("mx.skins.fTheme.BorderSkin");
+	borderColor:	#5380D0;
+	verticalGridLineColor:	#5380D0;
+	horizontalGridLineColor:	#5380D0;
+	symbolColor:	#4E6290;
+	headerBackgroundSkin:	ClassReference("mx.skins.fTheme.DataGridHeaderBackgroundSkin");
+	headerSeparatorSkin:	ClassReference("mx.skins.fTheme.DataGridHeaderSeparatorSkin");
+}
+
+mx|DateChooser
+{
+	headerColors:	#E2EDF7,#E2EDF7;
+	borderColor:	#5380D0;
+	next-month-skin:	ClassReference("mx.skins.fTheme.DateChooserNextMonthSkin");
+	prev-month-skin:	ClassReference("mx.skins.fTheme.DateChooserPrevMonthSkin");
+	next-year-skin:	ClassReference("mx.skins.fTheme.DateChooserNextYearSkin");
+	prev-year-skin:	ClassReference("mx.skins.fTheme.DateChooserPrevYearSkin");
+}
+
+mx|DateField
+{
+	
+}
+
+.dropDown
+{
+	borderSkin: 	ClassReference("mx.skins.fTheme.DropDownSkin");
+}
+
+mx|HDividedBox
+{
+	divider-skin: 	ClassReference("mx.skins.fTheme.DividerSkin");	
+}
+
+mx|HorizontalList
+{
+	borderSkin:	ClassReference("mx.skins.fTheme.BorderSkin");
+}
+
+mx|HRule
+{
+	strokeColor:	#5380D0;
+	stroke-width:	1;	
+}
+
+mx|LinkButton
+{
+	skin: 	ClassReference("mx.skins.fTheme.LinkButtonSkin");	
+}
+
+mx|List
+{
+	borderSkin:	ClassReference("mx.skins.fTheme.BorderSkin");
+}
+
+mx|MenuBar
+{
+	backgroundSkin: 	ClassReference("mx.skins.fTheme.MenuBarSkin");
+}
+
+mx|Menu
+{
+	borderSkin: 	ClassReference("mx.skins.fTheme.MenuSkin");
+	checkIcon:	ClassReference("mx.skins.fTheme.MenuCheck");
+	arrowIcon:	ClassReference("mx.skins.fTheme.MenuArrow");
+}
+
+.menu
+{
+	borderSkin: 	ClassReference("mx.skins.fTheme.MenuSkin");
+	checkIcon:	ClassReference("mx.skins.fTheme.MenuCheck");
+	arrowIcon:	ClassReference("mx.skins.fTheme.MenuArrow");
+}
+
+mx|MenuBarItem
+{
+	itemUpSkin: 	ClassReference("mx.skins.fTheme.MenuBarItemSkin");
+	itemOverSkin: 	ClassReference("mx.skins.fTheme.MenuBarItemSkin");
+	itemDownSkin: 	ClassReference("mx.skins.fTheme.MenuBarItemSkin");
+}
+
+mx|NumericStepper
+{
+	downArrowSkin: 	ClassReference("mx.skins.fTheme.StepperDecrButtonSkin");
+	upArrowSkin: 	ClassReference("mx.skins.fTheme.StepperIncrButtonSkin");
+}
+
+mx|Panel
+{
+	borderSkin: 	ClassReference("mx.skins.fTheme.PanelBorderSkin");
+	controlBarStyleName:	controlBar;
+}
+
+.controlBar
+{
+	borderSkin: 	ClassReference("mx.skins.fTheme.ControlBarSkin");	
+}
+
+mx|PopUpButton
+{
+	skin: 	ClassReference("mx.skins.fTheme.PopUpButtonSkin");
+}
+
+mx|PopUpMenuButton
+{
+	skin: 	ClassReference("mx.skins.fTheme.PopUpButtonSkin");
+}
+
+mx|ProgressBar
+{
+	barSkin:	ClassReference("mx.skins.fTheme.ProgressBarSkin");
+	trackSkin:	ClassReference("mx.skins.fTheme.ProgressBarTrackSkin");
+	indeterminateSkin:	ClassReference("mx.skins.fTheme.ProgressIndeterminateSkin");
+}
+
+mx|RadioButton
+{
+	icon: 	ClassReference("mx.skins.fTheme.RadioButtonSkin");
+}
+
+mx|ScrollBar
+{
+	trackSkin: 	ClassReference("mx.skins.fTheme.ScrollBarTrackSkin");
+	thumbSkin: 	ClassReference("mx.skins.fTheme.ScrollBarThumbSkin");
+	upArrowSkin:	ClassReference("mx.skins.fTheme.ScrollBarUpButtonSkin");
+	downArrowSkin:	ClassReference("mx.skins.fTheme.ScrollBarDownButtonSkin");
+}
+
+mx|Slider
+{
+	trackSkin: 	ClassReference("mx.skins.fTheme.SliderTrackSkin");
+	thumbSkin: 	ClassReference("mx.skins.fTheme.SliderThumbSkin");
+}
+
+mx|TabBar
+{
+	firstTabStyleName:	tabBarTab;
+	tabStyleName:	tabBarTab;
+	lastTabStyleName:	tabBarTab;
+}
+
+.tabBarTab
+{
+	skin: 	ClassReference("mx.skins.fTheme.TabSkin");	
+}
+
+mx|TabNavigator
+{
+	borderSkin:	ClassReference("mx.skins.fTheme.BorderSkin");
+}
+
+mx|TextInput
+{
+	borderSkin: 	ClassReference("mx.skins.fTheme.TextInputSkin");
+}
+
+mx|TextArea
+{
+	borderSkin: 	ClassReference("mx.skins.fTheme.TextAreaSkin");
+}
+
+mx|TileList
+{
+	borderSkin:	ClassReference("mx.skins.fTheme.BorderSkin");
+}
+
+mx|TitleWindow
+{
+	closeButtonUpSkin: 	ClassReference("mx.skins.fTheme.TitleWindowCloseButtonUpSkin");
+	closeButtonOverSkin: 	ClassReference("mx.skins.fTheme.TitleWindowCloseButtonOverSkin");
+	closeButtonDownSkin: 	ClassReference("mx.skins.fTheme.TitleWindowCloseButtonDownSkin");
+}
+
+mx|ToolTip
+{
+	borderSkin:	 	ClassReference("mx.skins.fTheme.ToolTipSkin");
+}
+
+mx|Tree
+{
+	folderClosedIcon: 	Embed(source="assets/Tree_folderClosedIcon.png");
+	folderOpenIcon: 	Embed(source="assets/Tree_folderOpenIcon.png");
+}
+
+mx|VDividedBox
+{
+	divider-skin: 	ClassReference("mx.skins.fTheme.DividerSkin");	
+}
+
+mx|VRule
+{
+	strokeColor:	#5380D0;
+	stroke-width:	1;
+}*/
