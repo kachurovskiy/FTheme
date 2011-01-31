@@ -275,7 +275,7 @@ mx|PopUpButton
 	skin: ClassReference("mx.skins.fTheme.PopUpButtonSkin");
 }
 
-/*mx|PopUpMenuButton
+mx|PopUpMenuButton
 {
 	skin: ClassReference("mx.skins.fTheme.PopUpButtonSkin");
 }
@@ -284,7 +284,7 @@ mx|ProgressBar
 {
 	barSkin: ClassReference("mx.skins.fTheme.ProgressBarSkin");
 	trackSkin: ClassReference("mx.skins.fTheme.ProgressBarTrackSkin");
-	indeterminateSkin: ClassReference("mx.skins.fTheme.ProgressIndeterminateSkin");
+	/*indeterminateSkin: ClassReference("mx.skins.fTheme.ProgressIndeterminateSkin");*/
 }
 
 mx|RadioButton
@@ -345,23 +345,23 @@ mx|TitleWindow
 	closeButtonDownSkin: ClassReference("mx.skins.fTheme.TitleWindowCloseButtonDownSkin");
 }
 
-mx|ToolTip
+/*mx|ToolTip
 {
 	borderSkin: ClassReference("mx.skins.fTheme.ToolTipSkin");
-}
+}*/
 
-mx|Tree
+/*mx|Tree
 {
 	folderClosedIcon: Embed(source="assets/Tree_folderClosedIcon.png");
 	folderOpenIcon: Embed(source="assets/Tree_folderOpenIcon.png");
-}
+}*/
 
-mx|VDividedBox
+/*mx|VDividedBox
 {
 	divider-skin: ClassReference("mx.skins.fTheme.DividerSkin");	
-}
+}*/
 
-mx|VRule
+/*mx|VRule
 {
 	strokeColor: #5380D0;
 	stroke-width: 1;

@@ -17,20 +17,9 @@ in accordance with the terms of the license agreement accompanying it.
 		[HostComponent("spark.components.CheckBox")]
 	</fx:Metadata> 
 	
-	<fx:Script fb:purpose="styling">
-	<![CDATA[
-		static private const exclusions:Array = ["labelDisplay", "check"];
-		
-		override public function get colorizeExclusions():Array {return exclusions;}
-		
-		static private const symbols:Array = ["checkMarkFill"];
-		
-		override public function get symbolItems():Array {return symbols};
-
+	<fx:Script>
 		private static const focusExclusions:Array = ["labelDisplay"];
-		
 		override public function get focusSkinExclusions():Array { return focusExclusions;};
-	]]>
 	</fx:Script>
 	
 	<s:states>
@@ -62,14 +51,11 @@ in accordance with the terms of the license agreement accompanying it.
 		<!-- checkmark -->
 		<s:Path horizontalCenter="0" verticalCenter="0" 
 			includeIn="selectedStates" id="check" itemCreationPolicy="immediate"
-			data="M 9.2 0.1 L 4.05 6.55 L 3.15 5.0 L 0.05 5.0 L 4.6 9.7 L 12.05 0.1 L 9.2 0.1">        
-			<s:fill>
-				<s:SolidColor id="checkMarkFill" color="0" alpha="0.8" />
-			</s:fill>
-		</s:Path>
+			data="M 9.2 0.1 L 4.05 6.55 L 3.15 5.0 L 0.05 5.0 L 4.6 9.7 L 12.05 0.1 L 9.2 0.1"
+			fill="{getStyle('symbolFill')}"/>        
+
 	</s:Group>
 	
-	<!-- Label -->
 	<s:Label id="labelDisplay"
 		textAlign="start"
 		verticalAlign="middle"

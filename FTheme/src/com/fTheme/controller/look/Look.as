@@ -1,7 +1,9 @@
 package com.fTheme.controller.look
 {
+import mx.core.IMXMLObject;
+
 [DefaultProperty("data")]
-public class Look
+public class Look implements IMXMLObject
 {
 	public function Look(name:String = null, assetFileName:String = null)
 	{
@@ -31,6 +33,10 @@ public class Look
 				PropertyValue(name, value[name]);
 			customizationPropertyValues.push(customizationPropertyValue);
 		}
+	}
+	
+	public function initialized(document:Object, id:String):void
+	{
 	}
 }
 }

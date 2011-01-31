@@ -39,8 +39,4 @@ in accordance with the terms of the license agreement accompanying it.
 		stroke="{getStyle('buttonStroke')}"
 		radiusX="{getStyle('buttonCornerRadius')}" topLeftRadiusX="0" bottomLeftRadiusX="0"/>
 	
-	<s:Label id="labelDisplay" textAlign="center" verticalAlign="middle"
-		maxDisplayedLines="1" horizontalCenter="0" verticalCenter="1"
-		left="10" right="10" top="2" bottom="2"/>
-	
 </s:SparkSkin>

@@ -16,9 +16,7 @@ in accordance with the terms of the license agreement accompanying it.
 	minWidth="{getStyle('scrollBarSize')}">
 	
 	<fx:Metadata>
-		<![CDATA[ 
 		[HostComponent("spark.components.Button")]
-		]]>
 	</fx:Metadata> 
 	
 	<s:states>

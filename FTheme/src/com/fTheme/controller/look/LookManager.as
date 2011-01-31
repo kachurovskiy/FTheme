@@ -32,6 +32,12 @@ public class LookManager
 		addProperty(new FillProperty("panelFill", "0xFFFFFF"));
 		addProperty(new StrokeProperty("panelStroke", "0x888888 alpha 0.5"));
 		addProperty(new NumberProperty("panelCornerRadius", "0"));
+		
+		addProperty(new FillProperty("progressBarFill", "0xFFFFFF 0xD8D8D8"));
+		addProperty(new FillProperty("progressBarTrackFill", "0x9A9A9A 0xBDBDBD"));
+		addProperty(new StrokeProperty("progressBarStroke", "0x686868"));
+		addProperty(new NumberProperty("progressBarHeight", "10"));
+		
 		addProperty(new FillProperty("titlebarFill", "0xE2E2E2 0xD9D9D9"));
 		addProperty(new StrokeProperty("titlebarStroke", "0xC0C0C0"));
 		addProperty(new ColorProperty("titlebarColor", "0x000000"));
@@ -76,8 +82,8 @@ public class LookManager
 		addProperty(new ColorProperty("toolbarColor", "0xFFFFFF"));
 		addProperty(new StrokeProperty("toolbarStroke", "0xC0C0C0"));
 		addProperty(new FillProperty("toolbarButtonUpFill", "0xFFFFFF alpha 0"));
-		addProperty(new FillProperty("toolbarButtonOverFill", "0xFFCC00"));
-		addProperty(new FillProperty("toolbarButtonDownFill", "0x00CCFF"));
+		addProperty(new FillProperty("toolbarButtonOverFill", "0xCEDBEF"));
+		addProperty(new FillProperty("toolbarButtonDownFill", "0xA8C6EE"));
 		addProperty(new FillProperty("toolbarButtonDisabledFill", "0xFFFFFF alpha 0.2"));
 		
 		addProperty(new FillProperty("controlbarFill", "0xDADADA 0xC5C5C5"));
@@ -90,17 +96,17 @@ public class LookManager
 		
 		addProperty(new FillProperty("hScrollBarTrackFill", "0xCACACA"));
 		addProperty(new FillProperty("vScrollBarTrackFill", "0xCACACA"));
-		addProperty(new FillProperty("hScrollBarThumbUpFill", "0xFAFAFA 0xF0F0F0"));
-		addProperty(new FillProperty("hScrollBarThumbOverFill", "0xC7C7C7 0xB2B2B2"));
-		addProperty(new FillProperty("hScrollBarThumbDownFill", "0xBBBBBB 0x8B8B8B"));
-		addProperty(new FillProperty("vScrollBarThumbUpFill", "0xFAFAFA 0xF0F0F0 rotation 0"));
-		addProperty(new FillProperty("vScrollBarThumbOverFill", "0xC7C7C7 0xB2B2B2 rotation 0"));
-		addProperty(new FillProperty("vScrollBarThumbDownFill", "0xBBBBBB 0x8B8B8B rotation 0"));
+		addProperty(new FillProperty("hScrollBarThumbUpFill", "0xFCFCFC 0xFBFBFB ratio 0.50 0xF1F1F1 ratio 0.51"));
+		addProperty(new FillProperty("hScrollBarThumbOverFill", "0xD0D0D0 0xCFCFCF ratio 0.5 0xB8B8B8 ratio 0.51"));
+		addProperty(new FillProperty("hScrollBarThumbDownFill", "0xC0C0C0 ratio 0.5 0xA1A1A1 ratio 0.51"));
+		addProperty(new FillProperty("vScrollBarThumbUpFill", "0xFCFCFC 0xFBFBFB ratio 0.50 0xF1F1F1 ratio 0.51 rotation 0"));
+		addProperty(new FillProperty("vScrollBarThumbOverFill", "0xD0D0D0 0xCFCFCF ratio 0.5 0xB8B8B8 ratio 0.51 rotation 0"));
+		addProperty(new FillProperty("vScrollBarThumbDownFill", "0xC0C0C0 ratio 0.5 0xA1A1A1 ratio 0.51 rotation 0"));
 		addProperty(new NumberProperty("scrollBarButtonSize", "17"));
 		addProperty(new NumberProperty("scrollBarThumbMinSize", "17"));
 		addProperty(new NumberProperty("scrollBarSize", "14"));
 		addProperty(new NumberProperty("scrollBarCornerRadius", "0"));
-		addProperty(new StrokeProperty("scrollBarStroke", "0x686868"));
+		addProperty(new StrokeProperty("scrollBarStroke", "0x686868 pixelHinting true"));
 		
 		addProperty(new FillProperty("sliderTrackFill", "0xCACACA"));
 		addProperty(new StrokeProperty("sliderTrackStroke", "0x686868"));

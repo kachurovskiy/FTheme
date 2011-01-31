@@ -25,7 +25,7 @@ public class StrokeUtil
 		var parts:Array = string.split(/\s/); // split by whitespace
 		var stroke:SolidColorStroke = new SolidColorStroke();
 		// our borders are always 1 pixel and rounded caps looks like a bug
-		stroke.caps = CapsStyle.SQUARE; 
+		stroke.caps = CapsStyle.SQUARE;
 		var n:int = parts.length;
 		for (var i:int = 0; i < n; i++)
 		{
@@ -34,6 +34,8 @@ public class StrokeUtil
 				stroke.color = ColorUtil.stringToUint(part);
 			else if (part == "alpha")
 				stroke.alpha = Number(parts[++i]);
+			else if (part == "pixelHinting")
+				stroke.pixelHinting = parts[++i] == "true";
 		}
 		stroke.color = ColorUtil.stringToUint(string);
 

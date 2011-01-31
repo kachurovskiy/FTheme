@@ -14,9 +14,7 @@ in accordance with the terms of the license agreement accompanying it.
 	xmlns:fb="http://ns.adobe.com/flashbuilder/2009">
 	
 	<fx:Metadata>
-		<![CDATA[ 
 		[HostComponent("spark.components.Button")]
-		]]>
 	</fx:Metadata> 
 	
 	<s:states>
