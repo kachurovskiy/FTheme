@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+ADOBE SYSTEMS INCORPORATED
+Copyright 2008 Adobe Systems Incorporated
+All Rights Reserved.
+
+NOTICE: Adobe permits you to use, modify, and distribute this file
+in accordance with the terms of the license agreement accompanying it.
+
+--> 
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:fb="http://ns.adobe.com/flashbuilder/2009" alpha.disabled=".5"> 
+	
+	<!-- host component -->
+	<fx:Metadata>
+		<![CDATA[ 
+		[HostComponent("spark.components.ComboBox")]
+		]]>
+	</fx:Metadata> 
+	
+	<fx:Script fb:purpose="styling">
+	<![CDATA[       
+		private var paddingChanged:Boolean;
+		private var cornerRadiusChanged:Boolean;
+		private var cornerRadius:Number = 0;            
+		
+		override protected function commitProperties():void
+		{
+			super.commitProperties();
+			
+			if (paddingChanged && textInput)
+			{
+				// Push padding styles into the textDisplay
+				var padding:Number;
+				
+				padding = getStyle("paddingLeft");
+				if (textInput.getStyle("paddingLeft") != padding)
+					textInput.setStyle("paddingLeft", padding);
+				
+				padding = getStyle("paddingTop");
+				if (textInput.getStyle("paddingTop") != padding)
+					textInput.setStyle("paddingTop", padding);
+				
+				padding = getStyle("paddingRight");
+				if (textInput.getStyle("paddingRight") != padding)
+					textInput.setStyle("paddingRight", padding);
+				
+				padding = getStyle("paddingBottom");
+				if (textInput.getStyle("paddingBottom") != padding)
+					textInput.setStyle("paddingBottom", padding);
+				paddingChanged = false;
+			}
+		}
+		
+		override public function styleChanged(styleProp:String):void
+		{
+			var allStyles:Boolean = !styleProp || styleProp == "styleName";
+			
+			super.styleChanged(styleProp);
+			
+			if (allStyles || styleProp.indexOf("padding") == 0)
+			{
+				paddingChanged = true;
+				invalidateProperties();
+			}
+			if (allStyles || styleProp == "cornerRadius")
+			{
+				cornerRadiusChanged = true;
+				invalidateProperties();
+			}                
+		}
+		
+		override protected function updateDisplayList(unscaledWidth:Number, unscaledHeight:Number):void
+		{
+			if (getStyle("borderVisible") == false)
+			{
+				if (border)
+					border.visible = false;
+				if (background)
+				{
+					background.left = background.top = background.right = background.bottom = 0;
+				}
+				if (scroller)
+					scroller.minViewportInset = 0;
+			}
+			else
+			{
+				if (border)
+					border.visible = true;
+				if (background)
+				{
+					background.left = background.top = background.right = background.bottom = 1;
+				}
+				if (scroller)
+					scroller.minViewportInset = 1;
+			}
+			
+			super.updateDisplayList(unscaledWidth, unscaledHeight);
+		}
+	]]>
+	</fx:Script>
+	
+	<s:states>
+		<s:State name="normal" />
+		<s:State name="open" />
+		<s:State name="disabled" />
+	</s:states>
+	
+	<s:PopUpAnchor id="popUp"  displayPopUp.normal="false" displayPopUp.open="true" includeIn="open"
+		left="0" right="0" top="0" bottom="-2" itemDestructionPolicy="auto"
+		popUpPosition="below" popUpWidthMatchesAnchorWidth="true">
+
+		<s:Group id="dropDown" maxHeight="134" minHeight="22">
+			
+			<!-- fill -->
+			<!--- Defines the appearance of drop-down list's background fill. -->
+			<s:Rect id="background" left="1" right="1" top="1" bottom="1"
+				fill="{getStyle('inputFill')}"
+				radiusX="{getStyle('inputCornerRadius')}" />
+			
+			<!-- border -->
+			<s:Rect id="border" left="0" right="0" top="0" bottom="0"
+				stroke="{getStyle('inputStroke')}"
+				radiusX="{getStyle('inputCornerRadius')}" />
+			
+			<s:Group id="scrollerMask" left="1" right="1" top="1" bottom="1">
+				
+				<s:Rect left="0" right="0" top="0" bottom="0"
+					fill="{getStyle('inputFill')}"
+					radiusX="{getStyle('inputCornerRadius')}"/>
+				
+			</s:Group>
+				
+			<s:Scroller id="scroller" left="0" top="0" right="0" bottom="0" 
+				hasFocusableChildren="false" minViewportInset="1" mask="{scrollerMask}">
+				<s:DataGroup id="dataGroup" itemRenderer="spark.skins.spark.DefaultItemRenderer">
+					<s:layout>
+						<s:VerticalLayout gap="0" horizontalAlign="contentJustify"/>
+					</s:layout>
+				</s:DataGroup> 
+			</s:Scroller>
+		</s:Group>
+	</s:PopUpAnchor>
+	
+	<s:Button id="openButton" width="19" right="0" top="0" bottom="0" focusEnabled="false"
+		skinClass="s.skins.fTheme.ComboBoxButtonSkin" />  
+
+	<s:TextInput id="textInput"
+		left="0" right="18" top="0" bottom="0" 
+		skinClass="s.skins.fTheme.ComboBoxTextInputSkin"/> 
+	
+</s:SparkSkin>
+

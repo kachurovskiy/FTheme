@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+ADOBE SYSTEMS INCORPORATED
+Copyright 2008 Adobe Systems Incorporated
+All Rights Reserved.
+
+NOTICE: Adobe permits you to use, modify, and distribute this file
+in accordance with the terms of the license agreement accompanying it.
+
+-->
+<s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark"
+	xmlns:fb="http://ns.adobe.com/flashbuilder/2009" 
+	minHeight="{getStyle('scrollBarButtonSize') * 2 + getStyle('scrollBarThumbMinSize')}" 
+	width="{getStyle('scrollBarSize')}" 
+	alpha.disabled="0.5" alpha.inactive="0.5">
+	
+	<fx:Metadata>
+		<![CDATA[ 
+		[HostComponent("spark.components.HScrollBar")]
+		]]>
+	</fx:Metadata> 
+	
+	<s:states>
+		<s:State name="normal" />
+		<s:State name="disabled" />
+		<s:State name="inactive" />
+	</s:states>
+	
+	<s:Button id="track" top="{Math.max(0, getStyle('scrollBarButtonSize') - 1)}" 
+		bottom="{Math.max(0, getStyle('scrollBarButtonSize') - 1)}" height="54" 
+		focusEnabled="false"
+		skinClass="s.skins.fTheme.VScrollBarTrackSkin" />
+	
+	<s:Button id="thumb"
+		focusEnabled="false" visible.inactive="false"
+		skinClass="s.skins.fTheme.VScrollBarThumbSkin" />
+	
+	<s:Button id="decrementButton" top="0"
+		focusEnabled="false" enabled.inactive="false"
+		skinClass="s.skins.fTheme.ScrollBarUpButtonSkin" />
+	
+	<s:Button id="incrementButton" bottom="0"
+		focusEnabled="false" enabled.inactive="false"
+		skinClass="s.skins.fTheme.ScrollBarDownButtonSkin" />
+	
+</s:SparkSkin>

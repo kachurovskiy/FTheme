@@ -1,0 +1,8 @@
+@author enguyen http://www.getpersonas.com/en-US/gallery/designer/enguyen
+@author Maxim Kachurovskiy http://kachurovksiy.com
+
+@license CC BY-NC-SA 3.0 http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+titlebarFill: bitmap japaneseTatooHeader fillMode clip
+toolbarFill: bitmap japaneseTatooHeader fillMode clip
+controlbarFill: bitmap japaneseTatooFooter fillMode clip

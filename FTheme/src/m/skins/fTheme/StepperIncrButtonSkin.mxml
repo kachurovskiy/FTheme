@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+ADOBE SYSTEMS INCORPORATED
+Copyright 2008 Adobe Systems Incorporated
+All Rights Reserved.
+
+NOTICE: Adobe permits you to use, modify, and distribute this file
+in accordance with the terms of the license agreement accompanying it.
+
+-->
+<local:SparkSkinForHalo xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:local="mx.skins.spark.*" alpha.disabled="0.5">
+	
+	<local:states>
+		<s:State name="up" />
+		<s:State name="over"/>
+		<s:State name="down" />
+		<s:State name="disabled" />
+	</local:states>
+	
+	<!-- border/fill -->
+	<s:Rect id="fill" left="-1" top="0" right="0" bottom="0" width="18" height="11" 
+		fill.up="{getStyle('buttonUpFill')}"
+		fill.over="{getStyle('buttonOverFill')}"
+		fill.down="{getStyle('buttonDownFill')}"
+		fill.disabled="{getStyle('buttonDisabledFill')}"
+		topRightRadiusX="{getStyle('inputCornerRadius')}"/>
+	
+	<s:Rect left="-1" right="0" top="0" bottom="0"
+		stroke="{getStyle('inputStroke')}"
+		bottomRightRadiusX="{getStyle('inputCornerRadius')}"/>
+	
+	<!-- arrow -->
+	<s:Path horizontalCenter="-1" verticalCenter="0" id="arrow"
+		data="M 3.0 0.0 L 3.0 1.0 L 4.0 1.0 L 4.0 2.0 L 5.0 2.0 L 5.0 3.0 L 0.0 3.0 L 0.0 2.0 L 1.0 2.0 L 1.0 1.0 L 2.0 1.0 L 2.0 0.0 L 3.0 0.0"
+		fill="{getStyle('symbolFill')}"/>
+	
+</local:SparkSkinForHalo>
