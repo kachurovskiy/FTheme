@@ -157,6 +157,14 @@ public class AssetManager extends EventDispatcher
 		notifyAboutAssetChange(id);
 	}
 	
+	/**
+	 * Clear previously setted asset.
+	 */
+	public function clearAsset(id:String):void
+	{
+		setAsset(id, undefined);
+	}
+	
 	private function notifyAboutAssetChange(id:String):void
 	{
 		var event:AssetManagerEvent = new AssetManagerEvent(AssetManagerEvent.ASSET_CHANGE, id);

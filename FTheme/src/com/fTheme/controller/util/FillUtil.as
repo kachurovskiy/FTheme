@@ -2,6 +2,7 @@ package com.fTheme.controller.util
 {
 import com.fTheme.controller.FThemeController;
 
+import mx.graphics.BitmapFillMode;
 import mx.graphics.GradientBase;
 import mx.graphics.GradientEntry;
 import mx.graphics.IFill;
@@ -124,6 +125,7 @@ public class FillUtil
 		var assetId:String = parts.shift();
 		var bitmapFill:BitmapFill2 = new BitmapFill2();
 		bitmapFill.source = FThemeController.instance.assetManager.getAsset(assetId);
+		bitmapFill.fillMode = BitmapFillMode.CLIP;
 		
 		var n:int = parts.length;
 		for (var i:int = 0; i < n; i++)

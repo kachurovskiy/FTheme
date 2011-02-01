@@ -15,12 +15,17 @@ import flash.events.ErrorEvent;
 import flash.events.Event;
 import flash.events.EventDispatcher;
 import flash.events.IOErrorEvent;
+import flash.events.ProgressEvent;
 import flash.events.SecurityErrorEvent;
 import flash.net.URLRequest;
 
 import mx.controls.Alert;
 import mx.core.FlexGlobals;
 
+/**
+ * Dispatched when load progress changes.
+ */
+[Event(name="progress", type="flash.events.ProgressEvent")]
 /**
  * Dispathed when load is successfuly completed.
  */
@@ -36,30 +41,57 @@ import mx.core.FlexGlobals;
 public class LoadAssetsZIPAction extends EventDispatcher
 {
 	
+	//--------------------------------------------------------------------------
+	//
+	//  Variables
+	//
+	//--------------------------------------------------------------------------
+
 	private var fZip:FZip;
 	
 	private var fileName:String;
-	
-	private var assetManager:AssetManager;
 	
 	private var assetFileNames:Vector.<String> = new Vector.<String>();
 	private var loaders:Vector.<Loader> = new Vector.<Loader>();
 	
 	private var loadersComplete:int;
 	
-	public function start(fileName:String, assetManager:AssetManager):void
+	//--------------------------------------------------------------------------
+	//
+	//  Properties
+	//
+	//--------------------------------------------------------------------------
+	
+	//----------------------------------
+	//  assetMap
+	//----------------------------------
+
+	private var _assetMap:Object;
+
+	public function get assetMap():Object
 	{
-		this.fileName = fileName;
-		this.assetManager = assetManager;
+		return _assetMap;
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Methods
+	//
+	//--------------------------------------------------------------------------
+
+	public function start(zipFileURL:String):void
+	{
+		this.fileName = zipFileURL;
 		
 		FlexGlobals.topLevelApplication.cursorManager.setBusyCursor();
 		
 		fZip = new FZip();
+		fZip.addEventListener(ProgressEvent.PROGRESS, progressHandler);
 		fZip.addEventListener(FZipErrorEvent.PARSE_ERROR, errorHandler);
 		fZip.addEventListener(IOErrorEvent.IO_ERROR, errorHandler);
 		fZip.addEventListener(SecurityErrorEvent.SECURITY_ERROR, errorHandler);
 		fZip.addEventListener(Event.COMPLETE, completeHandler);
-		fZip.load(new URLRequest(fileName));
+		fZip.load(new URLRequest(zipFileURL));
 	}
 	
 	private function finish(errorText:String = null):void
@@ -68,6 +100,17 @@ public class LoadAssetsZIPAction extends EventDispatcher
 			dispatchEvent(new ErrorEvent(ErrorEvent.ERROR, false, false, errorText));
 		else
 			dispatchEvent(new Event(Event.COMPLETE));
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Event handlers
+	//
+	//--------------------------------------------------------------------------
+
+	private function progressHandler(event:ProgressEvent):void
+	{
+		dispatchEvent(event);
 	}
 	
 	private function errorHandler(event:FZipErrorEvent):void
@@ -112,6 +155,7 @@ public class LoadAssetsZIPAction extends EventDispatcher
 		var n:int = loaders.length;
 		if (loadersComplete == n)
 		{
+			_assetMap = {};
 			for (var i:int = 0; i < n; i++)
 			{
 				var loader:Loader = loaders[i];
@@ -138,7 +182,7 @@ public class LoadAssetsZIPAction extends EventDispatcher
 				}
 				
 				if (assetClass)
-					assetManager.setAsset(assetId, assetClass);
+					_assetMap[assetId] = assetClass;
 				else
 					trace("Failed to load asset \"" + assetId + "\"");
 			}

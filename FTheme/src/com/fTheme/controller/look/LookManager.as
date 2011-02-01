@@ -1,5 +1,13 @@
 package com.fTheme.controller.look
 {
+import com.fTheme.controller.FThemeController;
+import com.fTheme.controller.asset.AssetManager;
+import com.fTheme.controller.look.actions.LoadLookAction;
+
+import flash.events.ErrorEvent;
+import flash.events.Event;
+import flash.events.EventDispatcher;
+
 import mx.styles.IStyleManager2;
 import mx.styles.StyleManager;
 
@@ -7,7 +15,7 @@ import mx.styles.StyleManager;
  * Applies customization to the whole application based on plain text 
  * customization property values.
  */
-public class LookManager
+public class LookManager extends EventDispatcher
 {
 	
 	//--------------------------------------------------------------------------
@@ -118,7 +126,7 @@ public class LookManager
 		addProperty(new FillProperty("symbolFill", "0x444444"));
 		
 		// set all properties to their default values by passing empty customization
-		applyLook(new Look("Default"));
+		look = new Look("Default");
 	}
 	
 	//--------------------------------------------------------------------------
@@ -126,13 +134,102 @@ public class LookManager
 	//  Variables
 	//
 	//--------------------------------------------------------------------------
-
+	
+	private var controller:FThemeController = FThemeController.instance;
+	
+	private var assetManager:AssetManager = FThemeController.instance.assetManager;
+	
 	private var properties:Vector.<LookProperty> = new Vector.<LookProperty>();
 	
 	private var propertyMap:Object = {};
 	
 	private var styleManager:IStyleManager2 = StyleManager.getStyleManager(null);
 	
+	private var lookLoadAction:LoadLookAction;
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Properties
+	//
+	//--------------------------------------------------------------------------
+	
+	//--------------------------------------
+	//  lookLink
+	//--------------------------------------
+
+	private var _lookLink:LookLink;
+
+	[Bindable("lookLinkChange")]
+	public function get lookLink():LookLink 
+	{
+		return _lookLink;
+	}
+
+	public function set lookLink(value:LookLink):void
+	{
+		if (_lookLink == value)
+			return;
+		
+		if (_lookLink)
+		{
+			_lookLink.removeEventListener("statusChange", lookLink_statusChangeHandler);
+			if (lookLoadAction)
+				lookLoadAction = null;
+		}
+		
+		_lookLink = value;
+		
+		if (_lookLink)
+		{
+			if (_lookLink.status == LookLinkStatus.LOADED)
+			{
+				look = _lookLink.look;
+			}
+			else
+			{
+				// look may be already loading so listen not to the load action
+				// but to the lookLink itself
+				_lookLink.addEventListener("statusChange", lookLink_statusChangeHandler);
+				
+				if (_lookLink.status == LookLinkStatus.NOT_LOADED)
+				{
+					lookLoadAction = new LoadLookAction();
+					lookLoadAction.start(_lookLink);
+				}
+			}
+		}
+		
+		dispatchEvent(new Event("lookLinkChange"));
+	}
+
+	//--------------------------------------
+	//  look
+	//--------------------------------------
+
+	private var _look:Look;
+
+	[Bindable("lookChange")]
+	public function get look():Look 
+	{
+		return _look;
+	}
+
+	public function set look(value:Look):void
+	{
+		if (_look == value)
+			return;
+		
+		if (_look)
+			clearLook(_look);
+		
+		_look = value;
+		
+		if (_look)
+			applyLook(_look);
+		
+		dispatchEvent(new Event("lookChange"));
+	}
+
 	//--------------------------------------------------------------------------
 	//
 	//  Methods
@@ -148,25 +245,36 @@ public class LookManager
 		propertyMap[property.name] = property;
 	}
 	
-	public function applyLook(customization:Look):void
+	private function applyLook(look:Look):void
 	{
-		var array:Array = customization.lookPropertyValues;
-		var n:int = array.length;
+		// set look assets to AssetManager so that bitmap fills could be drawn
+		var assetMap:Object = look.assetMap;
+		if (assetMap)
+		{
+			for (var id:String in assetMap)
+			{
+				assetManager.setAsset(id, assetMap[id]);
+			}
+		}
+		
+		// set our LookProperty values from the given look
+		var propertyValues:Array = look.propertyValues;
+		var n:int = propertyValues.length;
 		var appliedProperties:Object = {};
 		var i:int;
 		var property:LookProperty;
 		for (i = 0; i < n; i++)
 		{
-			var value:PropertyValue = array[i];
-			property = propertyMap[value.name];
+			var propertyValue:PropertyValue = propertyValues[i];
+			property = propertyMap[propertyValue.name];
 			if (!property)
 			{
-				trace("Property " + value.name + " not found");
+				trace("Property " + propertyValue.name + " not found");
 				continue;
 			}
 			
-			appliedProperties[value.name] = true;
-			property.value = value.value;
+			appliedProperties[propertyValue.name] = true;
+			property.value = propertyValue.value;
 		}
 		
 		n = properties.length;
@@ -182,8 +290,34 @@ public class LookManager
 		styleManager.setStyleDeclaration("global", styleManager.getStyleDeclaration("global"), true);
 	}
 	
+	private function clearLook(look:Look):void
+	{
+		var assetMap:Object = look.assetMap;
+		if (assetMap)
+		{
+			for (var id:String in assetMap)
+			{
+				assetManager.clearAsset(id);
+			}
+		}
+	}
+	
 	public function destroy():void
 	{
+		lookLink = null;
+		look = null;
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Event handlers
+	//
+	//--------------------------------------------------------------------------
+	
+	private function lookLink_statusChangeHandler(event:Event):void
+	{
+		if (_lookLink.status == LookLinkStatus.LOADED)
+			look = _lookLink.look;
 	}
 	
 }
