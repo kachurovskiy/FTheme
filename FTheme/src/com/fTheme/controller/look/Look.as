@@ -23,6 +23,9 @@ public class Look implements IMXMLObject
 	//
 	//--------------------------------------------------------------------------
 
+	/**
+	 * Constructor.
+	 */
 	public function Look(name:String = null)
 	{
 		this.name = name;
@@ -35,10 +38,20 @@ public class Look implements IMXMLObject
 	//--------------------------------------------------------------------------
 
 	public var name:String;
-	
+
 	public var assetMap:Object /* of String -> Class */;
 	
 	public var propertyValues:Array /* of PropertyValue */ = [];
+	
+	/**
+	 * Array of authors. Can be null.
+	 */
+	public var authors:Vector.<Author>;
+	
+	/**
+	 * Array of licenses. Can be null.
+	 */
+	public var licenses:Vector.<License>;
 	
 	//--------------------------------------------------------------------------
 	//

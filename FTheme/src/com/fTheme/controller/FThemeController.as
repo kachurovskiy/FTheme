@@ -74,19 +74,19 @@ public class FThemeController extends EventDispatcher
 	}
 	
 	//----------------------------------
-	//  customizationManager
+	//  lookManager
 	//----------------------------------
 
-	private var _customizationManager:LookManager;
+	private var _lookManager:LookManager;
 	
 	[Bindable("__NoChangeEvent__")]
 	/**
 	 * Applies customization to the whole application based on plain text 
 	 * customization property values.
 	 */
-	public function get customizationManager():LookManager
+	public function get lookManager():LookManager
 	{
-		return _customizationManager;
+		return _lookManager;
 	}
 	
 	//--------------------------------------------------------------------------
@@ -103,7 +103,7 @@ public class FThemeController extends EventDispatcher
 		
 		_assetManager = new AssetManager();
 		
-		_customizationManager = new LookManager();
+		_lookManager = new LookManager();
 	}
 	
 	public function destroy():void
@@ -111,8 +111,8 @@ public class FThemeController extends EventDispatcher
 		if (!_instance) // already destroyed
 			return;
 		
-		_customizationManager.destroy();
-		_customizationManager = null;
+		_lookManager.destroy();
+		_lookManager = null;
 		
 		_assetManager.destroy();
 		_assetManager = null;

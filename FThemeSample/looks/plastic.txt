@@ -1,3 +1,8 @@
+@author Maxim Kachurovskiy http://kachurovksiy.com
+@author Harish Sivaramakrishnan http://scalenine.com/
+
+@license CC BY 2.5 http://creativecommons.org/licenses/by/2.5/
+
 color: 0x000000
 rollOverColor: 0xC0EBF5
 selectionColor: 0xFEA500

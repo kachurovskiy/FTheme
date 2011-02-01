@@ -3,143 +3,143 @@
 
 s|Application
 {
-	skinClass: ClassReference("spark.skins.fTheme.ApplicationSkin");
+	skinClass: ClassReference("s.skins.fTheme.ApplicationSkin");
 }
 
 s|Button
 {
-	skinClass: ClassReference("spark.skins.fTheme.ButtonSkin");
+	skinClass: ClassReference("s.skins.fTheme.ButtonSkin");
 }
 
 s|Button.emphasized
 {
-	skinClass: ClassReference("spark.skins.fTheme.ButtonSkin");
+	skinClass: ClassReference("s.skins.fTheme.ButtonSkin");
 }
 
 s|ButtonBar 
 {
-	skinClass: ClassReference("spark.skins.fTheme.ButtonBarSkin");
+	skinClass: ClassReference("s.skins.fTheme.ButtonBarSkin");
 }
 
 s|CheckBox
 {
-	skinClass: ClassReference("spark.skins.fTheme.CheckBoxSkin");
+	skinClass: ClassReference("s.skins.fTheme.CheckBoxSkin");
 }
 
 s|ComboBox
 {
-	skinClass: ClassReference("spark.skins.fTheme.ComboBoxSkin");
+	skinClass: ClassReference("s.skins.fTheme.ComboBoxSkin");
 }
 
 s|DropDownList
 {
-	skinClass: ClassReference("spark.skins.fTheme.DropDownListSkin");
+	skinClass: ClassReference("s.skins.fTheme.DropDownListSkin");
 }
 
 s|HScrollBar
 {
-	skinClass: ClassReference("spark.skins.fTheme.HScrollBarSkin");
+	skinClass: ClassReference("s.skins.fTheme.HScrollBarSkin");
 }
 
 s|HSlider
 {
-	skinClass: ClassReference("spark.skins.fTheme.HSliderSkin");
+	skinClass: ClassReference("s.skins.fTheme.HSliderSkin");
 }
 
 s|List
 {
-	skinClass: ClassReference("spark.skins.fTheme.ListSkin");
+	skinClass: ClassReference("s.skins.fTheme.ListSkin");
 }
 
 /*s|MuteButton
 {
-	skinClass: ClassReference("spark.skins.fTheme.mediaClasses.MuteButtonSkin");
+	skinClass: ClassReference("s.skins.fTheme.mediaClasses.MuteButtonSkin");
 }*/
 
 s|NumericStepper
 {
-	skinClass: ClassReference("spark.skins.fTheme.NumericStepperSkin");
+	skinClass: ClassReference("s.skins.fTheme.NumericStepperSkin");
 }
 
 s|Panel
 {
-	skinClass: ClassReference("spark.skins.fTheme.PanelSkin");
+	skinClass: ClassReference("s.skins.fTheme.PanelSkin");
 }
 
 s|RadioButton
 {
-	skinClass: ClassReference("spark.skins.fTheme.RadioButtonSkin");
+	skinClass: ClassReference("s.skins.fTheme.RadioButtonSkin");
 }
 
 /*s|ScrubBar
 {
-	skinClass: ClassReference("spark.skins.fTheme.mediaClasses.ScrubBarSkin");
+	skinClass: ClassReference("s.skins.fTheme.mediaClasses.ScrubBarSkin");
 }*/
 
 s|Spinner
 {
-	skinClass: ClassReference("spark.skins.fTheme.SpinnerSkin"); 
+	skinClass: ClassReference("s.skins.fTheme.SpinnerSkin"); 
 }
 
 s|TabBar
 {
-	skinClass: ClassReference("spark.skins.fTheme.TabBarSkin"); 
+	skinClass: ClassReference("s.skins.fTheme.TabBarSkin"); 
 }
 
 s|TextArea
 {
-	skinClass: ClassReference("spark.skins.fTheme.TextAreaSkin");
+	skinClass: ClassReference("s.skins.fTheme.TextAreaSkin");
 }
 
 s|TextInput
 {
-	skinClass: ClassReference("spark.skins.fTheme.TextInputSkin");
+	skinClass: ClassReference("s.skins.fTheme.TextInputSkin");
 }
 
 s|TitleWindow
 {
-	skinClass: ClassReference("spark.skins.fTheme.TitleWindowSkin");
+	skinClass: ClassReference("s.skins.fTheme.TitleWindowSkin");
 }
 
 s|ToggleButton
 {
-	skinClass: ClassReference("spark.skins.fTheme.ToggleButtonSkin");
+	skinClass: ClassReference("s.skins.fTheme.ToggleButtonSkin");
 }
 
 /*s|VideoPlayer
 {
-	skinClass: ClassReference("spark.skins.fTheme.VideoPlayerSkin");
+	skinClass: ClassReference("s.skins.fTheme.VideoPlayerSkin");
 }*/
 
 /*s|VolumeBar
 {
-	skinClass: ClassReference("spark.skins.fTheme.mediaClasses.VolumeBarSkin");
+	skinClass: ClassReference("s.skins.fTheme.mediaClasses.VolumeBarSkin");
 }*/
 
 s|VScrollBar
 {
-	skinClass: ClassReference("spark.skins.fTheme.VScrollBarSkin");
+	skinClass: ClassReference("s.skins.fTheme.VScrollBarSkin");
 }
 
 s|VSlider
 {
-	skinClass: ClassReference("spark.skins.fTheme.VSliderSkin");
+	skinClass: ClassReference("s.skins.fTheme.VSliderSkin");
 }
 
 mx|Accordion
 {
-	border-skin: ClassReference("mx.skins.fTheme.BorderSkin");
+	border-skin: ClassReference("m.skins.fTheme.BorderSkin");
 }
 
 mx|AccordionHeader
 {
-	skin: ClassReference("mx.skins.fTheme.AccordionHeaderSkin");
+	skin: ClassReference("m.skins.fTheme.AccordionHeaderSkin");
 }
 
 mx|Button
 {
-	skin: ClassReference("mx.skins.fTheme.ButtonSkin");
-	emphasizedSkin: ClassReference("mx.skins.fTheme.ButtonSkin");
+	skin: ClassReference("m.skins.fTheme.ButtonSkin");
+	emphasizedSkin: ClassReference("m.skins.fTheme.ButtonSkin");
 }
 
 mx|ButtonBar
@@ -151,27 +151,27 @@ mx|ButtonBar
 
 .buttonBarFirstButton
 {
-	skin: ClassReference("mx.skins.fTheme.ButtonBarFirstButtonSkin");
+	skin: ClassReference("m.skins.fTheme.ButtonBarFirstButtonSkin");
 }
 
 .buttonBarMiddleButton
 {
-	skin: ClassReference("mx.skins.fTheme.ButtonBarMiddleButtonSkin");
+	skin: ClassReference("m.skins.fTheme.ButtonBarMiddleButtonSkin");
 }
 
 .buttonBarLastButton
 {
-	skin: ClassReference("mx.skins.fTheme.ButtonBarLastButtonSkin");
+	skin: ClassReference("m.skins.fTheme.ButtonBarLastButtonSkin");
 }
 
 mx|CheckBox
 {
-	icon: ClassReference("mx.skins.fTheme.CheckBoxSkin");
+	icon: ClassReference("m.skins.fTheme.CheckBoxSkin");
 }
 
 mx|ColorPicker
 {
-	skin: ClassReference("mx.skins.fTheme.ColorPickerSkin");
+	skin: ClassReference("m.skins.fTheme.ColorPickerSkin");
 }
 
 /*mx|SwatchPanel
@@ -185,30 +185,30 @@ mx|ColorPicker
 
 mx|ComboBox
 {
-	skin: ClassReference("mx.skins.fTheme.ComboBoxSkin");
-	editableSkin: ClassReference("mx.skins.fTheme.EditableComboBoxSkin");
+	skin: ClassReference("m.skins.fTheme.ComboBoxSkin");
+	editableSkin: ClassReference("m.skins.fTheme.EditableComboBoxSkin");
 }
 
 mx|DataGrid
 {
-	borderSkin: ClassReference("mx.skins.fTheme.BorderSkin");
-	headerBackgroundSkin: ClassReference("mx.skins.fTheme.DataGridHeaderBackgroundSkin");
-	headerSeparatorSkin: ClassReference("mx.skins.fTheme.DataGridHeaderSeparatorSkin");
+	borderSkin: ClassReference("m.skins.fTheme.BorderSkin");
+	headerBackgroundSkin: ClassReference("m.skins.fTheme.DataGridHeaderBackgroundSkin");
+	headerSeparatorSkin: ClassReference("m.skins.fTheme.DataGridHeaderSeparatorSkin");
 }
 
 /*.dropDown
 {
-	borderSkin: ClassReference("mx.skins.fTheme.DropDownSkin");
+	borderSkin: ClassReference("m.skins.fTheme.DropDownSkin");
 }*/
 
 /*mx|HDividedBox
 {
-	divider-skin: ClassReference("mx.skins.fTheme.DividerSkin");	
+	divider-skin: ClassReference("m.skins.fTheme.DividerSkin");	
 }*/
 
 mx|HorizontalList
 {
-	borderSkin: ClassReference("mx.skins.fTheme.BorderSkin");
+	borderSkin: ClassReference("m.skins.fTheme.BorderSkin");
 }
 
 /*mx|HRule
@@ -219,91 +219,91 @@ mx|HorizontalList
 
 mx|LinkButton
 {
-	skin: ClassReference("mx.skins.fTheme.LinkButtonSkin");	
+	skin: ClassReference("m.skins.fTheme.LinkButtonSkin");	
 }
 
 mx|List
 {
-	borderSkin: ClassReference("mx.skins.fTheme.BorderSkin");
+	borderSkin: ClassReference("m.skins.fTheme.BorderSkin");
 }
 
 mx|MenuBar
 {
-	backgroundSkin: ClassReference("mx.skins.fTheme.MenuBarSkin");
+	backgroundSkin: ClassReference("m.skins.fTheme.MenuBarSkin");
 }
 
 /*mx|Menu
 {
-	borderSkin: ClassReference("mx.skins.fTheme.MenuSkin");
-	checkIcon: ClassReference("mx.skins.fTheme.MenuCheck");
-	arrowIcon: ClassReference("mx.skins.fTheme.MenuArrow");
+	borderSkin: ClassReference("m.skins.fTheme.MenuSkin");
+	checkIcon: ClassReference("m.skins.fTheme.MenuCheck");
+	arrowIcon: ClassReference("m.skins.fTheme.MenuArrow");
 }
 
 .menu
 {
-	borderSkin: ClassReference("mx.skins.fTheme.MenuSkin");
-	checkIcon: ClassReference("mx.skins.fTheme.MenuCheck");
-	arrowIcon: ClassReference("mx.skins.fTheme.MenuArrow");
+	borderSkin: ClassReference("m.skins.fTheme.MenuSkin");
+	checkIcon: ClassReference("m.skins.fTheme.MenuCheck");
+	arrowIcon: ClassReference("m.skins.fTheme.MenuArrow");
 }
 
 mx|MenuBarItem
 {
-	itemUpSkin: ClassReference("mx.skins.fTheme.MenuBarItemSkin");
-	itemOverSkin: ClassReference("mx.skins.fTheme.MenuBarItemSkin");
-	itemDownSkin: ClassReference("mx.skins.fTheme.MenuBarItemSkin");
+	itemUpSkin: ClassReference("m.skins.fTheme.MenuBarItemSkin");
+	itemOverSkin: ClassReference("m.skins.fTheme.MenuBarItemSkin");
+	itemDownSkin: ClassReference("m.skins.fTheme.MenuBarItemSkin");
 }*/
 
 mx|NumericStepper
 {
-	downArrowSkin: ClassReference("mx.skins.fTheme.StepperDecrButtonSkin");
-	upArrowSkin: ClassReference("mx.skins.fTheme.StepperIncrButtonSkin");
+	downArrowSkin: ClassReference("m.skins.fTheme.StepperDecrButtonSkin");
+	upArrowSkin: ClassReference("m.skins.fTheme.StepperIncrButtonSkin");
 }
 
 mx|Panel
 {
-	borderSkin: ClassReference("mx.skins.fTheme.PanelBorderSkin");
+	borderSkin: ClassReference("m.skins.fTheme.PanelBorderSkin");
 	/*controlBarStyleName: controlBar;*/
 }
 
 /*.controlBar
 {
-	borderSkin: ClassReference("mx.skins.fTheme.ControlBarSkin");	
+	borderSkin: ClassReference("m.skins.fTheme.ControlBarSkin");	
 }*/
 
 mx|PopUpButton
 {
-	skin: ClassReference("mx.skins.fTheme.PopUpButtonSkin");
+	skin: ClassReference("m.skins.fTheme.PopUpButtonSkin");
 }
 
 mx|PopUpMenuButton
 {
-	skin: ClassReference("mx.skins.fTheme.PopUpButtonSkin");
+	skin: ClassReference("m.skins.fTheme.PopUpButtonSkin");
 }
 
 mx|ProgressBar
 {
-	barSkin: ClassReference("mx.skins.fTheme.ProgressBarSkin");
-	trackSkin: ClassReference("mx.skins.fTheme.ProgressBarTrackSkin");
-	/*indeterminateSkin: ClassReference("mx.skins.fTheme.ProgressIndeterminateSkin");*/
+	barSkin: ClassReference("m.skins.fTheme.ProgressBarSkin");
+	trackSkin: ClassReference("m.skins.fTheme.ProgressBarTrackSkin");
+	/*indeterminateSkin: ClassReference("m.skins.fTheme.ProgressIndeterminateSkin");*/
 }
 
 mx|RadioButton
 {
-	icon: ClassReference("mx.skins.fTheme.RadioButtonSkin");
+	icon: ClassReference("m.skins.fTheme.RadioButtonSkin");
 }
 
 mx|ScrollBar
 {
-	trackSkin: ClassReference("mx.skins.fTheme.ScrollBarTrackSkin");
-	thumbSkin: ClassReference("mx.skins.fTheme.ScrollBarThumbSkin");
-	upArrowSkin: ClassReference("mx.skins.fTheme.ScrollBarUpButtonSkin");
-	downArrowSkin: ClassReference("mx.skins.fTheme.ScrollBarDownButtonSkin");
+	trackSkin: ClassReference("m.skins.fTheme.ScrollBarTrackSkin");
+	thumbSkin: ClassReference("m.skins.fTheme.ScrollBarThumbSkin");
+	upArrowSkin: ClassReference("m.skins.fTheme.ScrollBarUpButtonSkin");
+	downArrowSkin: ClassReference("m.skins.fTheme.ScrollBarDownButtonSkin");
 }
 
 mx|Slider
 {
-	trackSkin: ClassReference("mx.skins.fTheme.SliderTrackSkin");
-	thumbSkin: ClassReference("mx.skins.fTheme.SliderThumbSkin");
+	trackSkin: ClassReference("m.skins.fTheme.SliderTrackSkin");
+	thumbSkin: ClassReference("m.skins.fTheme.SliderThumbSkin");
 }
 
 mx|TabBar
@@ -315,39 +315,39 @@ mx|TabBar
 
 .tabBarTab
 {
-	skin: ClassReference("mx.skins.fTheme.TabSkin");	
+	skin: ClassReference("m.skins.fTheme.TabSkin");	
 }
 
 mx|TabNavigator
 {
-	borderSkin: ClassReference("mx.skins.fTheme.BorderSkin");
+	borderSkin: ClassReference("m.skins.fTheme.BorderSkin");
 }
 
 mx|TextInput
 {
-	borderSkin: ClassReference("mx.skins.fTheme.TextInputSkin");
+	borderSkin: ClassReference("m.skins.fTheme.TextInputSkin");
 }
 
 mx|TextArea
 {
-	borderSkin: ClassReference("mx.skins.fTheme.TextAreaSkin");
+	borderSkin: ClassReference("m.skins.fTheme.TextAreaSkin");
 }
 
 mx|TileList
 {
-	borderSkin: ClassReference("mx.skins.fTheme.BorderSkin");
+	borderSkin: ClassReference("m.skins.fTheme.BorderSkin");
 }
 
 mx|TitleWindow
 {
-	closeButtonUpSkin: ClassReference("mx.skins.fTheme.TitleWindowCloseButtonUpSkin");
-	closeButtonOverSkin: ClassReference("mx.skins.fTheme.TitleWindowCloseButtonOverSkin");
-	closeButtonDownSkin: ClassReference("mx.skins.fTheme.TitleWindowCloseButtonDownSkin");
+	closeButtonUpSkin: ClassReference("m.skins.fTheme.TitleWindowCloseButtonUpSkin");
+	closeButtonOverSkin: ClassReference("m.skins.fTheme.TitleWindowCloseButtonOverSkin");
+	closeButtonDownSkin: ClassReference("m.skins.fTheme.TitleWindowCloseButtonDownSkin");
 }
 
 /*mx|ToolTip
 {
-	borderSkin: ClassReference("mx.skins.fTheme.ToolTipSkin");
+	borderSkin: ClassReference("m.skins.fTheme.ToolTipSkin");
 }*/
 
 /*mx|Tree
@@ -358,7 +358,7 @@ mx|TitleWindow
 
 /*mx|VDividedBox
 {
-	divider-skin: ClassReference("mx.skins.fTheme.DividerSkin");	
+	divider-skin: ClassReference("m.skins.fTheme.DividerSkin");	
 }*/
 
 /*mx|VRule
