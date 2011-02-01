@@ -8,15 +8,6 @@
 	paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10"
 	title="MX Panel" layout="vertical">
 	
-	<fx:Script>
-	<![CDATA[
-		import com.fThemeSample.model.Model;
-		
-		[Bindable("__NoChangeEvent__")]
-		private var model:Model = Model.instance;
-	]]>
-	</fx:Script>
-	
 	<s:HGroup gap="10">
 		
 		<s:VGroup gap="10">

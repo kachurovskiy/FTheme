@@ -5,6 +5,7 @@ import com.fTheme.controller.look.Author;
 import com.fTheme.controller.look.License;
 import com.fTheme.controller.look.Look;
 import com.fTheme.controller.look.LookLink;
+import com.fTheme.controller.look.LookManager;
 
 import flash.events.Event;
 
@@ -23,8 +24,7 @@ import spark.utils.TextFlowUtil;
 [DefaultProperty("dataProvider")]
 
 /**
- * UI component that allows user to select look and feel, load it and
- * apply.
+ * UI component that allows user to select and apply look and feel.
  */
 public class LookSelector extends SkinnableComponent
 {
@@ -44,8 +44,11 @@ public class LookSelector extends SkinnableComponent
 		
 		setStyle("skinClass", LookSelectorSkin);
 		
-		_look = controller.lookManager.look;
-		controller.lookManager.addEventListener("lookChange", lookManager_lookChangeHandler, false, 0, true);
+		_managerDataProvider = lookManager.lookLinks;
+		lookManager.addEventListener("lookLinksChange", lookManager_lookLinksChange, false, 0, true);
+		
+		_look = lookManager.look;
+		lookManager.addEventListener("lookChange", lookManager_lookChangeHandler, false, 0, true);
 	}
 	
 	//--------------------------------------------------------------------------
@@ -55,7 +58,7 @@ public class LookSelector extends SkinnableComponent
 	//--------------------------------------------------------------------------
 	
 	[Bindable("__NoChangeEvent__")]
-	private var controller:FThemeController = FThemeController.instance;
+	private var lookManager:LookManager = FThemeController.instance.lookManager;
 	
 	[SkinPart]
 	public var list:List;
@@ -76,20 +79,26 @@ public class LookSelector extends SkinnableComponent
 	//  dataProvider
 	//--------------------------------------
 
-	private var _dataProvider:IList;
+	private var _explicitDataProvider:* = undefined;
+	
+	private var _managerDataProvider:IList;
 
 	[Bindable("dataProviderChange")]
+	/**
+	 * Usually list of <code>LookLink</code> instances is provided by 
+	 * <code>LookManager</code> but it can be set explicitly too.
+	 */
 	public function get dataProvider():IList 
 	{
-		return _dataProvider;
+		return _explicitDataProvider;
 	}
 
 	public function set dataProvider(value:IList):void
 	{
-		if (_dataProvider == value)
+		if (_explicitDataProvider == value)
 			return;
 		
-		_dataProvider = value;
+		_explicitDataProvider = value;
 		updateList();
 		dispatchEvent(new Event("dataProviderChange"));
 	}
@@ -195,19 +204,25 @@ public class LookSelector extends SkinnableComponent
 	
 	private function updateList():void
 	{
-		if (!_dataProvider || !list)
+		var provider:IList;
+		if (_explicitDataProvider !== undefined)
+			provider = _explicitDataProvider;
+		else if (_managerDataProvider)
+			provider = _managerDataProvider;
+			
+		if (!provider || !list)
 			return;
 		
-		if (list.dataProvider != _dataProvider)
-			list.dataProvider = _dataProvider;
+		if (list.dataProvider != provider)
+			list.dataProvider = provider;
 		
 		var selectedIndex:int = -1;
 		if (_look)
 		{
-			var n:int = _dataProvider ? _dataProvider.length : 0;
+			var n:int = provider ? provider.length : 0;
 			for (var i:int = 0; i < n; i++)
 			{
-				if (LookLink(_dataProvider[i]).name == _look.name)
+				if (LookLink(provider[i]).name == _look.name)
 				{
 					selectedIndex = i;
 					break;
@@ -225,12 +240,18 @@ public class LookSelector extends SkinnableComponent
 	
 	private function list_changeHandler(event:IndexChangeEvent):void
 	{
-		controller.lookManager.lookLink = list.selectedItem as LookLink;
+		lookManager.lookLink = list.selectedItem as LookLink;
 	}
 
 	private function lookManager_lookChangeHandler(event:Event):void
 	{
-		look = controller.lookManager.look;
+		look = lookManager.look;
+	}
+
+	private function lookManager_lookLinksChange(event:Event):void
+	{
+		_managerDataProvider = lookManager.lookLinks;
+		updateList();
 	}
 	
 }

@@ -167,8 +167,11 @@ public class AssetManager extends EventDispatcher
 	
 	private function notifyAboutAssetChange(id:String):void
 	{
-		var event:AssetManagerEvent = new AssetManagerEvent(AssetManagerEvent.ASSET_CHANGE, id);
-		dispatchEvent(event);
+		if (hasEventListener(AssetManagerEvent.ASSET_CHANGE))
+		{
+			var event:AssetManagerEvent = new AssetManagerEvent(AssetManagerEvent.ASSET_CHANGE, id);
+			dispatchEvent(event);
+		}
 		
 		// if it's not a layered icon - check if this asset was used as a part
 		// of some layered icon and if yes, then update all such layered icons

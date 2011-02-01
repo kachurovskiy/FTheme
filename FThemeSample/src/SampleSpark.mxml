@@ -2,19 +2,9 @@
 <s:Panel xmlns:fx="http://ns.adobe.com/mxml/2009" 
 	xmlns:s="library://ns.adobe.com/flex/spark" 
 	xmlns:mx="library://ns.adobe.com/flex/mx" 
-	xmlns:view="com.fThemeSample.view.*" 
 	xmlns:toolbar="com.fTheme.view.toolbar.*" 
 	xmlns:controlbar="com.fTheme.view.controlbar.*" 
 	title="Spark Panel">
-	
-	<fx:Script>
-	<![CDATA[
-		import com.fThemeSample.model.Model;
-		
-		[Bindable("__NoChangeEvent__")]
-		private var model:Model = Model.instance;
-	]]>
-	</fx:Script>
 	
 	<s:layout>
 		<s:VerticalLayout gap="10" horizontalAlign="justify"/>
@@ -22,11 +12,9 @@
 	
 	<toolbar:Toolbar>
 		
-		<toolbar:ToolbarButton label="Toolbar button 1" 
-			icon="{model.assets.icon1}"/>
+		<toolbar:ToolbarButton label="Toolbar button 1" icon="@Embed('icon1.png')"/>
 		
-		<toolbar:ToolbarButton label="Toolbar button 2"
-			icon="{model.assets.icon2}"/>
+		<toolbar:ToolbarButton label="Toolbar button 2" icon="@Embed('icon2.png')"/>
 		
 	</toolbar:Toolbar>
 	

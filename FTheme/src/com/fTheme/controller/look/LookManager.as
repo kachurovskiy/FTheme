@@ -2,14 +2,28 @@ package com.fTheme.controller.look
 {
 import com.fTheme.controller.FThemeController;
 import com.fTheme.controller.asset.AssetManager;
+import com.fTheme.controller.look.actions.ILoadLooksAction;
 import com.fTheme.controller.look.actions.LoadLookAction;
+import com.fTheme.controller.look.actions.LoadLooksAction;
 
 import flash.events.ErrorEvent;
 import flash.events.Event;
 import flash.events.EventDispatcher;
 
+import mx.collections.ArrayCollection;
+import mx.core.ClassFactory;
+import mx.core.IFactory;
 import mx.styles.IStyleManager2;
 import mx.styles.StyleManager;
+
+/**
+ * Dispatched when manager finishes it's initialization. 
+ */
+[Event(name="init", type="flash.events.Event")]
+/**
+ * Dispatched when looks has failed to load.
+ */
+[Event(name="error", type="flash.events.ErrorEvent")]
 
 /**
  * Applies customization to the whole application based on plain text 
@@ -17,17 +31,290 @@ import mx.styles.StyleManager;
  */
 public class LookManager extends EventDispatcher
 {
-	
+
 	//--------------------------------------------------------------------------
 	//
 	//  Constructor
 	//
 	//--------------------------------------------------------------------------
 
+	/**
+	 * Constructor.
+	 */
 	public function LookManager()
 	{
 		super();
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Variables
+	//
+	//--------------------------------------------------------------------------
+	
+	private var controller:FThemeController = FThemeController.instance;
+	
+	private var assetManager:AssetManager = FThemeController.instance.assetManager;
+	
+	private var properties:Vector.<LookProperty> = new Vector.<LookProperty>();
+	
+	private var propertyMap:Object = {};
+	
+	private var styleManager:IStyleManager2 = StyleManager.getStyleManager(null);
+	
+	private var lookLoadAction:LoadLookAction;
+	
+	private var lookLoadsAction:ILoadLooksAction;
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Properties
+	//
+	//--------------------------------------------------------------------------
+	
+	//----------------------------------
+	//  defaultLookLink
+	//----------------------------------
+
+	private var _defaultLookLink:LookLink;
+
+	[Bindable("__NoChangeEvent__")]
+	/**
+	 * Default look link.
+	 */
+	public function get defaultLookLink():LookLink
+	{
+		return _defaultLookLink;
+	}
+	
+	//----------------------------------
+	//  defaultLook
+	//----------------------------------
+	
+	[Bindable("__NoChangeEvent__")]
+	/**
+	 * Default look that has no explicit styles defined and therefore sets
+	 * all look properties to their default values.
+	 */
+	public function get defaultLook():Look
+	{
+		return _defaultLookLink.look;
+	}
+	
+	//--------------------------------------
+	//  errorText
+	//--------------------------------------
+
+	private var _errorText:String;
+
+	[Bindable("error")]
+	/**
+	 * If list of looks has failed to load or some other initialization error
+	 * occured <code>ErrorEvent.ERROR</code> event is dispatched and error text
+	 * is kept in this property.
+	 */
+	public function get errorText():String 
+	{
+		return _errorText;
+	}
+
+	//--------------------------------------
+	//  lookLinks
+	//--------------------------------------
+
+	private var _lookLinks:ArrayCollection;
+	
+	[Bindable("lookLinksChange")]
+	/**
+	 * Collection of all available look links. May not be available right
+	 * from the start so make sure to listen for change event.
+	 */
+	public function get lookLinks():ArrayCollection
+	{
+		return _lookLinks;
+	}
+	
+	//--------------------------------------
+	//  initialized
+	//--------------------------------------
+
+	private var _initialized:Boolean = false;
+
+	[Bindable("init")]
+	/**
+	 * If manager has already loaded all initial looks or not.
+	 */
+	public function get initialized():Boolean 
+	{
+		return _initialized;
+	}
+
+	public function set initialized(value:Boolean):void
+	{
+		if (_initialized == value)
+			return;
 		
+		_initialized = value;
+		dispatchEvent(new Event("initializedChange"));
+	}
+
+	//--------------------------------------
+	//  lookLink
+	//--------------------------------------
+
+	private var _lookLink:LookLink;
+
+	[Bindable("lookLinkChange")]
+	/**
+	 * Currently selected look link.
+	 */
+	public function get lookLink():LookLink 
+	{
+		return _lookLink;
+	}
+
+	public function set lookLink(value:LookLink):void
+	{
+		if (_lookLink == value)
+			return;
+		
+		if (_lookLink)
+		{
+			_lookLink.removeEventListener("statusChange", lookLink_statusChangeHandler);
+			if (lookLoadAction)
+				lookLoadAction = null;
+		}
+		
+		_lookLink = value;
+		
+		if (_lookLink)
+		{
+			if (_lookLink.status == LookLinkStatus.LOADED)
+			{
+				look = _lookLink.look;
+			}
+			else
+			{
+				// look may be already loading so listen not to the load action
+				// but to the lookLink itself
+				_lookLink.addEventListener("statusChange", lookLink_statusChangeHandler);
+				
+				if (_lookLink.status == LookLinkStatus.NOT_LOADED)
+				{
+					lookLoadAction = new LoadLookAction();
+					lookLoadAction.start(_lookLink);
+				}
+			}
+		}
+		
+		dispatchEvent(new Event("lookLinkChange"));
+	}
+
+	//--------------------------------------
+	//  look
+	//--------------------------------------
+
+	private var _look:Look;
+
+	[Bindable("lookChange")]
+	/**
+	 * Currently selected look.
+	 */
+	public function get look():Look 
+	{
+		return _look;
+	}
+
+	public function set look(value:Look):void
+	{
+		if (_look == value)
+			return;
+		
+		if (_look)
+			clearLook(_look);
+		
+		_look = value;
+		
+		if (_look)
+			applyLook(_look);
+		
+		dispatchEvent(new Event("lookChange"));
+	}
+
+	//--------------------------------------------------------------------------
+	//
+	//  Methods
+	//
+	//--------------------------------------------------------------------------
+	
+	private function addProperty(property:LookProperty):void
+	{
+		if (propertyMap[property.name])
+			throw new Error("Property " + property.name + " is already added");
+		
+		properties.push(property);
+		propertyMap[property.name] = property;
+	}
+	
+	private function applyLook(look:Look):void
+	{
+		// set look assets to AssetManager so that bitmap fills could be drawn
+		var assetMap:Object = look.assetMap;
+		if (assetMap)
+		{
+			for (var id:String in assetMap)
+			{
+				assetManager.setAsset(id, assetMap[id]);
+			}
+		}
+		
+		// set our LookProperty values from the given look
+		var propertyValues:Array = look.propertyValues;
+		var n:int = propertyValues.length;
+		var appliedProperties:Object = {};
+		var i:int;
+		var property:LookProperty;
+		for (i = 0; i < n; i++)
+		{
+			var propertyValue:PropertyValue = propertyValues[i];
+			property = propertyMap[propertyValue.name];
+			if (!property)
+			{
+				trace("Property " + propertyValue.name + " not found");
+				continue;
+			}
+			
+			appliedProperties[propertyValue.name] = true;
+			property.value = propertyValue.value;
+		}
+		
+		n = properties.length;
+		for (i = 0; i < n; i++)
+		{
+			property = properties[i];
+			if (appliedProperties[property.name])
+				continue;
+			
+			property.value = property.defaultValue;
+		}
+		
+		styleManager.setStyleDeclaration("global", styleManager.getStyleDeclaration("global"), true);
+	}
+	
+	private function clearLook(look:Look):void
+	{
+		var assetMap:Object = look.assetMap;
+		if (assetMap)
+		{
+			for (var id:String in assetMap)
+			{
+				assetManager.clearAsset(id);
+			}
+		}
+	}
+	
+	public function initialize():void
+	{
 		addProperty(new ColorArrayProperty("alternatingItemColors", ""));
 		
 		addProperty(new ColorProperty("color", "0x000000"));
@@ -125,181 +412,16 @@ public class LookManager extends EventDispatcher
 		addProperty(new ColorProperty("symbolColor", "0x444444"));
 		addProperty(new FillProperty("symbolFill", "0x444444"));
 		
-		// set all properties to their default values by passing empty customization
-		look = new Look("Default");
-	}
-	
-	//--------------------------------------------------------------------------
-	//
-	//  Variables
-	//
-	//--------------------------------------------------------------------------
-	
-	private var controller:FThemeController = FThemeController.instance;
-	
-	private var assetManager:AssetManager = FThemeController.instance.assetManager;
-	
-	private var properties:Vector.<LookProperty> = new Vector.<LookProperty>();
-	
-	private var propertyMap:Object = {};
-	
-	private var styleManager:IStyleManager2 = StyleManager.getStyleManager(null);
-	
-	private var lookLoadAction:LoadLookAction;
-	
-	//--------------------------------------------------------------------------
-	//
-	//  Properties
-	//
-	//--------------------------------------------------------------------------
-	
-	//--------------------------------------
-	//  lookLink
-	//--------------------------------------
-
-	private var _lookLink:LookLink;
-
-	[Bindable("lookLinkChange")]
-	public function get lookLink():LookLink 
-	{
-		return _lookLink;
-	}
-
-	public function set lookLink(value:LookLink):void
-	{
-		if (_lookLink == value)
-			return;
+		_defaultLookLink = new LookLink();
+		// set all properties to their default values by passing empty look
+		_defaultLookLink.look = new Look("Default");
+		lookLink = _defaultLookLink;
 		
-		if (_lookLink)
-		{
-			_lookLink.removeEventListener("statusChange", lookLink_statusChangeHandler);
-			if (lookLoadAction)
-				lookLoadAction = null;
-		}
-		
-		_lookLink = value;
-		
-		if (_lookLink)
-		{
-			if (_lookLink.status == LookLinkStatus.LOADED)
-			{
-				look = _lookLink.look;
-			}
-			else
-			{
-				// look may be already loading so listen not to the load action
-				// but to the lookLink itself
-				_lookLink.addEventListener("statusChange", lookLink_statusChangeHandler);
-				
-				if (_lookLink.status == LookLinkStatus.NOT_LOADED)
-				{
-					lookLoadAction = new LoadLookAction();
-					lookLoadAction.start(_lookLink);
-				}
-			}
-		}
-		
-		dispatchEvent(new Event("lookLinkChange"));
-	}
-
-	//--------------------------------------
-	//  look
-	//--------------------------------------
-
-	private var _look:Look;
-
-	[Bindable("lookChange")]
-	public function get look():Look 
-	{
-		return _look;
-	}
-
-	public function set look(value:Look):void
-	{
-		if (_look == value)
-			return;
-		
-		if (_look)
-			clearLook(_look);
-		
-		_look = value;
-		
-		if (_look)
-			applyLook(_look);
-		
-		dispatchEvent(new Event("lookChange"));
-	}
-
-	//--------------------------------------------------------------------------
-	//
-	//  Methods
-	//
-	//--------------------------------------------------------------------------
-	
-	private function addProperty(property:LookProperty):void
-	{
-		if (propertyMap[property.name])
-			throw new Error("Property " + property.name + " is already added");
-		
-		properties.push(property);
-		propertyMap[property.name] = property;
-	}
-	
-	private function applyLook(look:Look):void
-	{
-		// set look assets to AssetManager so that bitmap fills could be drawn
-		var assetMap:Object = look.assetMap;
-		if (assetMap)
-		{
-			for (var id:String in assetMap)
-			{
-				assetManager.setAsset(id, assetMap[id]);
-			}
-		}
-		
-		// set our LookProperty values from the given look
-		var propertyValues:Array = look.propertyValues;
-		var n:int = propertyValues.length;
-		var appliedProperties:Object = {};
-		var i:int;
-		var property:LookProperty;
-		for (i = 0; i < n; i++)
-		{
-			var propertyValue:PropertyValue = propertyValues[i];
-			property = propertyMap[propertyValue.name];
-			if (!property)
-			{
-				trace("Property " + propertyValue.name + " not found");
-				continue;
-			}
-			
-			appliedProperties[propertyValue.name] = true;
-			property.value = propertyValue.value;
-		}
-		
-		n = properties.length;
-		for (i = 0; i < n; i++)
-		{
-			property = properties[i];
-			if (appliedProperties[property.name])
-				continue;
-			
-			property.value = property.defaultValue;
-		}
-		
-		styleManager.setStyleDeclaration("global", styleManager.getStyleDeclaration("global"), true);
-	}
-	
-	private function clearLook(look:Look):void
-	{
-		var assetMap:Object = look.assetMap;
-		if (assetMap)
-		{
-			for (var id:String in assetMap)
-			{
-				assetManager.clearAsset(id);
-			}
-		}
+		var factory:IFactory = controller.options.loadLooksActionFactory;
+		lookLoadsAction = factory ? factory.newInstance() : new LoadLooksAction();
+		lookLoadsAction.addEventListener(Event.COMPLETE, loadLooksAction_someHandler);
+		lookLoadsAction.addEventListener(ErrorEvent.ERROR, loadLooksAction_someHandler);
+		lookLoadsAction.start(_defaultLookLink);
 	}
 	
 	public function destroy():void
@@ -318,6 +440,25 @@ public class LookManager extends EventDispatcher
 	{
 		if (_lookLink.status == LookLinkStatus.LOADED)
 			look = _lookLink.look;
+	}
+	
+	private function loadLooksAction_someHandler(event:Event):void
+	{
+		_lookLinks = lookLoadsAction.lookLinks;
+		dispatchEvent(new Event("lookLinksChange"));
+		
+		// initialization is finished
+		if (event.type == "complete")
+		{
+			dispatchEvent(new Event(Event.INIT));
+		}
+		else
+		{
+			var errorEvent:ErrorEvent = ErrorEvent(event);
+			_errorText = errorEvent.text;
+			if (hasEventListener(errorEvent.type))
+				dispatchEvent(errorEvent);
+		}
 	}
 	
 }

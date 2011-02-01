@@ -20,6 +20,42 @@ public class LookLink extends EventDispatcher
 	
 	//--------------------------------------------------------------------------
 	//
+	//  Static methods
+	//
+	//--------------------------------------------------------------------------
+
+	/**
+	 * Creates new look link from it's XML description. e.g. 
+	 * <code>&lt;lookLink name="Plastic"/&gt;</code>.
+	 */
+	public static function fromXML(lookLinkXML:XML):LookLink
+	{
+		var lookLink:LookLink = new LookLink(lookLinkXML.@name);
+		if (lookLinkXML.@txtFileURL.length() > 0)
+			lookLink.txtFileURL = lookLinkXML.@txtFileURL;
+		if (lookLinkXML.@zipFileURL.length() > 0)
+			lookLink.zipFileURL = lookLinkXML.@zipFileURL;
+		return lookLink;
+	}
+	
+	//--------------------------------------------------------------------------
+	//
+	//  Constructor
+	//
+	//--------------------------------------------------------------------------
+
+	/**
+	 * Constructor.
+	 */
+	public function LookLink(name:String = null)
+	{
+		super();
+		
+		this.name = name;
+	}
+	
+	//--------------------------------------------------------------------------
+	//
 	//  Variables
 	//
 	//--------------------------------------------------------------------------

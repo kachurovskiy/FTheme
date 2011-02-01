@@ -11,6 +11,15 @@
 		<s:HorizontalLayout verticalAlign="contentJustify" gap="20"/>
 	</s:layout>
 	
+	<s:Group>
+		
+		<s:Rect left="0" right="0" top="0" bottom="0" fill="{getStyle('contentFill')}"/>
+		
+		<s:Label verticalAlign="middle" text="Look &amp; feel:" focusEnabled="false"
+			left="5" right="5" top="5" bottom="5" height="100%"/>
+		
+	</s:Group>
+	
 	<s:List id="list" itemRenderer="com.fTheme.view.selector.LookItemRenderer">
 		<s:layout>
 			<s:HorizontalLayout gap="0"/>
@@ -20,8 +29,6 @@
 	<s:Group id="infoGroup">
 		
 		<s:Rect left="0" right="0" top="0" bottom="0" fill="{getStyle('contentFill')}"/>
-		
-		<s:Rect left="0" right="0" top="0" bottom="0" stroke="{getStyle('borderStroke')}"/>
 		
 		<s:RichEditableText id="infoText" focusEnabled="false" editable="false"
 			left="5" right="5" top="5" bottom="5"/>

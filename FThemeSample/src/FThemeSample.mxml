@@ -2,14 +2,32 @@
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
 	xmlns:s="library://ns.adobe.com/flex/spark" 
 	xmlns:mx="library://ns.adobe.com/flex/mx" 
-	xmlns:view="com.fThemeSample.view.*"
 	xmlns:selector="com.fTheme.view.selector.*"
 	xmlns:look="com.fTheme.controller.look.*"
-	preinitialize="new Controller();">
+	preinitialize="preinit();" xmlns:local="*">
 	
 	<fx:Script>
 	<![CDATA[
-		import com.fThemeSample.controller.Controller;
+		import com.fTheme.controller.FThemeController;
+		import com.fTheme.controller.FThemeOptions;
+		
+		import mx.controls.Alert;
+		
+		/**
+		 * Make sure to call this on "preinitialize".
+		 */
+		private function preinit():void
+		{
+			var controller:FThemeController = 
+				new FThemeController(new FThemeOptions("lookLinks.xml"));
+			controller.addEventListener(ErrorEvent.ERROR, controller_errorHandler);
+		}
+		
+		private function controller_errorHandler(event:ErrorEvent):void
+		{
+			Alert.show(event.text, "FTheme error");
+		}
+		
 	]]>
 	</fx:Script>
 	
@@ -17,19 +35,11 @@
 		
 		<s:VGroup paddingLeft="20" paddingTop="20" gap="20" paddingRight="20" paddingBottom="20">
 			 
-			<selector:LookSelector>
-				<s:ArrayCollection>
-					<look:LookLink>
-						<look:Look name="Default"/>
-					</look:LookLink>
-					<look:LookLink name="Plastic"/>
-					<look:LookLink name="JapaneseTatoo"/>
-				</s:ArrayCollection>
-			</selector:LookSelector>
+			<selector:LookSelector/>
 			
-			<view:SampleSpark/>
+			<local:SampleSpark/>
 			
-			<view:SampleMX/>
+			<local:SampleMX/>
 			
 		</s:VGroup>
 		

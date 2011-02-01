@@ -1,0 +1,8 @@
+@author i.santos http://www.getpersonas.com/gallery/designer/i.santos
+@author Maxim Kachurovskiy http://kachurovksiy.com
+
+@license CC BY-NC-SA 3.0 http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+titlebarFill: bitmap kanagawaWaveHeader fillMode clip
+toolbarFill: bitmap kanagawaWaveHeader fillMode clip
+controlbarFill: bitmap kanagawaWaveFooter fillMode clip
