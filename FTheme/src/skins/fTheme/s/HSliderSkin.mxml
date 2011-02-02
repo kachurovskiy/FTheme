@@ -62,11 +62,11 @@ in accordance with the terms of the license agreement accompanying it.
 	</fx:Declarations>
 	
 	<s:Button id="track" left="0" right="0" verticalCenter="0" minWidth="33" width="100"
-		skinClass="s.skins.fTheme.SliderTrackSkin" />
+		skinClass="skins.fTheme.s.SliderTrackSkin" />
 	
 	<s:Button id="thumb" verticalCenter="0"
 		width="{getStyle('sliderThumbSize')}" 
 		height="{getStyle('sliderThumbSize')}" 
-		skinClass="s.skins.fTheme.SliderThumbSkin" />
+		skinClass="skins.fTheme.s.SliderThumbSkin" />
 	
 </s:SparkSkin>

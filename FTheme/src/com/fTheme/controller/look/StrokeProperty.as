@@ -40,7 +40,20 @@ public class StrokeProperty extends LookProperty
 		// allow to use simply the stroke color by addind
 		// "someStrokeColor" uint style in addition to "someStroke" IStroke.
 		var stroke:SolidColorStroke = object as SolidColorStroke;
-		global.setStyle(name + "Color", stroke ? stroke.color : undefined); 
+		var styleName:String;
+		var alphaStyleName:String;
+		if (name == "borderStroke")
+		{
+			styleName = "borderColor";
+			alphaStyleName = "borderAlpha";
+		}
+		else
+		{
+			styleName = name + "Color";
+			alphaStyleName = name + "Alpha";
+		}
+		global.setStyle(styleName, stroke ? stroke.color : undefined); 
+		global.setStyle(alphaStyleName, stroke ? stroke.alpha : undefined);
 	}
 	
 }

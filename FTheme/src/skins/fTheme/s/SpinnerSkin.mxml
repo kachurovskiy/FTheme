@@ -22,9 +22,9 @@ in accordance with the terms of the license agreement accompanying it.
 	</s:states>
 	
 	<s:Button id="incrementButton" left="0" right="0" top="0" height="50%" 
-		skinClass="s.skins.fTheme.SpinnerIncrementButtonSkin" /> 
+		skinClass="skins.fTheme.s.SpinnerIncrementButtonSkin" /> 
 	
 	<s:Button id="decrementButton" left="0" right="0" bottom="0" height="50%"  
-		skinClass="s.skins.fTheme.SpinnerDecrementButtonSkin" />
+		skinClass="skins.fTheme.s.SpinnerDecrementButtonSkin" />
 	
 </s:SparkSkin>

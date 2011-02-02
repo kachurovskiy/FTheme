@@ -42,6 +42,8 @@ public class LookProperty
 	
 	protected var global:CSSStyleDeclaration;
 	
+	private var styleInjections:Vector.<StyleInjection>;
+	
 	//--------------------------------------------------------------------------
 	//
 	//  Properties
@@ -97,6 +99,8 @@ public class LookProperty
 		_value = value;
 		var parsedValue:* = parseValue(_value);
 		applyValue(parsedValue);
+		if (styleInjections)
+			applyStyleInjections(parsedValue);
 	}
 	
 	//--------------------------------------------------------------------------
@@ -121,10 +125,55 @@ public class LookProperty
 	 * Applies given style value to the applicatiopn styles. Sometimes it is 
 	 * necessary to set style value not only to <code>global</code>
 	 * but to other style declarations too.
+	 * 
+	 * @param object Parsed style property value.
 	 */
 	protected function applyValue(object:*):void
 	{
 		global.setStyle(_name, object);
+	}
+	
+	/**
+	 * Applies style injections when value is set.
+	 * 
+	 * @param object Parsed style property value.
+	 */
+	protected function applyStyleInjections(object:*):void
+	{
+		var n:int = styleInjections.length;
+		for (var i:int = 0; i < n; i++)
+		{
+			var injection:StyleInjection = styleInjections[i];
+			var selector:String = injection.selector;
+			var declaration:CSSStyleDeclaration = 
+				styleManager.getStyleDeclaration(selector);
+			if (!declaration)
+			{
+				trace("Warning: selector \"" + selector + "\" not found");
+				continue;
+			}
+			
+			declaration.setStyle(injection.styleName, object);
+		}
+	}
+	
+	/**
+	 * Sometimes property needs to inject values in different class declatations
+	 * to affect MX components because in MX we e.g. do not control labels in skin.
+	 * 
+	 * @param selector Name of <code>CSSStyleDeclaration</code> to use e.g. "mx.components.Panel"
+	 * 
+	 * @param styleName Style name in declaration e.g. "color" for text color.
+	 * If not specified, <code>name</code> is used.
+	 */
+	public function addStyleInjection(selector:String, styleName:String = null):void
+	{
+		if (!styleInjections)
+			styleInjections = new Vector.<StyleInjection>()
+		
+		var injection:StyleInjection = new StyleInjection(selector, 
+			styleName ? styleName : name);
+		styleInjections.push(injection);
 	}
 	
 }

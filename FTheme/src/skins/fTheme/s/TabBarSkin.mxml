@@ -29,7 +29,7 @@ in accordance with the terms of the license agreement accompanying it.
 		</s:layout>
 		<s:itemRenderer>
 			<fx:Component>
-				<s:ButtonBarButton skinClass="s.skins.fTheme.TabBarButtonSkin" />
+				<s:ButtonBarButton skinClass="skins.fTheme.s.TabBarButtonSkin" />
 			</fx:Component>
 		</s:itemRenderer>
 	</s:DataGroup>

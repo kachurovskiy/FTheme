@@ -99,6 +99,10 @@
 				</s:ArrayCollection>
 			</mx:HorizontalList>
 			
+		</s:VGroup>
+		
+		<s:VGroup gap="10">
+			
 			<mx:List labelField="name" height="60">
 				<s:ArrayCollection>
 					<fx:Object name="MX"/>
@@ -106,18 +110,10 @@
 				</s:ArrayCollection>
 			</mx:List>
 			
-		</s:VGroup>
-		
-		<s:VGroup gap="10">
-			
-			<mx:Panel title="MX Panel">
-				<mx:Spacer width="21" height="21"/>
-			</mx:Panel>
-			
 			<mx:Panel title="MX Panel with ControlBar">
 				<mx:Spacer width="21" height="21"/>
 				<mx:ControlBar>
-					<mx:Label text="MX ControlBar"/>
+					<mx:Label text="MX ControlBar" color="{getStyle('controlbarColor')}"/>
 				</mx:ControlBar>
 			</mx:Panel>
 			
@@ -163,14 +159,6 @@
 			<mx:TextInput text="MX TextInput" width="100"/>
 			
 			<mx:TextArea text="MX TextArea" height="30" width="100"/>
-			
-		</s:VGroup>
-		
-		<s:VGroup gap="10">
-			
-			<mx:TitleWindow title="MX TitleWindow">
-				<mx:Spacer width="120" height="10"/>
-			</mx:TitleWindow>
 			
 		</s:VGroup>
 		

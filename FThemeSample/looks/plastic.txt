@@ -1,4 +1,4 @@
-@author Maxim Kachurovskiy http://kachurovksiy.com
+@author Maxim Kachurovskiy http://kachurovskiy.com
 @author Harish Sivaramakrishnan http://scalenine.com/
 
 @license CC BY 2.5 http://creativecommons.org/licenses/by/2.5/

@@ -1,8 +1,8 @@
 @author _ntpl_ http://www.getpersonas.com/gallery/designer/_ntpl_
-@author Maxim Kachurovskiy http://kachurovksiy.com
+@author Maxim Kachurovskiy http://kachurovskiy.com
 
 @license CC BY-NC-SA 3.0 http://creativecommons.org/licenses/by-nc-sa/3.0/
 
 titlebarFill: bitmap brushedMetalHeader fillMode clip
-toolbarFill: bitmap brushedMetalHeader fillMode clip
+toolbarFill: bitmap brushedMetalHeader fillMode clip y -30
 controlbarFill: bitmap brushedMetalFooter fillMode clip

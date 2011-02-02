@@ -136,12 +136,13 @@ in accordance with the terms of the license agreement accompanying it.
 				<!--- @copy spark.components.Panel#titleDisplay -->
 				<s:Label id="titleDisplay" maxDisplayedLines="1"
 					left="9" right="3" top="1" bottom="0" minHeight="30"
-					verticalAlign="middle" textAlign="start" fontWeight="bold"/>
+					verticalAlign="middle" textAlign="start" fontWeight="bold"
+					color="{getStyle('titlebarColor')}"/>
 				
 				<!-- layer 4: moveArea -->
 				<s:Group id="moveArea" left="0" right="0" top="0" bottom="0" />
 				
-				<s:Button id="closeButton" skinClass="s.skins.fTheme.TitleWindowCloseButtonSkin"
+				<s:Button id="closeButton" skinClass="skins.fTheme.s.TitleWindowCloseButtonSkin"
 					width="15" height="15" right="7" top="7" />
 				
 			</s:Group>

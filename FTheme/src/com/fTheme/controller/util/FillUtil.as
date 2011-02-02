@@ -124,7 +124,10 @@ public class FillUtil
 		
 		var assetId:String = parts.shift();
 		var bitmapFill:BitmapFill2 = new BitmapFill2();
-		bitmapFill.source = FThemeController.instance.assetManager.getAsset(assetId);
+		var classValue:Class = FThemeController.instance.assetManager.getAsset(assetId);
+		if (!classValue)
+			return null;
+		bitmapFill.source = new classValue();
 		
 		var n:int = parts.length;
 		for (var i:int = 0; i < n; i++)
@@ -132,10 +135,20 @@ public class FillUtil
 			var part:String = parts[i];
 			if (part == "fillMode")
 				bitmapFill.fillMode = parts[++i];
+			else if (part == "horizontalAlign")
+				bitmapFill.horizontalAlign = parts[++i];
+			else if (part == "verticalAlign")
+				bitmapFill.verticalAlign = parts[++i];
+			else if (part == "maintainAspectRatio")
+				bitmapFill.maintainAspectRatio = parts[++i] == "true";
 			else if (part == "smooth")
 				bitmapFill.smooth = parts[++i] == "true";
 			else if (part == "rotation")
 				bitmapFill.rotation = Number(parts[++i]);
+			else if (part == "x")
+				bitmapFill.constantX = Number(parts[++i]);
+			else if (part == "y")
+				bitmapFill.constantY = Number(parts[++i]);
 		}
 		
 		return bitmapFill;

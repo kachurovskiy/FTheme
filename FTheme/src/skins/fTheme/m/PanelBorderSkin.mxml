@@ -235,7 +235,7 @@ in accordance with the terms of the license agreement accompanying it.
 		<s:Rect id="background" left="0" top="0" right="0" bottom="0" fill="{getStyle('panelFill')}"/>
 		
 		<!-- layer 3: title bar fill -->
-		<s:Rect id="tbbg" left="0" right="0" top="0" minHeight="30" fill="{getStyle('titlebarFill')}"/>
+		<s:Rect id="tbbg" left="0" right="0" top="0" minHeight="29" fill="{getStyle('titlebarFill')}"/>
 		
 		<s:Line id="tbdiv" left="0" right="0" top="30" stroke="{getStyle('titlebarStroke')}"/>
 		

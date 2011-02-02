@@ -38,6 +38,10 @@
 				</s:text>
 			</s:TextArea>
 			
+		</s:VGroup>
+		
+		<s:VGroup gap="10">
+			
 			<s:ButtonBar>
 				<s:ArrayCollection>
 					<fx:String>First</fx:String>
@@ -53,10 +57,6 @@
 				<s:CheckBox label="Selected" selected="true"/>
 				
 			</s:HGroup>
-			
-		</s:VGroup>
-		
-		<s:VGroup gap="10">
 			
 			<s:ComboBox requireSelection="true">
 				<s:ArrayCollection>
@@ -82,7 +82,7 @@
 			
 			<s:HSlider maximum="100" value="50"/>
 			
-			<s:VSlider maximum="100" value="50"/>
+			<s:VSlider maximum="100" value="50" height="50"/>
 			
 			<s:List height="70">
 				<s:ArrayCollection>
@@ -126,7 +126,7 @@
 			
 			<s:ToggleButton label="Toggle Button"/>
 			
-			<s:TitleWindow title="Title Window">
+			<s:TitleWindow title="Title Window" height="70">
 				
 				<mx:Spacer width="30" height="30"/>
 				
@@ -140,7 +140,7 @@
 		
 		<s:Button label="Save"/>
 		
-		<mx:LinkButton label="Cancel"/>
+		<mx:LinkButton label="Cancel" color="{getStyle('controlbarColor')}"/>
 		
 	</controlbar:Controlbar>
 	

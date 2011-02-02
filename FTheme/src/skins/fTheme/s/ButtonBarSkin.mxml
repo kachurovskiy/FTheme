@@ -26,15 +26,15 @@ in accordance with the terms of the license agreement accompanying it.
 	
 	<fx:Declarations>
 		<fx:Component id="firstButton">
-			<s:ButtonBarButton skinClass="s.skins.fTheme.ButtonBarFirstButtonSkin" />
+			<s:ButtonBarButton skinClass="skins.fTheme.s.ButtonBarFirstButtonSkin" />
 		</fx:Component>
 		
 		<fx:Component id="middleButton" >
-			<s:ButtonBarButton skinClass="s.skins.fTheme.ButtonBarMiddleButtonSkin" />
+			<s:ButtonBarButton skinClass="skins.fTheme.s.ButtonBarMiddleButtonSkin" />
 		</fx:Component>
 		
 		<fx:Component id="lastButton" >
-			<s:ButtonBarButton skinClass="s.skins.fTheme.ButtonBarLastButtonSkin" />
+			<s:ButtonBarButton skinClass="skins.fTheme.s.ButtonBarLastButtonSkin" />
 		</fx:Component>
 	</fx:Declarations>
 	

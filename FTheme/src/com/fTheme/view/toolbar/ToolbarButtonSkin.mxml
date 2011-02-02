@@ -38,6 +38,6 @@ in accordance with the terms of the license agreement accompanying it.
 		scaleContent="false" horizontalCenter="0"/>
 	
 	<s:Label id="labelDisplay" textAlign="center" verticalAlign="middle"
-		left="2" right="2" top="38" bottom="0"/>
+		left="2" right="2" top="38" bottom="0" color.up="{getStyle('toolbarColor')}"/>
 	
 </s:SparkSkin>

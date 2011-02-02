@@ -330,18 +330,20 @@ public class LookManager extends EventDispatcher
 		
 		addProperty(new FillProperty("progressBarFill", "0xFFFFFF 0xD8D8D8"));
 		addProperty(new FillProperty("progressBarTrackFill", "0x9A9A9A 0xBDBDBD"));
-		addProperty(new StrokeProperty("progressBarStroke", "0x686868"));
+		addProperty(new StrokeProperty("progressBarStroke", "0x888888"));
 		addProperty(new NumberProperty("progressBarHeight", "10"));
 		
 		addProperty(new FillProperty("titlebarFill", "0xE2E2E2 0xD9D9D9"));
-		addProperty(new StrokeProperty("titlebarStroke", "0xC0C0C0"));
-		addProperty(new ColorProperty("titlebarColor", "0x000000"));
+		addProperty(new StrokeProperty("titlebarStroke", "0x888888"));
+		var titlebarColor:ColorProperty = new ColorProperty("titlebarColor", "0x000000");
+		// MX title label color can not be set in skin, set it to corresponding CSS class
+		titlebarColor.addStyleInjection(".windowStyles", "color");
+		addProperty(titlebarColor);
 		
 		addProperty(new FillProperty("contentFill", "0xFFFFFF"));
 		addProperty(new StrokeProperty("contentStroke", "0x888888"));
 		addProperty(new NumberProperty("contentCornerRadius", "0"));
 		
-		addProperty(new ColorProperty("borderColor", "0x888888"));
 		addProperty(new StrokeProperty("borderStroke", "0x888888"));
 		
 		addProperty(new FillProperty("buttonUpFill", 
@@ -354,7 +356,7 @@ public class LookManager extends EventDispatcher
 			"0xBCBCBC 0xB5B6B7 ratio 0.5 0xAAAAAB ratio 0.51 0x9C9E9F"));
 		addProperty(new FillProperty("buttonDisabledFill", 
 			"0xFFFFFF 0xFAFAFA ratio 0.5 0xF5F5F5 ratio 0.51 0xEAEAEA"));
-		addProperty(new StrokeProperty("buttonStroke", "0x444444"));
+		addProperty(new StrokeProperty("buttonStroke", "0x888888"));
 		addProperty(new NumberProperty("buttonCornerRadius", "3"));
 		addProperty(new NumberProperty("buttonMinWidth", "21"));
 		addProperty(new NumberProperty("buttonMinHeight", "21"));
@@ -374,7 +376,7 @@ public class LookManager extends EventDispatcher
 		addProperty(new StrokeProperty("highlightStroke", "0xFFFFFF alpha 0.2"));
 		
 		addProperty(new FillProperty("toolbarFill", "0xE0E0E0 0xDADADA"));
-		addProperty(new ColorProperty("toolbarColor", "0xFFFFFF"));
+		addProperty(new ColorProperty("toolbarColor", "0x000000"));
 		addProperty(new StrokeProperty("toolbarStroke", "0xC0C0C0"));
 		addProperty(new FillProperty("toolbarButtonUpFill", "0xFFFFFF alpha 0"));
 		addProperty(new FillProperty("toolbarButtonOverFill", "0xCEDBEF"));
@@ -386,7 +388,7 @@ public class LookManager extends EventDispatcher
 		addProperty(new ColorProperty("controlbarColor", "0x000000"));
 		
 		addProperty(new FillProperty("inputFill", "0xFFFFFF"));
-		addProperty(new StrokeProperty("inputStroke", "0x000000"));
+		addProperty(new StrokeProperty("inputStroke", "0x888888"));
 		addProperty(new NumberProperty("inputCornerRadius", "0"));
 		
 		addProperty(new FillProperty("hScrollBarTrackFill", "0xCACACA"));

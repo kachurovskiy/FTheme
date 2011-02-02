@@ -12,8 +12,8 @@ in accordance with the terms of the license agreement accompanying it.
 <s:SparkSkin xmlns:fx="http://ns.adobe.com/mxml/2009" 
 	xmlns:s="library://ns.adobe.com/flex/spark"
 	xmlns:fb="http://ns.adobe.com/flashbuilder/2009" 
-	minHeight="{getStyle('scrollBarButtonSize') * 2 + getStyle('scrollBarThumbMinSize')}" 
-	width="{getStyle('scrollBarSize')}" 
+	minWidth="{getStyle('scrollBarButtonSize') * 2 + getStyle('scrollBarThumbMinSize')}" 
+	height="{getStyle('scrollBarSize')}" 
 	alpha.disabled="0.5" alpha.inactive="0.5">
 	
 	<fx:Metadata>
@@ -28,21 +28,21 @@ in accordance with the terms of the license agreement accompanying it.
 		<s:State name="inactive" />
 	</s:states>
 	
-	<s:Button id="track" top="{Math.max(0, getStyle('scrollBarButtonSize') - 1)}" 
-		bottom="{Math.max(0, getStyle('scrollBarButtonSize') - 1)}" height="54" 
+	<s:Button id="track" left="{Math.max(0, getStyle('scrollBarButtonSize') - 1)}" 
+		right="{Math.max(0, getStyle('scrollBarButtonSize') - 1)}" width="54" 
 		focusEnabled="false"
-		skinClass="s.skins.fTheme.VScrollBarTrackSkin" />
+		skinClass="skins.fTheme.s.HScrollBarTrackSkin" />
 	
-	<s:Button id="thumb"
+	<s:Button id="thumb" 
 		focusEnabled="false" visible.inactive="false"
-		skinClass="s.skins.fTheme.VScrollBarThumbSkin" />
+		skinClass="skins.fTheme.s.HScrollBarThumbSkin" />
 	
-	<s:Button id="decrementButton" top="0"
+	<s:Button id="decrementButton" left="0"
 		focusEnabled="false" enabled.inactive="false"
-		skinClass="s.skins.fTheme.ScrollBarUpButtonSkin" />
+		skinClass="skins.fTheme.s.ScrollBarLeftButtonSkin" />
 	
-	<s:Button id="incrementButton" bottom="0"
+	<s:Button id="incrementButton" right="0"
 		focusEnabled="false" enabled.inactive="false"
-		skinClass="s.skins.fTheme.ScrollBarDownButtonSkin" />
+		skinClass="skins.fTheme.s.ScrollBarRightButtonSkin" />
 	
 </s:SparkSkin>

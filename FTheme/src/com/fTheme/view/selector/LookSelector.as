@@ -69,6 +69,9 @@ public class LookSelector extends SkinnableComponent
 	[SkinPart]
 	public var infoText:RichEditableText;
 	
+	[Bindable]
+	public var label:String = "Look & feel:";
+	
 	//--------------------------------------------------------------------------
 	//
 	//  Properties
@@ -181,7 +184,7 @@ public class LookSelector extends SkinnableComponent
 			n = licenses ? licenses.length : 0;
 			if (n > 0)
 			{
-				paragraph = <p xmlns="http://ns.adobe.com/textLayout/2008">Licenses: </p>;
+				paragraph = <p xmlns="http://ns.adobe.com/textLayout/2008">License: </p>;
 				for (i = 0; i < n; i++)
 				{
 					if (i > 0)

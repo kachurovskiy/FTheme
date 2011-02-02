@@ -54,12 +54,12 @@ in accordance with the terms of the license agreement accompanying it.
 	</s:states>
 	
 	<s:Button id="incrementButton" right="0" top="0" height="50%" 
-		skinClass="s.skins.fTheme.NumericStepperIncrementButtonSkin" />
+		skinClass="skins.fTheme.s.NumericStepperIncrementButtonSkin" />
 	
 	<s:Button id="decrementButton" right="0" bottom="0" height="50%" 
-		skinClass="s.skins.fTheme.NumericStepperDecrementButtonSkin" />
+		skinClass="skins.fTheme.s.NumericStepperDecrementButtonSkin" />
 	
 	<s:TextInput id="textDisplay" left="0" top="0" right="17" bottom="0"
-		skinClass="s.skins.fTheme.NumericStepperTextInputSkin" />
+		skinClass="skins.fTheme.s.NumericStepperTextInputSkin" />
 	
 </s:SparkSkin>
