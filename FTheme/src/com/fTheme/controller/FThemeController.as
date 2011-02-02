@@ -63,7 +63,7 @@ public class FThemeController extends EventDispatcher
 	
 	public static function getDefaultOptions():FThemeOptions
 	{
-		var options:FThemeOptions = new FThemeOptions();
+		// find FlashVars. Since app is not even added to stage it's not straightforward 
 		var stage:Stage;
 		for (var p:* in SystemManager.allSystemManagers)
 		{
@@ -74,6 +74,8 @@ public class FThemeController extends EventDispatcher
 		}
 		var flashVars:Object = stage.root.loaderInfo.parameters;
 		
+		var options:FThemeOptions = new FThemeOptions();
+		
 		// check if we should allow default look
 		var showDefaultLook:String = flashVars.showDefaultLook;
 		if (showDefaultLook == "false")
@@ -81,7 +83,10 @@ public class FThemeController extends EventDispatcher
 		
 		if (flashVars.lookLinkNames)
 			options.lookLinkNames = decodeURIComponent(flashVars.lookLinkNames).split(",");
-		options.lookLinksXMLURL = flashVars.lookLinksXMLURL;
+		if (flashVars.lookLinksXMLURL)
+			options.lookLinksXMLURL = flashVars.lookLinksXMLURL;
+		else // by default load lookLinks.xml from the same folder as SWF
+			options.lookLinksXMLURL = "lookLinks.xml";
 		
 		return options;
 	}
