@@ -1,0 +1,14 @@
+@author Maxim Kachurovskiy http://kachurovskiy.com
+@author Josef Ottosson http://josf.se/
+
+@license CC BY-SA 3.0 http://creativecommons.org/licenses/by-sa/3.0/
+
+applicationFill: bitmap nightSkyBackground fillMode scale maintainAspectRatio true smooth true
+titlebarFill: bitmap nightSkyHeader fillMode clip horizontalAlign right
+titlebarColor: 0xFFFFFF
+toolbarFill: bitmap nightSkyHeader fillMode clip horizontalAlign right y -30
+toolbarColor: 0xFFFFFF
+controlbarFill: bitmap nightSkyFooter fillMode clip horizontalAlign right
+controlbarColor: 0xFFFFFF
+contentFill: 0xE5E5E5
+panelFill: 0xE5E5E5

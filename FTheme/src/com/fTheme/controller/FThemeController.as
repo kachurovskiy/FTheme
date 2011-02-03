@@ -9,6 +9,7 @@ import flash.events.Event;
 import flash.events.EventDispatcher;
 import flash.utils.setTimeout;
 
+import mx.controls.Alert;
 import mx.core.mx_internal;
 import mx.managers.ISystemManager;
 import mx.managers.SystemManager;
@@ -222,7 +223,11 @@ public class FThemeController extends EventDispatcher
 		}
 
 		if (!hasEventListener(event.type))
+		{
+			if (event is ErrorEvent)
+				Alert.show(ErrorEvent(event).text, "FTheme error");
 			return;
+		}
 		dispatchEvent(event);
 	}
 	

@@ -416,7 +416,9 @@ public class LookManager extends EventDispatcher
 		
 		_defaultLookLink = new LookLink();
 		// set all properties to their default values by passing empty look
-		_defaultLookLink.look = new Look("Default");
+		var defaultLook:Look = new Look("Default");
+		defaultLook.licenses = Vector.<License>([ new License("MIT") ]);
+		_defaultLookLink.look = defaultLook;
 		lookLink = _defaultLookLink;
 		
 		var factory:IFactory = controller.options.loadLooksActionFactory;

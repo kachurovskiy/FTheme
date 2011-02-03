@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Panel xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx" 
+	xmlns:toolbar="com.fTheme.view.toolbar.*" 
+	xmlns:controlbar="com.fTheme.view.controlbar.*" 
+	title="Other" xmlns:components="com.fTheme.components.*">
+	
+	<s:HGroup paddingLeft="10" paddingRight="10" paddingTop="10" paddingBottom="10" gap="10">
+		
+		<s:VGroup gap="10">
+			
+			<s:TextArea editable="false" borderVisible="false" width="100" height="60">
+				<s:text>
+					Spark TextArea. Lorem Ipsum is simply dummy text of the printing and typesetting 
+					industry. Lorem Ipsum has been the industry's standard dummy text 
+					ever since the 1500s, when an unknown printer took a galley of 
+					type and scrambled it to make a type specimen book. It has 
+					survived not only five centuries, but also the leap into electronic 
+					typesetting, remaining essentially unchanged. It was popularised 
+					in the 1960s with the release of Letraset sheets containing Lorem 
+					Ipsum passages, and more recently with desktop publishing software 
+					like Aldus PageMaker including versions of Lorem Ipsum.
+				</s:text>
+			</s:TextArea>
+			
+			<s:Label text="Spark ScrollBars"/>
+			
+			<s:HScrollBar minimum="0" maximum="500" width="200" value="200"/>
+			
+			<s:HScrollBar enabled="false"/>
+			
+			<s:TextArea text="Text Area" width="100" height="30"/>
+			
+			<s:TextInput text="Text Input"/>
+			
+		</s:VGroup>
+		
+		<s:VGroup gap="10">
+			
+			<mx:DateChooser/>
+			
+		</s:VGroup>
+		
+		<s:VGroup gap="10">
+			
+			<mx:HRule/>
+			
+			<mx:HDividedBox>
+				<mx:Label text="HDivided"/>
+				<mx:Label text="Box"/>
+			</mx:HDividedBox>
+			
+			<mx:ProgressBar id="progressBar" mode="manual" width="80"
+				creationComplete="progressBar.setProgress(50, 100);" maximum="100"/>
+			
+			<mx:VBox width="100" height="70">
+				<s:Label text="MX ScrollBars"/>
+				<mx:Spacer width="200" height="200"/>
+			</mx:VBox>
+			
+		</s:VGroup>
+		
+		<s:VGroup gap="10">
+			
+			<mx:TabNavigator width="150" height="50">
+				<mx:Canvas label="One"/>
+				<mx:Canvas label="Two"/>
+				<mx:Canvas label="Three"/>
+			</mx:TabNavigator>
+			
+			<mx:TextInput text="MX TextInput" width="100"/>
+			
+			<mx:TextArea text="MX TextArea" height="30" width="100"/>
+			
+		</s:VGroup>
+		
+	</s:HGroup>
+	
+</s:Panel>

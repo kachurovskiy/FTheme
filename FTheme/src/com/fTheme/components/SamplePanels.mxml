@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Panel xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx" 
+	xmlns:toolbar="com.fTheme.view.toolbar.*" 
+	xmlns:controlbar="com.fTheme.view.controlbar.*"
+	xmlns:components="com.fTheme.components.*"
+	title="Lists - Spark Panel" width="600">
+	
+	<s:layout>
+		<s:VerticalLayout gap="0" horizontalAlign="contentJustify"/>
+	</s:layout>
+	
+	<components:Toolbar>
+		
+		<components:ToolbarButton label="Toolbar button 1" icon="@Embed('icon1.png')"/>
+		
+		<components:ToolbarButton label="Toolbar button 2" icon="@Embed('icon2.png')"/>
+		
+	</components:Toolbar>
+	
+	<s:HGroup paddingLeft="20" paddingRight="20" paddingTop="20" paddingBottom="20" gap="20">
+		
+		<s:TitleWindow title="Spark TitleWindow" height="70" width="150">
+			
+			<mx:Spacer width="30" height="30"/>
+			
+		</s:TitleWindow>
+		
+		<mx:Panel title="MX Panel with ControlBar">
+			<mx:Spacer width="21" height="21"/>
+			<mx:ControlBar>
+				<mx:Label text="MX ControlBar" color="{getStyle('controlbarColor')}"/>
+			</mx:ControlBar>
+		</mx:Panel>
+		
+	</s:HGroup>
+	
+	<components:Controlbar>
+		
+		<s:Label text="Controlbar" color="{getStyle('controlbarColor')}"/>
+		
+		<s:Button label="Save"/>
+		
+		<mx:LinkButton label="Cancel" color="{getStyle('controlbarColor')}"/>
+		
+	</components:Controlbar>
+	
+</s:Panel>

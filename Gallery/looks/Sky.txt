@@ -1,0 +1,18 @@
+@author Maxim Kachurovskiy http://kachurovskiy.com
+@author blueSceaDa http://www.chaotika.org/~bluesceada/
+
+@license CC BY-NC 2.5 http://creativecommons.org/licenses/by-nc/2.5/
+
+applicationFill: bitmap skyBackground fillMode scale maintainAspectRatio true smooth true
+titlebarFill: bitmap skyHeader fillMode clip horizontalAlign right
+titlebarColor: 0xFFFFFF
+toolbarFill: bitmap skyHeader fillMode clip horizontalAlign right y -30
+toolbarColor: 0xFFFFFF
+controlbarFill: bitmap skyFooter fillMode clip horizontalAlign right
+controlbarColor: 0xFFFFFF
+panelStroke: 0xFFFFFF alpha 0.5
+panelCornerRadius: 4
+panelFill: 0xEFEAD2
+contentFill: 0xEFEAD2
+contentStroke: 0xFFFFFF
+borderStroke: 0xFFFFFF

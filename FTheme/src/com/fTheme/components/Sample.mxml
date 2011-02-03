@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:VGroup xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx"
+	xmlns:components="com.fTheme.components.*" 
+	currentState="{buttonBar.selectedItem.name}" gap="10">
+	
+	<fx:Script>
+	<![CDATA[
+		import mx.collections.ArrayCollection;
+		
+		private function getStates():ArrayCollection
+		{
+			return new ArrayCollection(states);
+		}
+	]]>
+	</fx:Script>
+	
+	<s:states>
+		<s:State name="Buttons"/>
+		<s:State name="Lists"/>
+		<s:State name="Panels"/>
+		<s:State name="Other"/>
+	</s:states>
+	
+	<s:ButtonBar dataProvider="{getStates()}" labelField="name" 
+		id="buttonBar" requireSelection="true"/>
+	
+	<components:SampleButtons includeIn="Buttons"/>
+	
+	<components:SampleLists includeIn="Lists"/>
+	
+	<components:SamplePanels includeIn="Panels"/>
+	
+	<components:SampleOther includeIn="Other"/>
+	
+</s:VGroup>

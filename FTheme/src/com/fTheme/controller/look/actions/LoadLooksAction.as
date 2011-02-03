@@ -158,12 +158,12 @@ public class LoadLooksAction extends EventDispatcher implements ILoadLooksAction
 		}
 		catch (error:Error)
 		{
-			finish("failed to parse look XML from \"" + url + "\": " + error.message);
+			finish("Failed to parse look XML from \"" + url + "\".\n\n" + error.message);
 			return;
 		}
 		if (xml.name() != "lookLinks")
 		{
-			finish("invalid look XML from \"" + url + "\": " + urlLoader.data);
+			finish("Invalid look XML from \"" + url + "\".\n\n" + urlLoader.data);
 			return;
 		}
 		for each (var lookLinkNode:XML in xml.lookLink)
@@ -175,7 +175,7 @@ public class LoadLooksAction extends EventDispatcher implements ILoadLooksAction
 	
 	private function urlLoader_errorHandler(event:ErrorEvent):void
 	{
-		finish("failed to load look XML from \"" + url + "\": " + event.text);
+		finish("Failed to load look XML from \"" + url + "\".\n\n" + event.text);
 	}
 	
 }

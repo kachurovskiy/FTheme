@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx">
+
+	<fx:Metadata>
+		[HostComponent("com.fTheme.components.LookSelector")]
+	</fx:Metadata>
+	
+	<fx:Declarations>
+		<s:HorizontalLayout gap="0" id="horizontalLayout" variableColumnWidth="true"/>
+		<s:VerticalLayout gap="0" horizontalAlign="contentJustify" id="verticalLayout"
+			variableRowHeight="false"/>
+	</fx:Declarations>
+	
+	<s:states>
+		<s:State name="horizontal"/>
+		<s:State name="vertical"/>
+	</s:states>
+	
+	<s:List id="list" itemRenderer="com.fTheme.components.LookItemRenderer"
+		layout.horizontal="{horizontalLayout}"
+		layout.vertical="{verticalLayout}"/>
+	
+</s:Skin>

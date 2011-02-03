@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Panel xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx" 
+	xmlns:toolbar="com.fTheme.view.toolbar.*" 
+	xmlns:controlbar="com.fTheme.view.controlbar.*" 
+	title="Buttons" xmlns:components="com.fTheme.components.*">
+	
+	<s:HGroup paddingLeft="10" paddingRight="10" paddingTop="10" paddingBottom="10" gap="10">
+		
+		<s:VGroup gap="10">
+			
+			<s:Button label="Spark Button"/>
+			
+			<s:ButtonBar>
+				<s:ArrayCollection>
+					<fx:String>Spark</fx:String>
+					<fx:String>Button</fx:String>
+					<fx:String>Bar</fx:String>
+				</s:ArrayCollection>
+			</s:ButtonBar>
+			
+			<s:HGroup>
+				
+				<s:CheckBox label="Spark Check Box"/>
+				
+				<s:CheckBox label="Selected" selected="true"/>
+				
+			</s:HGroup>
+			
+			<s:ComboBox requireSelection="true">
+				<s:ArrayCollection>
+					<fx:String>Spark</fx:String>
+					<fx:String>ComboBox</fx:String>
+				</s:ArrayCollection>
+			</s:ComboBox>
+			
+			<s:DropDownList requireSelection="true">
+				<s:ArrayCollection>
+					<fx:String>Spark</fx:String>
+					<fx:String>DropDownList</fx:String>
+				</s:ArrayCollection>
+			</s:DropDownList>
+			
+			<s:HSlider maximum="100" value="50"/>
+			
+			<s:VSlider maximum="100" value="50" height="50"/>
+			
+		</s:VGroup>
+		
+		<s:VGroup gap="10">
+			
+			<s:NumericStepper maximum="20" value="10"/>
+			
+			<s:RadioButton selected="true" label="Spark RadioButton"/>
+			
+			<s:RadioButton selected="false" label="Radio Button"/>
+			
+			<s:Spinner/>
+			
+			<s:TabBar>
+				<s:ArrayCollection>
+					<fx:String>Spark</fx:String>
+					<fx:String>Tab</fx:String>
+					<fx:String>Bar</fx:String>
+				</s:ArrayCollection>
+			</s:TabBar>
+			
+			<s:ToggleButton label="Spark Toggle Button"/>
+			
+		</s:VGroup>
+		
+		<s:VGroup gap="10">
+			
+			<mx:Button label="MX Button"/>
+			
+			<mx:ButtonBar>
+				<s:ArrayCollection>
+					<fx:String>MX</fx:String>
+					<fx:String>Button</fx:String>
+					<fx:String>Bar</fx:String>
+				</s:ArrayCollection>
+			</mx:ButtonBar>
+			
+			<mx:CheckBox label="MX Check Box"/>
+			
+			<mx:CheckBox label="Selected" selected="true"/>
+			
+			<mx:ColorPicker labelField="MX ColorPicker"/>
+			
+			<mx:ComboBox text="MX ComboBox">
+				<s:ArrayCollection>
+					<fx:String>First</fx:String>
+					<fx:String>Middle</fx:String>
+					<fx:String>Last</fx:String>
+				</s:ArrayCollection>
+			</mx:ComboBox>
+			
+			<mx:ComboBox text="MX Editable ComboBox" editable="true">
+				<s:ArrayCollection>
+					<fx:String>First</fx:String>
+					<fx:String>Middle</fx:String>
+					<fx:String>Last</fx:String>
+				</s:ArrayCollection>
+			</mx:ComboBox>
+			
+			<mx:LinkButton label="MX LinkButton"/>
+			
+		</s:VGroup>
+		
+		<s:VGroup gap="10">
+			
+			<mx:MenuBar labelField="name">
+				<mx:dataProvider>
+					<s:ArrayCollection>
+						<fx:Object name="MX Menu Bar" children="{[ 'Item 1', 'Item 2' ]}"/>
+					</s:ArrayCollection>
+				</mx:dataProvider>
+			</mx:MenuBar>
+			
+			<mx:NumericStepper/>
+			
+			<mx:PopUpButton label="MX PopUpButton">
+				<mx:popUp>
+					<mx:Menu labelField="name">
+						<s:ArrayCollection>
+							<fx:Object name="One"/>
+							<fx:Object name="Two"/>
+							<fx:Object name="Three"/>
+						</s:ArrayCollection>
+					</mx:Menu>
+				</mx:popUp>
+			</mx:PopUpButton>
+			
+			<mx:RadioButton label="MX RadioButton"/>
+			
+			<mx:RadioButton label="Selected" selected="true"/>
+			
+			<mx:Slider/>
+			
+			<mx:Slider direction="vertical" height="50"/>
+			
+		</s:VGroup>
+		
+	</s:HGroup>
+	
+</s:Panel>
