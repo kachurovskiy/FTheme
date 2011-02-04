@@ -32,11 +32,17 @@ in accordance with the terms of the license agreement accompanying it.
 		fill.over="{getStyle('buttonOverFill')}"
 		fill.down="{getStyle('buttonDownFill')}"
 		fill.disabled="{getStyle('buttonDisabledFill')}"
-		radiusX="{getStyle('scrollBarCornerRadius')}" topRightRadiusX="0" bottomRightRadiusX="0"/>
+		radiusX="{Math.max(0, getStyle('scrollBarCornerRadius') - 1)}" 
+		topRightRadiusX="0" bottomRightRadiusX="0"/>
+	
+	<s:Rect left="1" right="1" top="1" bottom="1"
+		stroke="{getStyle('highlightStroke')}"
+		radiusX="{getStyle('scrollBarCornerRadius')}"/>
 	
 	<s:Rect left="0" right="0" top="0" bottom="0"
 		stroke="{getStyle('scrollBarStroke')}"
-		radiusX="{getStyle('scrrollBarCornerRadius')}" topRightRadiusX="0" bottomRightRadiusX="0"/>
+		radiusX="{getStyle('scrrollBarCornerRadius')}" 
+		topRightRadiusX="0" bottomRightRadiusX="0"/>
 	
 	<s:Path horizontalCenter="-1" verticalCenter="0" id="arrow"
 		data="M 0.0 3.5 L 7.0 0.0 L 7.0 7.0 L 0.0 3.5" fill="{getStyle('symbolFill')}"/>

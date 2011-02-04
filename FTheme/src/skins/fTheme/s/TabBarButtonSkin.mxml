@@ -43,6 +43,10 @@ in accordance with the terms of the license agreement accompanying it.
 		fill.selectedStates="{getStyle('buttonSelectedFill')}"
 		radiusX="{getStyle('buttonCornerRadius')}" bottomLeftRadiusX="0" bottomRightRadiusX="0"/>
 	
+	<s:Rect left="1" right="1" top="1" bottom.selectedStates="0" bottom="1"
+		stroke="{getStyle('highlightStroke')}"
+		radiusX="{getStyle('buttonCornerRadius')}" bottomLeftRadiusX="0" bottomRightRadiusX="0"/>
+	
 	<s:Label id="labelDisplay"
 		textAlign="center"
 		verticalAlign="middle"

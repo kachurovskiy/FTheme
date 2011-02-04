@@ -32,6 +32,13 @@ public class FThemeOptions
 	public var lookLinkNames:Array /* of String */;
 	
 	/**
+	 * If <code>lookLinkNames</code> are specified and looks are located not in
+	 * the same directory as the SWF file, base directory URL can be specified in
+	 * <code>lookLinksURLBase</code>.
+	 */
+	public var lookLinksURLBase:String;
+	
+	/**
 	 * Whether to show default look in the list of available looks or not.
 	 */
 	public var showDefaultLook:Boolean = true;

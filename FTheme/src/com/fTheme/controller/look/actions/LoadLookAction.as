@@ -54,6 +54,8 @@ public class LoadLookAction extends EventDispatcher
 	
 	private var zipFileURL:String;
 	
+	private var progress:Number = -1;
+	
 	//--------------------------------------------------------------------------
 	//
 	//  Methods
@@ -83,6 +85,18 @@ public class LoadLookAction extends EventDispatcher
 		urlLoader.addEventListener(IOErrorEvent.IO_ERROR, urlLoader_errorHandler);
 		urlLoader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, urlLoader_errorHandler);
 		urlLoader.load(new URLRequest(lookLink.txtFileURL));
+	}
+	
+	private function indicateProgress(progress:Number):void
+	{
+		if (this.progress >= progress)
+			return;
+		
+		this.progress = progress;
+		var newEvent:ProgressEvent = new ProgressEvent(ProgressEvent.PROGRESS, 
+			false, false, progress, 1);
+		dispatchEvent(newEvent);
+		lookLink.dispatchEvent(newEvent);
 	}
 	
 	private function finish(errorText:String = null):void
@@ -122,10 +136,7 @@ public class LoadLookAction extends EventDispatcher
 
 	private function urlLoader_progressHandler(event:ProgressEvent):void
 	{
-		var newEvent:ProgressEvent = new ProgressEvent(ProgressEvent.PROGRESS, false, false, 
-			event.bytesLoaded, event.bytesTotal * 2);
-		dispatchEvent(newEvent);
-		lookLink.dispatchEvent(newEvent);
+		indicateProgress(event.bytesLoaded / event.bytesTotal * 2);
 	}
 	
 	private function urlLoader_completeHandler(event:Event):void
@@ -199,10 +210,8 @@ public class LoadLookAction extends EventDispatcher
 	
 	private function loadAssetsZIPAction_progressHandler(event:ProgressEvent):void
 	{
-		var newEvent:ProgressEvent = new ProgressEvent(ProgressEvent.PROGRESS, false, false,  
-			urlLoader.bytesTotal + event.bytesLoaded, urlLoader.bytesTotal + event.bytesTotal);
-		dispatchEvent(newEvent);
-		lookLink.dispatchEvent(newEvent);
+		indicateProgress((urlLoader.bytesTotal + event.bytesLoaded) / 
+			(urlLoader.bytesTotal + event.bytesTotal));
 	}
 	
 	private function loadAssetsZIPAction_completeHandler(event:Event):void

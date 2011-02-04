@@ -84,6 +84,13 @@ public class FThemeController extends EventDispatcher
 		
 		if (flashVars.lookLinkNames)
 			options.lookLinkNames = decodeURIComponent(flashVars.lookLinkNames).split(",");
+		var urlBase:String = flashVars.lookLinksURLBase;
+		if (urlBase)
+		{
+			if (urlBase.charAt(urlBase.length - 1) != "/")
+				urlBase += "/";
+			options.lookLinksURLBase = urlBase;
+		}
 		if (flashVars.lookLinksXMLURL)
 			options.lookLinksXMLURL = flashVars.lookLinksXMLURL;
 		else // by default load lookLinks.xml from the same folder as SWF

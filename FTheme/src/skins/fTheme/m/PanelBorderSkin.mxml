@@ -115,6 +115,7 @@ in accordance with the terms of the license agreement accompanying it.
 			if (isNaN(titleBarHeight))
 				titleBarHeight = hasPanelParent ? Object(parent).mx_internal::getHeaderHeightProxy(true) - 1 : 30;
 			tbbg.height = titleBarHeight;
+			tbhigh.top = titleBarHeight - 1;
 			tbdiv.top = titleBarHeight;
 			
 			var em:EdgeMetrics = borderMetrics;
@@ -236,6 +237,8 @@ in accordance with the terms of the license agreement accompanying it.
 		
 		<!-- layer 3: title bar fill -->
 		<s:Rect id="tbbg" left="0" right="0" top="0" minHeight="29" fill="{getStyle('titlebarFill')}"/>
+		
+		<s:Line id="tbhigh" left="0" right="0" top="29" stroke="{getStyle('highlightStroke')}"/>
 		
 		<s:Line id="tbdiv" left="0" right="0" top="30" stroke="{getStyle('titlebarStroke')}"/>
 		

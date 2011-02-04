@@ -40,6 +40,9 @@ in accordance with the terms of the license agreement accompanying it.
 		fill.selectedStates="{getStyle('buttonSelectedFill')}"
 		fill.disabled="{getStyle('buttonDisabledFill')}"/>
 	
+	<s:Rect left="1" right="1" top="1" bottom="1"
+		stroke="{getStyle('highlightStroke')}"/>
+	
 	<s:Rect left="0" right="0" top="0" bottom="0"
 		stroke="{getStyle('buttonStroke')}"/>
 	

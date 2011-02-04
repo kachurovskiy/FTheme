@@ -130,6 +130,10 @@ in accordance with the terms of the license agreement accompanying it.
 					fill="{getStyle('inputFill')}"
 					radiusX="{getStyle('inputCornerRadius')}"/>
 				
+				<s:Rect left="0" right="0" top="0" bottom="0"
+					stroke="{getStyle('highlightStroke')}"
+					radiusX="{getStyle('inputCornerRadius')}"/>
+				
 			</s:Group>
 				
 			<s:Scroller id="scroller" left="0" top="0" right="0" bottom="0" 

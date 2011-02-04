@@ -47,6 +47,8 @@ public class LoadLooksAction extends EventDispatcher implements ILoadLooksAction
 	
 	private var defaultLookLink:LookLink;
 	
+	private var options:FThemeOptions = FThemeController.instance.options;
+	
 	//--------------------------------------------------------------------------
 	//
 	//  Properties
@@ -80,8 +82,6 @@ public class LoadLooksAction extends EventDispatcher implements ILoadLooksAction
 		_lookLinks.sort = sort;
 		_lookLinks.refresh();
 		
-		var options:FThemeOptions = FThemeController.instance.options;
-		
 		if (options.showDefaultLook)
 			_lookLinks.addItem(defaultLookLink);
 		
@@ -94,7 +94,14 @@ public class LoadLooksAction extends EventDispatcher implements ILoadLooksAction
 			n = names.length;
 			for (i = 0; i < n; i++)
 			{
-				_lookLinks.addItem(new LookLink(names[i]));
+				var name:String = names[i];
+				lookLink = new LookLink(name);
+				if (options.lookLinksURLBase)
+				{
+					lookLink.txtFileURL = options.lookLinksURLBase + name + ".txt";
+					lookLink.zipFileURL = options.lookLinksURLBase + name + ".zip";
+				}
+				_lookLinks.addItem(lookLink);
 			}
 			finish();
 		}
@@ -113,6 +120,8 @@ public class LoadLooksAction extends EventDispatcher implements ILoadLooksAction
 		// have at least one look event if options.showDefaultLook is false
 		if (errorText && _lookLinks.length == 0)
 			_lookLinks.addItem(defaultLookLink);
+		if (!options.showDefaultLook)
+			FThemeController.instance.lookManager.lookLink = _lookLinks[0];
 		
 		if (errorText)
 			dispatchEvent(new ErrorEvent(ErrorEvent.ERROR, false, false, errorText));

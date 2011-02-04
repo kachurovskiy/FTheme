@@ -29,6 +29,11 @@ in accordance with the terms of the license agreement accompanying it.
 		fill.over="{getStyle('buttonOverFill')}"
 		fill.down="{getStyle('buttonDownFill')}"
 		fill.disabled="{getStyle('buttonDisabledFill')}"
+		topRightRadiusX="{Math.max(0, getStyle('buttonCornerRadius') - 1)}"
+		topLeftRadiusX="{Math.max(0, getStyle('buttonCornerRadius') - 1)}"/>
+	
+	<s:Rect left="1" right="1" top="1" bottom="1"
+		stroke="{getStyle('highlightStroke')}"
 		topRightRadiusX="{getStyle('buttonCornerRadius')}"
 		topLeftRadiusX="{getStyle('buttonCornerRadius')}"/>
 	

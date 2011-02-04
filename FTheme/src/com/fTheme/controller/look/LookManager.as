@@ -202,6 +202,8 @@ public class LookManager extends EventDispatcher
 				if (_lookLink.status == LookLinkStatus.NOT_LOADED)
 				{
 					lookLoadAction = new LoadLookAction();
+					lookLoadAction.addEventListener(ErrorEvent.ERROR,
+						lookLoadAction_errorHandler);
 					lookLoadAction.start(_lookLink);
 				}
 			}
@@ -460,9 +462,13 @@ public class LookManager extends EventDispatcher
 		{
 			var errorEvent:ErrorEvent = ErrorEvent(event);
 			_errorText = errorEvent.text;
-			if (hasEventListener(errorEvent.type))
-				dispatchEvent(errorEvent);
+			dispatchEvent(errorEvent);
 		}
+	}
+	
+	private function lookLoadAction_errorHandler(event:ErrorEvent):void
+	{
+		dispatchEvent(event);
 	}
 	
 }

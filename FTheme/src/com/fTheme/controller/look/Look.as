@@ -37,6 +37,7 @@ public class Look implements IMXMLObject
 	//
 	//--------------------------------------------------------------------------
 
+	[Bindable]
 	public var name:String;
 
 	public var assetMap:Object /* of String -> Class */;

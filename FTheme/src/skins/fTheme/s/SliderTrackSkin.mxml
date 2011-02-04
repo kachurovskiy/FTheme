@@ -31,7 +31,7 @@ in accordance with the terms of the license agreement accompanying it.
 	
 	<s:Rect left="1" right="1" top="1" bottom="1"
 		fill="{getStyle('sliderTrackFill')}"
-		radiusX="{getStyle('sliderTrackCornerRadius')}"/>
+		radiusX="{Math.max(0, getStyle('sliderTrackCornerRadius') - 1)}"/>
 	
 	<s:Rect left="0" right="0" top="0" bottom="0"
 		stroke="{getStyle('sliderTrackStroke')}"
