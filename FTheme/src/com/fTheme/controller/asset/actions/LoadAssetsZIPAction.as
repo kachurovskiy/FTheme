@@ -113,7 +113,7 @@ public class LoadAssetsZIPAction extends EventDispatcher
 		dispatchEvent(event);
 	}
 	
-	private function errorHandler(event:FZipErrorEvent):void
+	private function errorHandler(event:Event):void
 	{
 		FlexGlobals.topLevelApplication.cursorManager.removeBusyCursor();
 		

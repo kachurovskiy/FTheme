@@ -222,7 +222,7 @@ public class LoadLookAction extends EventDispatcher
 	
 	private function loadAssetsZIPAction_errorHandler(event:ErrorEvent):void
 	{
-		finish("failed to load look assets from " + zipFileURL + ": " + event.text);
+		finish(event.text);
 	}
 	
 }
