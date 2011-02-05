@@ -5,6 +5,7 @@
 
 applicationFill: 0xF2E9C2 0xF7F2DE rotation 0
 titlebarFill: bitmap yakuzaHeader fillMode clip horizontalAlign right
+titlebarColor: 0xFFFFFF
 toolbarFill: bitmap yakuzaHeader fillMode clip horizontalAlign right y -30
 controlbarFill: bitmap yakuzaFooter fillMode clip horizontalAlign right
 controlbarColor: 0xFFFFFF

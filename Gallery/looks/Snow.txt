@@ -5,5 +5,6 @@
 
 applicationFill: bitmap snowBackground fillMode scale maintainAspectRatio true smooth true
 titlebarFill: bitmap snowHeader fillMode clip horizontalAlign right
+titlebarColor: 0xFFFFFF
 toolbarFill: bitmap snowHeader fillMode clip horizontalAlign right y -30
 controlbarFill: bitmap snowFooter fillMode clip horizontalAlign right
