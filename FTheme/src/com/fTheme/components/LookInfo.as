@@ -1,11 +1,11 @@
 package com.fTheme.components
 {
-import com.fTheme.controller.FThemeController;
-import com.fTheme.controller.look.Author;
-import com.fTheme.controller.look.License;
-import com.fTheme.controller.look.Look;
-import com.fTheme.controller.look.LookLink;
-import com.fTheme.controller.look.LookManager;
+import com.fTheme.FThemeController;
+import com.fTheme.look.Author;
+import com.fTheme.look.License;
+import com.fTheme.look.Look;
+import com.fTheme.look.LookLink;
+import com.fTheme.look.LookManager;
 
 import flash.events.Event;
 

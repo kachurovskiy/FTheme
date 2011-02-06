@@ -12,8 +12,8 @@
 	
 	<fx:Script>
 	<![CDATA[
-		import com.fTheme.controller.FThemeController;
-		import com.fTheme.controller.look.LookManager;
+		import com.fTheme.FThemeController;
+		import com.fTheme.look.LookManager;
 		
 		import flash.net.navigateToURL;
 		

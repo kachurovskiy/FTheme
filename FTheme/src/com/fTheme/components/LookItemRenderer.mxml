@@ -7,8 +7,8 @@
 	
 	<fx:Script>
 	<![CDATA[
-		import com.fTheme.controller.look.LookLink;
-		import com.fTheme.controller.look.LookLinkStatus;
+		import com.fTheme.look.LookLink;
+		import com.fTheme.look.LookLinkStatus;
 		
 		private static const MIN_WIDTH:Number = 100;
 		

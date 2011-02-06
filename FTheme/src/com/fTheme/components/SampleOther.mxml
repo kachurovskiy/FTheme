@@ -10,7 +10,7 @@
 		
 		<s:VGroup gap="10">
 			
-			<s:TextArea editable="false" borderVisible="false" width="100" height="60">
+			<s:TextArea editable="false" width="100" height="60">
 				<s:text>
 					Spark TextArea. Lorem Ipsum is simply dummy text of the printing and typesetting 
 					industry. Lorem Ipsum has been the industry's standard dummy text 

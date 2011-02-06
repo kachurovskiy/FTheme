@@ -29,7 +29,8 @@ in accordance with the terms of the license agreement accompanying it.
 	</local:states>
 	
 	<s:Group verticalCenter="0" width="{getStyle('checkBoxSize')}" 
-		height="{getStyle('checkBoxSize')}" layoutDirection="ltr">
+		height="{getStyle('checkBoxSize')}" id="mainGroup" 
+		initialize="mainGroup.setStyle('layoutDirection', 'ltr');">
 		
 		<s:Rect left="1" right="1" top="1" bottom="1"
 			fill.up="{getStyle('buttonUpFill')}"
