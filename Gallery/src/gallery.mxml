@@ -31,6 +31,11 @@
 				lookManager.look.name)), "_blank");
 		}
 
+		private function button1_clickHandler(event:MouseEvent):void
+		{
+			container.addElement(new Button());
+		}
+
 	]]>
 	</fx:Script>
 	
@@ -39,13 +44,12 @@
 			paddingTop="10" gap="10"/>
 	</s:layout>
 	
-	<components:LookSelector direction="vertical" maxHeight="400"
+	<!--<components:LookSelector direction="vertical" maxHeight="400"
 		visible="{lookManager.lookLinks.length > 1}"
 		includeInLayout="{lookManager.lookLinks.length > 1}"/>
 	
 	<s:Scroller width="100%" height="100%">
 		
-		<!-- add left padding so that panel shadow doesn't crop -->
 		<s:VGroup gap="10" paddingLeft="10">
 			
 			<s:HGroup gap="10" verticalAlign="contentJustify"
@@ -63,6 +67,14 @@
 			
 		</s:VGroup>
 		
-	</s:Scroller>
+	</s:Scroller>-->
+	
+	<s:VGroup id="container">
+			
+		<s:Button label="Create some stuff" click="button1_clickHandler(event)"/>
+		
+		<s:Button label="Remove all the stuff" click="container.removeAllElements();"/>
+		
+	</s:VGroup>
 	
 </s:Application>

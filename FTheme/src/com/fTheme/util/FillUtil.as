@@ -34,7 +34,7 @@ public class FillUtil
 	
 	private static function arrayToLinearGradient(parts:Array):LinearGradient
 	{
-		var linearGradient:LinearGradient = new LinearGradient();
+		var linearGradient:LinearGradient = new LinearGradient2();
 		arrayToGradientBase(parts, linearGradient);
 		
 		var n:int = parts.length;
@@ -52,7 +52,7 @@ public class FillUtil
 	{
 		parts.shift(); // remove "radial" word
 		
-		var radialGradient:RadialGradient = new RadialGradient();
+		var radialGradient:RadialGradient = new RadialGradient2();
 		arrayToGradientBase(parts, radialGradient);
 		
 		var n:int = parts.length;

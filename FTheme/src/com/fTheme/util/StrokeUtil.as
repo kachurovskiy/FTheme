@@ -23,7 +23,7 @@ public class StrokeUtil
 		
 		string = StringUtil.trim(string);
 		var parts:Array = string.split(/\s/); // split by whitespace
-		var stroke:SolidColorStroke = new SolidColorStroke();
+		var stroke:SolidColorStroke = new SolidColorStroke2();
 		// our borders are always 1 pixel and rounded caps looks like a bug
 		stroke.caps = CapsStyle.SQUARE;
 		var n:int = parts.length;
