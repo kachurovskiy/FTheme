@@ -430,6 +430,18 @@ public class LookManager extends EventDispatcher
 		lookLoadsAction.start(_defaultLookLink);
 	}
 	
+	public function getLookLink(name:String):LookLink
+	{
+		var n:int = _lookLinks ? _lookLinks.length : 0;
+		for (var i:int = 0; i < n; i++)
+		{
+			var lookLink:LookLink = _lookLinks[i];
+			if (lookLink.name == name)
+				return lookLink;
+		}
+		return null;
+	}
+	
 	public function destroy():void
 	{
 		lookLink = null;

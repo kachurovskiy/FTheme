@@ -13,6 +13,8 @@
 	<fx:Script>
 	<![CDATA[
 		import com.fTheme.FThemeController;
+		import com.fTheme.look.Look;
+		import com.fTheme.look.LookLink;
 		import com.fTheme.look.LookManager;
 		
 		import flash.net.navigateToURL;
@@ -20,61 +22,96 @@
 		[Bindable]
 		private var lookManager:LookManager;
 		
+		//--------------------------------------
+		//  look
+		//--------------------------------------
+
+		private var _lookLink:LookLink;
+
+		public function get lookLink():LookLink
+		{
+			return _lookLink;
+		}
+
+		public function set lookLink(value:LookLink):void
+		{
+			if (_lookLink == value)
+				return;
+			
+			_lookLink = value;
+			setJSLook(_lookLink ? _lookLink.name : null);
+		}
+		
+		//--------------------------------------------------------------------------
+		//
+		//  Methods
+		//
+		//--------------------------------------------------------------------------
+
 		private function preinit():void
 		{
 			lookManager = (new FThemeController()).lookManager;
+			lookManager.addEventListener(Event.INIT, lookManager_initHandler);
 		}
-
-		private function downloadButton_clickHandler(event:MouseEvent):void
+		
+		private function getJSLook():String
 		{
-			navigateToURL(new URLRequest("/look/" + encodeURIComponent(
-				lookManager.look.name)), "_blank");
+			if (!ExternalInterface.available)
+				return null;
+
+			try
+			{
+				return ExternalInterface.call("getLook");
+			}
+			catch (error:*) {}
+			return null;
 		}
-
-		private function button1_clickHandler(event:MouseEvent):void
+		
+		private function setJSLook(name:String):void
 		{
-			container.addElement(new Button());
+			if (!ExternalInterface.available)
+				return;
+			
+			try
+			{
+				ExternalInterface.call("setLook", name);
+			}
+			catch (error:*) {}
+		}
+		
+		//--------------------------------------------------------------------------
+		//
+		//  Event handlers
+		//
+		//--------------------------------------------------------------------------
+
+		private function lookManager_initHandler(event:Event):void
+		{
+			var jsLook:String = getJSLook();
+			if (jsLook)
+				lookManager.lookLink = lookManager.getLookLink(jsLook);
+			
+			_lookLink = lookManager.lookLink;
+			lookManager.addEventListener("lookLinkChange", lookManager_lookLinkChangeHandler);
+		}
+		
+		private function lookManager_lookLinkChangeHandler(event:Event):void
+		{
+			lookLink = lookManager.lookLink;
 		}
 
 	]]>
 	</fx:Script>
-	
+
 	<s:layout>
 		<s:HorizontalLayout paddingBottom="10" paddingLeft="10" paddingRight="10"
 			paddingTop="10" gap="10"/>
 	</s:layout>
 	
-	<!--<components:LookSelector direction="vertical" maxHeight="400"
+	<components:LookSelector direction="vertical" maxHeight="400"
 		visible="{lookManager.lookLinks.length > 1}"
 		includeInLayout="{lookManager.lookLinks.length > 1}"/>
 	
-	<s:Scroller width="100%" height="100%">
-		
-		<s:VGroup gap="10" paddingLeft="10">
-			
-			<s:HGroup gap="10" verticalAlign="contentJustify"
-				visible="{lookManager.lookLinks.length > 1 &amp;&amp; lookManager.lookLink.name != 'Default'}"
-				includeInLayout="{lookManager.lookLinks.length > 1 &amp;&amp; lookManager.lookLink.name != 'Default'}">
-				
-				<s:Button label="Download" id="downloadButton" fontWeight="bold"
-					click="downloadButton_clickHandler(event)"/>
-				
-				<components:LookInfo/>
-					
-			</s:HGroup>
-			
-			<components:Sample/>
-			
-		</s:VGroup>
-		
-	</s:Scroller>-->
-	
-	<s:VGroup id="container">
-			
-		<s:Button label="Create some stuff" click="button1_clickHandler(event)"/>
-		
-		<s:Button label="Remove all the stuff" click="container.removeAllElements();"/>
-		
-	</s:VGroup>
+	<components:Sample/>
 	
 </s:Application>

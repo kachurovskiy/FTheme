@@ -30,7 +30,8 @@ in accordance with the terms of the license agreement accompanying it.
 		fill.up="{getStyle('toolbarButtonUpFill')}"
 		fill.over="{getStyle('toolbarButtonOverFill')}"
 		fill.down="{getStyle('toolbarButtonDownFill')}"
-		fill.disabled="{getStyle('toolbarButtonDisabledFill')}"/>
+		fill.disabled="{getStyle('toolbarButtonDisabledFill')}"
+		radiusX="{getStyle('buttonCornerRadius')}"/>
 	
 	<!-- BitmapImage can be used here when 4.5 will arrive, in 4.1 
 		BitmapImage throws RTEs on source removal -->
