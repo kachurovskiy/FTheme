@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project name="FTheme" basedir="../" default="compile">
 
 	<property file="${basedir}/build/build.properties" />
@@ -17,9 +18,8 @@
 	</target>
 
 	<target name="compile" depends="init" description="Compiles SWC into build directory">
-		<compc output="${build.dir}/${swc.name}">
+		<compc output="${build.dir}/${swc.name}" locale="en_US">
 			<source-path path-element="${source.dir}" />
-			<source-path path-element="${assets.dir}" />
 			<include-sources dir="${source.dir}">
 				<include name="**/*.as" />
 				<include name="**/*.mxml" />
@@ -29,6 +29,9 @@
 				<include name="libs" />
 				<include name="locale/{locale}" />
 			</external-library-path>
+			<compiler.library-path append="true" dir="${libs.dir}">
+				<include name="*.swc"/>
+			</compiler.library-path>
 			<headless-server>true</headless-server>
 		</compc>
 	</target>
