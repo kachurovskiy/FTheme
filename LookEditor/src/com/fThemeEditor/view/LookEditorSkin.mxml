@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx">
+
+	<fx:Metadata>
+		[HostComponent("com.fThemeEditor.view.LookEditor")]
+	</fx:Metadata>
+	
+	<s:layout>
+		<s:HorizontalLayout gap="10" verticalAlign="justify"/>
+	</s:layout>
+	
+	<s:List id="propertyList" labelField="name"/>
+	
+	<s:VGroup gap="0" id="editorView">
+		
+		<s:HGroup>
+			
+			<s:Label id="propertyNameLabel"/>
+			
+			<s:TabBar id="editorsTabBar"/>
+			
+		</s:HGroup>
+		
+		<s:BorderContainer id="editorContainer"/>
+		
+	</s:VGroup>
+	
+</s:Skin>

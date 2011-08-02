@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx" preinitialize="preinit();" 
+	xmlns:view="com.fThemeEditor.view.*">
+	
+	<fx:Metadata>
+		[SWF(width="800", height="600")]
+	</fx:Metadata>
+	
+	<fx:Script>
+	<![CDATA[
+		import com.fTheme.FThemeController;
+		import com.fTheme.FThemeOptions;
+		
+		private function preinit():void
+		{
+			var options:FThemeOptions = new FThemeOptions();
+			new FThemeController(options);
+		}
+		
+	]]>
+	</fx:Script>
+	
+	<view:LookEditor left="20" right="20" top="20" bottom="20"/>
+	
+</s:Application>
