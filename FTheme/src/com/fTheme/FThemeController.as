@@ -62,6 +62,9 @@ public class FThemeController extends EventDispatcher
 	//
 	//--------------------------------------------------------------------------
 	
+	/**
+	 * Creates default initialization options.
+	 */
 	public static function getDefaultOptions():FThemeOptions
 	{
 		// find FlashVars. Since app is not even added to stage it's not straightforward 
@@ -138,6 +141,9 @@ public class FThemeController extends EventDispatcher
 	private var _options:FThemeOptions;
 
 	[Bindable("__NoChangeEvent__")]
+	/**
+	 * Effective initialization options.
+	 */
 	public function get options():FThemeOptions
 	{
 		return _options;

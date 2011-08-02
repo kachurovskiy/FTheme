@@ -7,6 +7,10 @@ import mx.core.IFactory;
  */
 public class FThemeOptions
 {
+	
+	/**
+	 * Constructor.
+	 */
 	public function FThemeOptions(lookLinksXMLURL:String = null,
 								  loadLooksActionFactory:IFactory = null)
 	{

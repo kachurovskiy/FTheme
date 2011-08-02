@@ -5,6 +5,9 @@ import flash.events.EventDispatcher;
 public class NameURL extends EventDispatcher
 {
 	
+	/**
+	 * Constructor.
+	 */
 	public function NameURL(text:String = null)
 	{
 		super();

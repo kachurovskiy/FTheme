@@ -56,8 +56,6 @@ public class LookManager extends EventDispatcher
 	
 	private var assetManager:AssetManager = FThemeController.instance.assetManager;
 	
-	private var properties:Vector.<LookProperty> = new Vector.<LookProperty>();
-	
 	private var propertyMap:Object = {};
 	
 	private var styleManager:IStyleManager2 = StyleManager.getStyleManager(null);
@@ -71,6 +69,21 @@ public class LookManager extends EventDispatcher
 	//  Properties
 	//
 	//--------------------------------------------------------------------------
+	
+	//----------------------------------
+	//  properties
+	//----------------------------------
+
+	private var _properties:Vector.<LookProperty> = new Vector.<LookProperty>();
+	
+	[Bindable("__NoChangeEvent__")]
+	/**
+	 * Vector of all <code>LookProperty</code> instances.
+	 */
+	public function get properties():Vector.<LookProperty>
+	{
+		return _properties;
+	}
 	
 	//----------------------------------
 	//  defaultLookLink
@@ -254,7 +267,7 @@ public class LookManager extends EventDispatcher
 		if (propertyMap[property.name])
 			throw new Error("Property " + property.name + " is already added");
 		
-		properties.push(property);
+		_properties.push(property);
 		propertyMap[property.name] = property;
 	}
 	
@@ -290,10 +303,10 @@ public class LookManager extends EventDispatcher
 			property.value = propertyValue.value;
 		}
 		
-		n = properties.length;
+		n = _properties.length;
 		for (i = 0; i < n; i++)
 		{
-			property = properties[i];
+			property = _properties[i];
 			if (appliedProperties[property.name])
 				continue;
 			
