@@ -41,7 +41,7 @@
 		<delete dir="${asdoc.dir}" failonerror="false" includeemptydirs="true" />
 		
 		<java jar="${FLEX_HOME}/lib/asdoc.jar" fork="true" failonerror="true" 
-			maxmemory="100m" dir="${FLEX_HOME}/frameworks">
+			maxmemory="300m" dir="${FLEX_HOME}/frameworks">
     			<arg value="-output=${asdoc.dir}"/>
 			<arg value="-warnings=true"/>
 			<arg value="-doc-sources=${source.dir}"/>
