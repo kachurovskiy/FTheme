@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="FTheme" basedir="../" default="compile">
+<project name="FTheme" basedir="../" default="release">
 
 	<property file="${basedir}/build/build.properties" />
 	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
@@ -51,5 +51,7 @@
 		</java>
 		
 	</target>
-	
+
+	<target name="release" depends="clean, compile, asdoc" description="Clean, compile and asdoc"/>
+		
 </project>
