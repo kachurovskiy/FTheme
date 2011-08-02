@@ -35,7 +35,7 @@ in accordance with the terms of the license agreement accompanying it.
 	
 	<!-- BitmapImage can be used here when 4.5 will arrive, in 4.1 
 		BitmapImage throws RTEs on source removal -->
-	<mx:Image source="{hostComponent.icon}" width="32" height="32" top="4"
+	<mx:Image source="{getStyle('icon')}" width="32" height="32" top="4"
 		scaleContent="false" horizontalCenter="0"/>
 	
 	<s:Label id="labelDisplay" textAlign="center" verticalAlign="middle"

@@ -6,13 +6,35 @@
 	xmlns:controlbar="com.fTheme.view.controlbar.*" 
 	title="Buttons" xmlns:components="com.fTheme.components.*">
 	
+	<fx:Script>
+	<![CDATA[
+		
+		[Embed("icon1.png")]
+		[Bindable]
+		private var icon1:Class;
+		
+		[Embed("icon2.png")]
+		[Bindable]
+		private var icon2:Class;
+		
+		private function randomIconFunction(... args):Class
+		{
+			return Math.random() > 0.5 ? icon1 : icon2;
+		}
+		
+		
+	]]>
+	</fx:Script>
+	
 	<s:HGroup paddingLeft="10" paddingRight="10" paddingTop="10" paddingBottom="10" gap="10">
 		
 		<s:VGroup gap="10">
 			
 			<s:Button label="Spark Button"/>
 			
-			<s:ButtonBar>
+			<s:Button label="Spark Button with icon" icon="{icon1}"/>
+			
+			<s:ButtonBar iconFunction="{randomIconFunction}">
 				<s:ArrayCollection>
 					<fx:String>Spark</fx:String>
 					<fx:String>Button</fx:String>
@@ -58,7 +80,7 @@
 			
 			<s:Spinner/>
 			
-			<s:TabBar>
+			<s:TabBar iconFunction="{randomIconFunction}">
 				<s:ArrayCollection>
 					<fx:String>Spark</fx:String>
 					<fx:String>Tab</fx:String>

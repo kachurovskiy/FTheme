@@ -12,11 +12,11 @@ public class ToolbarButton extends Button
 		setStyle("skinClass", ToolbarButtonSkin);
 	}
 	
-	[Bindable]
+	//[Bindable]
 	/**
 	 * <code>Bitmap</code>, <code>BitmapData</code> or <code>DisplayObject</code>.
 	 */
-	public var icon:*;
+	//public var icon:*;
 	
 }
 }
