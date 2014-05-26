@@ -1,0 +1,109 @@
+
+<!DOCTYPE html PUBLIC "/W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link type="text/css" rel="stylesheet" href="stylesheets/main.css" />
+	<title>FTheme - Quick Start. Adobe Flex themes.</title>
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="rss">
+	<meta name="keywords" content="flex theme, change flex styles, adobe flex, spark skins">
+	<meta name="description" content="FTheme is a Flex 4 look and feel customization library">
+	<script type="text/javascript" src="/jquery-1.5.min.js"></script>
+	<script type="text/javascript" src="/main.js"></script>
+	<script type="text/javascript" src="/swfobject.js"></script>
+
+	<script type="text/javascript">
+	
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-4425250-6']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	
+	</script>
+
+</head>
+<body>
+
+	
+
+
+
+<div class="topBar">
+	<span class="siteTitle"><a href="index.html">FTheme</a></span>
+	<a href="quickStart.html">Quick Start</a>
+	<a href="wiki.html">Wiki</a>
+	<a href="gallery.html">Gallery</a>
+	
+	<a href="downloads.html">Downloads</a>
+	<a href="asdoc/index.html">ASDoc</a>
+	<a href="https://github.com/kachurovskiy/FTheme/issues">Issues <sup>on GitHub</sup></a>
+	
+</div>
+
+	
+<div class="section">
+
+
+
+	<h1>Quick Start</h1>
+	
+	<ol>
+		<li>Download <code><a href="getDownload/ftheme1.1sdk4.0.swc">ftheme1.1sdk4.0.swc</a></code>,
+			<code><a href="getDownload/ftheme1.1sdk4.1.swc">ftheme1.1sdk4.1.swc</a></code> or 
+			<code><a href="getDownload/ftheme1.1sdk4.5.swc">ftheme1.1sdk4.5.swc</a></code> into project <code>libs</code> folder</li>
+		<li>Add <code>-theme+=libs/ftheme1.1sdk4.<strong>X</strong>.swc</code> compiler option</li>
+		<li>Unzip <code><a href="getDownload/testLooks.zip">testLooks.zip</a></code> into <code>bin-debug</code></li>
+		<li>Paste this into your application MXML:
+			<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+	xmlns:s="library://ns.adobe.com/flex/spark" 
+	xmlns:mx="library://ns.adobe.com/flex/mx"
+	xmlns:components="com.fTheme.components.*"
+	preinitialize="{new FThemeController()}"&gt;
+	
+	&lt;fx:Script&gt;
+	&lt;![CDATA[
+		import com.fTheme.FThemeController;
+	]]&gt;
+	&lt;/fx:Script&gt;
+	
+	&lt;s:HGroup paddingBottom="20" paddingLeft="20" paddingRight="20" paddingTop="20" gap="10"&gt;
+		
+		&lt;components:LookSelector direction="vertical"/&gt;
+		
+		&lt;components:Sample/&gt;
+		
+	&lt;/s:HGroup&gt;
+	
+&lt;/s:Application&gt;</pre></li>
+		<li><strong>Compile and launch!</strong></li>
+		<li>Before publishing or selling your application please ensure that it uses looks 
+		with appropriate licenses <em>(some do not allow commercial use)</em></li>
+		<li>Browse <a href="gallery.html">Gallery</a> for new looks</li>
+	</ol>
+
+
+	
+</div>
+
+	
+<div class="footer">
+	By <a href="http://kachurovskiy.com/">Maxim Kachurovskiy</a>
+	<small><a href="javascript:Transpose_Email('slon.vsapogah','gmail.com','ftheme.com')">[mail]</a></small>. 
+	<a href="https://github.com/kachurovskiy/FTheme">FTheme source is available at GitHub</a> under 
+	<a href="http://creativecommons.org/licenses/MIT/">MIT license</a> however some library files are
+	modified Flex SDK skins and are subject to corresponding license.
+</div>
+
+</body>
+
+
+</html>

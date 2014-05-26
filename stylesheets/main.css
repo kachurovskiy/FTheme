@@ -1,0 +1,218 @@
+@CHARSET "UTF-8";
+
+/*, div, object, h1, h2, h3, h4, h5, h6, p,
+ol, ul, li, form, label, cite, code, del, em, img,
+q, s, small, blockquote, pre, a, strike, strong,
+sub, sup, tt, b, u, i, center, dl, dt, dd, legend,
+table, caption, tbody, tfoot, thead, tr, th, td*/
+
+html, body, div { 
+	margin: 0px;
+	padding: 0px;
+	border: none;
+}
+
+html, body { 
+	height: 100%; 
+}
+
+body {
+    font-family: Verdana, Helvetica, sans-serif;
+    background-color: #FFF;
+    font-size: 90%;
+}
+
+a {
+	text-decoration: none;
+	color: #385CFF;
+}
+
+a:hover {
+	color: #708AFF;
+}
+
+code {
+	background-color: #EEE;
+	padding: 2px;
+}
+
+pre {
+	padding: 5px 5px 5px 10px;
+	background-color: #F0F0F0;
+}
+
+li {
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.topBar {
+	background-color: #C6C6C6;
+	width: 100%;
+	padding: 10px 0px 10px 0px;
+}
+
+.siteTitle {
+	font-size: 130%;
+	font-weight: bold;
+	color: #000;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.topBar a {
+	margin-left: 10px;
+	margin-right: 10px;
+	font-weight: bold;
+}
+
+.topBar a sup {
+	font-size: 60%;
+}
+
+.auth {
+	display: none;
+	float: right;
+	margin: 2px 15px 0px 0px;
+}
+
+.section {
+	border-top: 1px solid #AAA;
+	padding: 10px 20px 10px 20px;
+}
+
+.section h2 {
+	margin-top: 30px;
+}
+
+.sectionContents {
+}
+.footer {
+	border-top: 1px dashed #AAA;
+	padding: 20px;
+	color: #777;
+}
+
+.section form table tr td {
+	padding-top: 5px;
+	padding-bottom: 15px;
+	padding-right: 10px;
+	vertical-align: baseline;
+}
+
+.section form table tr td:first-child {
+	text-align: right;
+}
+
+.section form table tr td:first-child small {
+	font-size: 70%;
+	color: #333;
+}
+
+.required {
+	font-weight: bold;
+	color: red;
+}
+
+.hDivider {
+	border-bottom: 1px dashed #AAA;
+	height: 0px;
+	width: 100%;
+}
+
+.lookDownloadLinks {
+	float: left;
+	clear: left;
+	margin: 10px 10px 10px 0px;
+	padding: 10px;
+	font-weight: bold;
+	background: #F0F0F0;
+}
+
+.lookControls {
+	margin-top: 10px;
+	float: right;
+	padding: 10px;
+	background: #F0F0F0;
+	line-height: 150%;
+}
+
+.lookInfo {
+	margin-top: 10px;
+}
+
+.lookInsignificantInfo {
+	font-size: 90%;
+	color: #555;
+}
+
+.lookSignificantInfo {
+}
+
+.quickLookLinks a {
+	margin: 8px;
+}
+
+.comment {
+	margin-top: 10px;
+	padding: 5px 5px 0px 5px;
+	background: #F0F0F0;
+	width: 490px;
+}
+
+.comment p {
+	padding: 0px;
+	margin: 0px;
+}
+
+.gravatar {
+	border: 1px solid grey;
+	float: left;
+	margin: 0px 5px 5px 0px;
+	width: 33px;
+	height: 33px;
+}
+
+.commentAuthor {
+	font-weight: bold;
+}
+
+.commentDate {
+	color: #555;
+	font-size: 75%;
+}
+
+.propertyReferenceList {
+	list-style: none;
+}
+
+.lookPropertyName {
+	font-weight: bold;
+}
+.lookPropertyType {
+}
+.lookPropertyDescription {
+	display: block;
+	clear: both;
+}
+
+.rssLinkContainer {
+	padding: 0px 10px 0px 10px;
+	font-weight: bold;
+}
+
+.downloadInfo {
+	padding-left: 10px;
+	font-size: 70%;
+	color: gray;
+}
+
+.downloadAction {
+	padding-left: 10px;
+	font-size: 70%;
+}
+
+.auth,
+.form {
+  display: none
+}

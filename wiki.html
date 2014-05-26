@@ -1,0 +1,863 @@
+
+<!DOCTYPE html PUBLIC "/W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link type="text/css" rel="stylesheet" href="stylesheets/main.css" />
+	<title>FTheme - Wiki. Adobe Flex themes.</title>
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="rss">
+	<meta name="keywords" content="flex theme, change flex styles, adobe flex, spark skins">
+	<meta name="description" content="FTheme is a Flex 4 look and feel customization library">
+	<script type="text/javascript" src="/jquery-1.5.min.js"></script>
+	<script type="text/javascript" src="/main.js"></script>
+	<script type="text/javascript" src="/swfobject.js"></script>
+
+	<script type="text/javascript">
+	
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-4425250-6']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	
+	</script>
+
+</head>
+<body>
+
+	
+
+
+
+<div class="topBar">
+	<span class="siteTitle"><a href="index.html">FTheme</a></span>
+	<a href="quickStart.html">Quick Start</a>
+	<a href="wiki.html">Wiki</a>
+	<a href="gallery.html">Gallery</a>
+	
+	<a href="downloads.html">Downloads</a>
+	<a href="asdoc/index.html">ASDoc</a>
+	<a href="https://github.com/kachurovskiy/FTheme/issues">Issues <sup>on GitHub</sup></a>
+	
+</div>
+
+	
+
+<div class="section">
+
+	<h1>Wiki</h1>
+
+	<p>FTheme is an open-source Flex 4 look and feel customization library. It provides
+	a special Flex theme that changes components appearance dynamically.</p>
+	
+	<ul class="sectionContents">
+		
+
+	
+	<li><a href="wiki.html#differences">What is the difference between FTheme and Spark theme?</a></li>
+	
+
+	
+		
+
+	
+	<li><a href="wiki.html#simpleLook">What if I just want to change some backgrounds?</a></li>
+	
+
+	
+		
+
+	
+	<li><a href="wiki.html#example">Show me an example of look.</a></li>
+	
+
+	
+		
+
+	
+	<li><a href="wiki.html#manageLooks">How to manage looks that are available for the application?</a></li>
+	
+
+	
+		
+
+	
+	<li><a href="wiki.html#howItWorks">How does FTheme work?</a></li>
+	
+
+	
+		
+
+
+
+
+	
+	<li><a href="wiki.html#propertyReference">What properties and values are supported in look?</a></li>
+	
+
+	
+	</ul>
+	
+
+	
+	
+
+
+	<hr/>
+	
+	<h2 id="differences">What is the difference between FTheme and Spark theme?</h2>
+	
+	<ul>
+		<li>FTheme allows to use unlimited amount of actual <em>looks</em></li>
+		<li><em>Looks</em> will work for future versions of your app and Flex SDK too</li>
+		<li>There will be a great amount of nice looks because it's fairly easy to <a href="wiki.html#simpleLook">create a look</a></li>
+	</ul>
+	
+
+	
+	
+
+
+	<hr/>
+	
+	<h2 id="simpleLook">What if I just want to change some backgrounds?</h2>
+	
+	<p>That's the way most looks are created. Here is a sample look <code>JapaneseTatoo</code>, note that
+	fills reference bitmaps from ZIP archive:</p>
+	
+	<img src="wiki/japaneseTatoo.png"/>
+	
+	<p>So here are the simple look creation steps:</p>
+	
+	<ol>
+		<li>Create <code>MyLook.txt</code> file and specify some fills or other styles</li>
+		<li>If you use bitmap fills, place bitmaps with corresponding names in ZIP archive
+			<code>MyLook.zip</code>. 
+			<strong>Note: do not apply compression to the archive, use STORE mode. We cannot
+			yet decompress archives but we can read uncompressed ones.</strong></li>
+		<li><a href="addLook.html">Upload look to the gallery</a><br/><br/>
+			OR<br/><br/>
+			Save it in near your app SWF <strong>and</strong> add it to your <code>lookLinks.xml</code></li>
+	</ol>
+	
+
+	
+	
+
+
+	<hr/>
+	
+	<h2 id="example">Show me an example of look.</h2>
+	
+	<pre>@author Maxim Kachurovskiy http://kachurovskiy.com
+@author Harish Sivaramakrishnan http://scalenine.com/
+
+@license CC BY-NC 2.5 http://creativecommons.org/licenses/by-nc/2.5/
+
+color: 0x000000
+rollOverColor: 0xC0EBF5
+selectionColor: 0xFEA500
+errorColor: 0xCC0000
+applicationFill: 0x1F1F1F
+panelFill: 0xF0F0F0
+panelCornerRadius: 7
+panelStroke: 0xFFFFFF alpha 0.8
+progressBarFill: 0xF5DFBC 0xF9CE86 ratio 0.5 0xF8BF5B ratio 0.51 0xFEA500
+progressBarStroke: 0xFFFFFF
+progressBarHeight: 20
+buttonUpFill: 0xC0EBF5 0xA5E5F4 ratio 0.5 0x8ADEF1 ratio 0.51 0x67D7EF
+buttonOverFill: 0xC0EBF5 0xA5E5F4 ratio 0.5 0x8ADEF1 ratio 0.51 0x67D7EF
+buttonDownFill: 0xF5DFBC 0xF9CE86 ratio 0.5 0xF8BF5B ratio 0.51 0xFEA500
+buttonSelectedFill: 0xF5DFBC 0xF9CE86 ratio 0.5 0xF8BF5B ratio 0.51 0xFEA500
+buttonDisabledFill: 0xDDDDDD
+buttonStroke: 0xFFFFFF
+borderStroke: 0xFFFFFF
+buttonCornerRadius: 5
+buttonMinWidth: 100
+buttonMinHeight: 25
+checkBoxSize: 18
+headerFill: 0xC0EBF5 0xA5E5F4 ratio 0.5 0x8ADEF1 ratio 0.51 0x67D7EF
+headerColors: 0xC0EBF5 0x67D7EF
+radioButtonSize: 18
+radioButtonDotSize: 8
+inputFill: 0xE4E5E5
+inputStroke: 0xE1E2E2
+inputCornerRadius: 5
+scrollBarButtonSize: 0
+scrollBarSize: 17
+hScrollBarThumbUpFill: 0xC0EBF5 0xA5E5F4 ratio 0.5 0x8ADEF1 ratio 0.51 0x67D7EF
+hScrollBarThumbOverFill: 0xC0EBF5 0xA5E5F4 ratio 0.5 0x8ADEF1 ratio 0.51 0x67D7EF
+hScrollBarThumbDownFill: 0xF5DFBC 0xF9CE86 ratio 0.5 0xF8BF5B ratio 0.51 0xFEA500
+vScrollBarThumbUpFill: 0xC0EBF5 0xA5E5F4 ratio 0.5 0x8ADEF1 ratio 0.51 0x67D7EF rotation 0
+vScrollBarThumbOverFill: 0xC0EBF5 0xA5E5F4 ratio 0.5 0x8ADEF1 ratio 0.51 0x67D7EF rotation 0
+vScrollBarThumbDownFill: 0xF5DFBC 0xF9CE86 ratio 0.5 0xF8BF5B ratio 0.51 0xFEA500 rotation 0
+hScrollBarTrackFill: 0xE4E5E5
+vScrollBarTrackFill: 0xE4E5E5
+scrollBarCornerRadius: 4
+scrollBarStroke: 0xFFFFFF
+scrollBarThumbMinSize: 40
+symbolColor: 0xFFFFFF
+symbolFill: 0xFFFFFF
+sliderTrackFill: 0xE4E5E5
+sliderTrackSize: 9
+sliderTrackStroke: 0xFFFFFF
+sliderThumbSize: 15
+titlebarFill: 0xC0EBF5 0xA5E5F4 ratio 0.5 0x8ADEF1 ratio 0.51 0x67D7EF
+titlebarStroke: 0xFFFFFF
+toolbarFill: 0xAEE7F5 0xC5EDF7 ratio 0.4 0xB1E7F4 ratio 0.41 0xBFEAF4
+toolbarStroke: 0xFFFFFF
+controlbarFill: 0xF5DFBC 0xF9CE86 ratio 0.5 0xF8BF5B ratio 0.51 0xFEA500
+controlbarStroke: 0xFFFFFF
+contentFill: 0xFFFFFF
+contentStroke: 0xFFFFFF</pre>
+	
+	<p><a href="wiki/plastic.png"><img src="wiki/plasticPreview.png"/></a></p>
+	
+
+	
+	
+
+
+	<hr/>
+	
+	<h2 id="manageLooks">How to manage looks that are available for the application?</h2>
+	
+	<h3>Controller options</h3>
+	
+	<p><code>FThemeController</code> constructor accepts one optional parameter <code>options:FThemeOptions</code>.
+		It provides the following properties:</p>
+		
+	<ul>
+		<li><code>lookLinksXMLURL:String</code> default URL for the file with <a href="wiki.html#lookLinksXMLSample">look links XML file.</a> 
+		Setting it e.g. to <code>myLookLinks.xml</code> will cause manager to load and use that file.</li>
+		<li><code>lookLinkNames:Array of String</code> array of look names. Look files are loaded from 
+		<code>LookName.txt</code> and <code>LookName.zip</code> URLs.</li>
+		<li><code>lookLinksURLBase:String</code> is used when <code>lookLinkNames</code> are specified and is added
+		to look file URLs e.g. if <code>lookLinkNames</code> is <code>["Plastic", "Sky"/code> and 
+		<code>lookLinksURLBase</code> is <code>"/app/looks/"</code> then look files are loaded from 
+		<code>"/app/looks/Plastic.txt"</code> and <code>"/app/looks/Sky.txt"</code>.</li>
+		<li><code>showDefaultLook</code> is true by default and allows user to select default look in
+		<code>LookSelector</code> UI component.</li>
+	</ul>
+	
+	<h3>Specifying controller options via FlashVars</h3>
+	
+	<p>If options were not passed in controller constructor FlashVars are checked. The same options
+	can be specified there:</p>
+	
+	<pre>&lt;script type="text/javascript"&gt;
+var flashvars = 
+{
+	lookLinksXMLURL: "/swf/lookLinks.xml",
+	// lookLinkNames: "Plastic,Sky,Red",
+	// lookLinksURLBase: "/some/dir/",
+	// showDefaultLook: "false"
+};
+swfobject.embedSWF("/swf/app.swf", "swfContainer", "100%", "450", "10.1", 
+	"/playerProductInstall.swf", flashvars);
+&lt;/script&gt;
+&lt;div id="swfContainer"&gt;</pre>
+	
+	<h3>Default behavior - load <code>lookLinks.xml</code></h3>
+	
+	<p>If controller options were not specified and FlashVars are empty then FTheme tries to 
+	load XML file <code>lookLinks.xml</code> and expects to get this:</p>
+	
+	<pre id="lookLinksXMLSample">&lt;lookLinks&gt;
+	&lt;lookLink name="Plastic"/&gt;
+	&lt;lookLink name="Yakuza"/&gt;
+	&lt;lookLink name="Red"/&gt;
+	...
+&lt;/lookLinks&gt;</pre>
+	
+	<p><code>&lt;lookLink&gt;</code> node can also have the following attributes:</p>
+	
+	<ul>
+	  <li><code>txtFileURL</code> - URL to look txt file. If not specified <code>Name.txt</code> is used</li>
+	  <li><code>zipFileURL</code> - URL to look zip file. If not specified <code>Name.zip</code> is used
+	  	if look has bitmap fills.</li>
+	</ul>
+
+	<h3></h3>
+	
+
+	
+	
+
+
+	<hr/>
+	
+	<h2 id="howItWorks">How does FTheme work?</h2>
+	
+	<p>It works nearly the same way as default <code>spark.swc</code> or <code>wireframe.swc</code> 
+	via defining skin for each component like <code>Button</code>, <code>CheckBox</code> and so on. 
+	The key difference is that FTheme <strong>does not define the actual pixels</strong>, they are
+	drawn by fills and strokes that are generated at runtime.</p>
+	
+	<p>Compare <code>ButtonSkin</code> in two themes:</p>
+	
+	<table cellspacing="20" border="0">
+		<tr>
+			<th>Spark</th>
+			<th>FTheme</th>
+		</tr>
+		<tr>
+			<td>
+				<pre style="overflow: scroll; height: 400px; width: 500px;"><span style='color:#696969; '>&lt;!--</span><span style='color:#696969; '> layer 1: shadow </span><span style='color:#696969; '>--></span>
+<span style='color:#696969; '>&lt;!--</span><span style='color:#696969; '>- @private </span><span style='color:#696969; '>--></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Rect</span> <span style='color:#274796; '>id</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>shadow</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>left</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>-1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>right</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>-1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>top</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>-1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>bottom</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>-1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>radiusX</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>2</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>fill</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>LinearGradient</span> <span style='color:#274796; '>rotation</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>90</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0x000000</span><span style='color:#0000e6; '>"</span> 
+                             <span style='color:#274796; '>color.down</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0xFFFFFF</span><span style='color:#0000e6; '>"</span>
+                             <span style='color:#274796; '>alpha</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.01</span><span style='color:#0000e6; '>"</span>
+                             <span style='color:#274796; '>alpha.down</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0</span><span style='color:#0000e6; '>"</span> <span style='color:#a65700; '>/></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0x000000</span><span style='color:#0000e6; '>"</span> 
+                             <span style='color:#274796; '>color.down</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0xFFFFFF</span><span style='color:#0000e6; '>"</span> 
+                             <span style='color:#274796; '>alpha</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.07</span><span style='color:#0000e6; '>"</span>
+                             <span style='color:#274796; '>alpha.down</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.5</span><span style='color:#0000e6; '>"</span> <span style='color:#a65700; '>/></span>
+        <span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>LinearGradient</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>fill</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Rect</span><span style='color:#a65700; '>></span>
+
+<span style='color:#696969; '>&lt;!--</span><span style='color:#696969; '> layer 2: fill </span><span style='color:#696969; '>--></span>
+<span style='color:#696969; '>&lt;!--</span><span style='color:#696969; '>- @private </span><span style='color:#696969; '>--></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Rect</span> <span style='color:#274796; '>id</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>fill</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>left</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>right</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>top</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>bottom</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>radiusX</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>2</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>fill</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>LinearGradient</span> <span style='color:#274796; '>rotation</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>90</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0xFFFFFF</span><span style='color:#0000e6; '>"</span> 
+                             <span style='color:#274796; '>color.over</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0xBBBDBD</span><span style='color:#0000e6; '>"</span> 
+                             <span style='color:#274796; '>color.down</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0xAAAAAA</span><span style='color:#0000e6; '>"</span> 
+                             <span style='color:#274796; '>alpha</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.85</span><span style='color:#0000e6; '>"</span> <span style='color:#a65700; '>/></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0xD8D8D8</span><span style='color:#0000e6; '>"</span> 
+                             <span style='color:#274796; '>color.over</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0x9FA0A1</span><span style='color:#0000e6; '>"</span> 
+                             <span style='color:#274796; '>color.down</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0x929496</span><span style='color:#0000e6; '>"</span> 
+                             <span style='color:#274796; '>alpha</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.85</span><span style='color:#0000e6; '>"</span> <span style='color:#a65700; '>/></span>
+        <span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>LinearGradient</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>fill</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Rect</span><span style='color:#a65700; '>></span>
+
+<span style='color:#696969; '>&lt;!--</span><span style='color:#696969; '> layer 3: fill lowlight </span><span style='color:#696969; '>--></span>
+<span style='color:#696969; '>&lt;!--</span><span style='color:#696969; '>- @private </span><span style='color:#696969; '>--></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Rect</span> <span style='color:#274796; '>id</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>lowlight</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>left</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>right</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>top</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>bottom</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>radiusX</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>2</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>fill</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>LinearGradient</span> <span style='color:#274796; '>rotation</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>270</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0x000000</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>ratio</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.0</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>alpha</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.0627</span><span style='color:#0000e6; '>"</span> <span style='color:#a65700; '>/></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0x000000</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>ratio</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.48</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>alpha</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.0099</span><span style='color:#0000e6; '>"</span> <span style='color:#a65700; '>/></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0x000000</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>ratio</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.48001</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>alpha</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0</span><span style='color:#0000e6; '>"</span> <span style='color:#a65700; '>/></span>
+        <span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>LinearGradient</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>fill</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Rect</span><span style='color:#a65700; '>></span>
+
+<span style='color:#696969; '>&lt;!--</span><span style='color:#696969; '> layer 4: fill highlight </span><span style='color:#696969; '>--></span>
+<span style='color:#696969; '>&lt;!--</span><span style='color:#696969; '>- @private </span><span style='color:#696969; '>--></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Rect</span> <span style='color:#274796; '>id</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>highlight</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>left</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>right</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>top</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>bottom</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>radiusX</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>2</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>fill</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>LinearGradient</span> <span style='color:#274796; '>rotation</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>90</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0xFFFFFF</span><span style='color:#0000e6; '>"</span>
+                             <span style='color:#274796; '>ratio</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.0</span><span style='color:#0000e6; '>"</span>
+                             <span style='color:#274796; '>alpha</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.33</span><span style='color:#0000e6; '>"</span> 
+                             <span style='color:#274796; '>alpha.over</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.22</span><span style='color:#0000e6; '>"</span> 
+                             <span style='color:#274796; '>alpha.down</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.12</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>/></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0xFFFFFF</span><span style='color:#0000e6; '>"</span>
+                             <span style='color:#274796; '>ratio</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.48</span><span style='color:#0000e6; '>"</span>
+                             <span style='color:#274796; '>alpha</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.33</span><span style='color:#0000e6; '>"</span>
+                             <span style='color:#274796; '>alpha.over</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.22</span><span style='color:#0000e6; '>"</span>
+                             <span style='color:#274796; '>alpha.down</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.12</span><span style='color:#0000e6; '>"</span> <span style='color:#a65700; '>/></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0xFFFFFF</span><span style='color:#0000e6; '>"</span>
+                             <span style='color:#274796; '>ratio</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.48001</span><span style='color:#0000e6; '>"</span>
+                             <span style='color:#274796; '>alpha</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0</span><span style='color:#0000e6; '>"</span> <span style='color:#a65700; '>/></span>
+        <span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>LinearGradient</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>fill</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Rect</span><span style='color:#a65700; '>></span>
+
+<span style='color:#696969; '>&lt;!--</span><span style='color:#696969; '> layer 5: highlight stroke (all states except down) </span><span style='color:#696969; '>--></span>
+<span style='color:#696969; '>&lt;!--</span><span style='color:#696969; '>- @private </span><span style='color:#696969; '>--></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Rect</span> <span style='color:#274796; '>id</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>highlightStroke</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>left</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>right</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>top</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>bottom</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>radiusX</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>2</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>excludeFrom</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>down</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>stroke</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>LinearGradientStroke</span> <span style='color:#274796; '>rotation</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>90</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>weight</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0xFFFFFF</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>alpha.over</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.22</span><span style='color:#0000e6; '>"</span> <span style='color:#a65700; '>/></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0xD8D8D8</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>alpha.over</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.22</span><span style='color:#0000e6; '>"</span> <span style='color:#a65700; '>/></span>
+        <span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>LinearGradientStroke</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>stroke</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Rect</span><span style='color:#a65700; '>></span>
+
+<span style='color:#696969; '>&lt;!--</span><span style='color:#696969; '> layer 6: highlight stroke (down state only) </span><span style='color:#696969; '>--></span>
+<span style='color:#696969; '>&lt;!--</span><span style='color:#696969; '>- @private </span><span style='color:#696969; '>--></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Rect</span> <span style='color:#274796; '>id</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>hldownstroke1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>left</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>right</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>top</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>bottom</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>radiusX</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>2</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>includeIn</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>down</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>stroke</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>LinearGradientStroke</span> <span style='color:#274796; '>rotation</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>90</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>weight</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0x000000</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>alpha</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.25</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>ratio</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.0</span><span style='color:#0000e6; '>"</span> <span style='color:#a65700; '>/></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0x000000</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>alpha</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.25</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>ratio</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.001</span><span style='color:#0000e6; '>"</span> <span style='color:#a65700; '>/></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0x000000</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>alpha</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.07</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>ratio</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.0011</span><span style='color:#0000e6; '>"</span> <span style='color:#a65700; '>/></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0x000000</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>alpha</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.07</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>ratio</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.965</span><span style='color:#0000e6; '>"</span> <span style='color:#a65700; '>/></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0x000000</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>alpha</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.00</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>ratio</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.9651</span><span style='color:#0000e6; '>"</span> <span style='color:#a65700; '>/></span>
+        <span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>LinearGradientStroke</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>stroke</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Rect</span><span style='color:#a65700; '>></span>
+<span style='color:#696969; '>&lt;!--</span><span style='color:#696969; '>- @private </span><span style='color:#696969; '>--></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Rect</span> <span style='color:#274796; '>id</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>hldownstroke2</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>left</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>2</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>right</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>2</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>top</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>2</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>bottom</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>2</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>radiusX</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>2</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>includeIn</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>down</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>stroke</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>LinearGradientStroke</span> <span style='color:#274796; '>rotation</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>90</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>weight</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0x000000</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>alpha</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.09</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>ratio</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.0</span><span style='color:#0000e6; '>"</span> <span style='color:#a65700; '>/></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0x000000</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>alpha</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.00</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>ratio</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.0001</span><span style='color:#0000e6; '>"</span> <span style='color:#a65700; '>/></span>
+        <span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>LinearGradientStroke</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>stroke</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Rect</span><span style='color:#a65700; '>></span>
+
+<span style='color:#696969; '>&lt;!--</span><span style='color:#696969; '> layer 7: border - put on top of the fill so it doesn't disappear when scale is less than 1 </span><span style='color:#696969; '>--></span>
+<span style='color:#696969; '>&lt;!--</span><span style='color:#696969; '>- @private </span><span style='color:#696969; '>--></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Rect</span> <span style='color:#274796; '>id</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>border</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>left</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>right</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>top</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>bottom</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>width</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>69</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>height</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>20</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>radiusX</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>2</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>stroke</span><span style='color:#a65700; '>></span>
+        <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>LinearGradientStroke</span> <span style='color:#274796; '>rotation</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>90</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>weight</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0x000000</span><span style='color:#0000e6; '>"</span> 
+                             <span style='color:#274796; '>alpha</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.5625</span><span style='color:#0000e6; '>"</span>
+                             <span style='color:#274796; '>alpha.down</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.6375</span><span style='color:#0000e6; '>"</span> <span style='color:#a65700; '>/></span>
+            <span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>GradientEntry</span> <span style='color:#274796; '>color</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0x000000</span><span style='color:#0000e6; '>"</span> 
+                             <span style='color:#274796; '>alpha</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.75</span><span style='color:#0000e6; '>"</span> 
+                             <span style='color:#274796; '>alpha.down</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0.85</span><span style='color:#0000e6; '>"</span> <span style='color:#a65700; '>/></span>
+        <span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>LinearGradientStroke</span><span style='color:#a65700; '>></span>
+    <span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>stroke</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Rect</span><span style='color:#a65700; '>></span>
+
+<span style='color:#696969; '>&lt;!--</span><span style='color:#696969; '> layer 8: text </span><span style='color:#696969; '>--></span>
+<span style='color:#696969; '>&lt;!--</span><span style='color:#696969; '>- @copy spark.components.supportClasses.ButtonBase#labelDisplay </span><span style='color:#696969; '>--></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Label</span> <span style='color:#274796; '>id</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>labelDisplay</span><span style='color:#0000e6; '>"</span>
+         <span style='color:#274796; '>textAlign</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>center</span><span style='color:#0000e6; '>"</span>
+         <span style='color:#274796; '>verticalAlign</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>middle</span><span style='color:#0000e6; '>"</span>
+         <span style='color:#274796; '>maxDisplayedLines</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span>
+         <span style='color:#274796; '>horizontalCenter</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>verticalCenter</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span>
+         <span style='color:#274796; '>left</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>10</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>right</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>10</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>top</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>2</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>bottom</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>2</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Label</span><span style='color:#a65700; '>></span>
+</pre>
+			</td>
+			<td>
+				<pre style="overflow: scroll; height: 400px; width: 500px;"><span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Rect</span> <span style='color:#274796; '>left</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>right</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>top</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>bottom</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span>
+    <span style='color:#274796; '>fill.up</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>{getStyle('buttonUpFill')}</span><span style='color:#0000e6; '>"</span>
+    <span style='color:#274796; '>fill.over</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>{getStyle('buttonOverFill')}</span><span style='color:#0000e6; '>"</span>
+    <span style='color:#274796; '>fill.down</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>{getStyle('buttonDownFill')}</span><span style='color:#0000e6; '>"</span>
+    <span style='color:#274796; '>fill.disabled</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>{getStyle('buttonDisabledFill')}</span><span style='color:#0000e6; '>"</span>
+    <span style='color:#274796; '>radiusX</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>{getStyle('buttonCornerRadius')}</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>/></span>
+
+<span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Rect</span> <span style='color:#274796; '>left</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>right</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>top</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>bottom</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span>
+    <span style='color:#274796; '>stroke</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>{getStyle('highlightStroke')}</span><span style='color:#0000e6; '>"</span>
+    <span style='color:#274796; '>radiusX</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>{Math.max(0, getStyle('buttonCornerRadius') - 1)}</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>/></span>
+
+<span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Rect</span> <span style='color:#274796; '>left</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>right</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>top</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>bottom</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0</span><span style='color:#0000e6; '>"</span>
+    <span style='color:#274796; '>stroke</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>{getStyle('buttonStroke')}</span><span style='color:#0000e6; '>"</span>
+    <span style='color:#274796; '>radiusX</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>{getStyle('buttonCornerRadius')}</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>/></span>
+
+<span style='color:#a65700; '>&lt;</span><span style='color:#666616; '>s</span><span style='color:#800080; '>:</span><span style='color:#5f5035; '>Label</span> <span style='color:#274796; '>id</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>labelDisplay</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>textAlign</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>center</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>verticalAlign</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>middle</span><span style='color:#0000e6; '>"</span>
+    <span style='color:#274796; '>maxDisplayedLines</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>horizontalCenter</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>0</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>verticalCenter</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>1</span><span style='color:#0000e6; '>"</span>
+    <span style='color:#274796; '>left</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>10</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>right</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>10</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>top</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>2</span><span style='color:#0000e6; '>"</span> <span style='color:#274796; '>bottom</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"</span><span style='color:#0000e6; '>2</span><span style='color:#0000e6; '>"</span><span style='color:#a65700; '>/></span>
+</pre>
+			</td>
+		</tr>
+	</table>
+
+	<p>As you see FTheme skin uses styles like <code>buttonUpFill</code> that is 
+	<code>mx.graphics.IFill</code> instance and <code>buttonStroke</code> that is
+	<code>mx.graphics.IStroke</code>. That's what FTheme does - sets those styles
+	to <code>.global</code> CSS style declatation inside Flex <code>StyleManager</code>.</p>
+	
+
+	
+	
+
+
+
+
+
+	<hr/>
+	
+	<h2 id="propertyReference">What properties and values are supported in look?</h2>
+	
+	<p>Here is the list of currently supported look properties:</p>
+	
+	<ul class="propertyReferenceList">
+
+		<li><span class="lookPropertyName">alternatingItemColors</span> 
+			<span class="lookPropertyType"><a href="#Array of colors">Array of colors</a></span>
+			<span class="lookPropertyDescription">Corresponds to Flex SDK "alternatingItemColors" style for list items backgrounds.</span></li>
+
+		<li><span class="lookPropertyName">applicationFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription">Application background fill.</span></li>
+
+		<li><span class="lookPropertyName">borderStroke</span> 
+			<span class="lookPropertyType"><a href="#Stroke">Stroke</a></span>
+			<span class="lookPropertyDescription">General stroke that is used in MX components borders and in other components that do not have implicit borders (like inputs that have "inputStroke").</span></li>
+
+		<li><span class="lookPropertyName">borderStroke</span> 
+			<span class="lookPropertyType"><a href="#Stroke">Stroke</a></span>
+			<span class="lookPropertyDescription">General border. Also sets "borderColor" and "borderAlpha" Flex SDK styles.</span></li>
+
+		<li><span class="lookPropertyName">buttonCornerRadius</span> 
+			<span class="lookPropertyType"><a href="#Number">Number</a></span>
+			<span class="lookPropertyDescription">Various buttons border corner radius.</span></li>
+
+		<li><span class="lookPropertyName">buttonDisabledFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription">Various buttons disabled fill.</span></li>
+
+		<li><span class="lookPropertyName">buttonDownFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription">Various buttons down fill.</span></li>
+
+		<li><span class="lookPropertyName">buttonMinHeight</span> 
+			<span class="lookPropertyType"><a href="#Number">Number</a></span>
+			<span class="lookPropertyDescription">Button min height. Default is 21.</span></li>
+
+		<li><span class="lookPropertyName">buttonMinWidth</span> 
+			<span class="lookPropertyType"><a href="#Number">Number</a></span>
+			<span class="lookPropertyDescription">Button min width. Default is 21.</span></li>
+
+		<li><span class="lookPropertyName">buttonOverFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription">Various buttons over fill.</span></li>
+
+		<li><span class="lookPropertyName">buttonSelectedFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription">Various buttons selected fill.</span></li>
+
+		<li><span class="lookPropertyName">buttonStroke</span> 
+			<span class="lookPropertyType"><a href="#Stroke">Stroke</a></span>
+			<span class="lookPropertyDescription">Various buttons border stroke.</span></li>
+
+		<li><span class="lookPropertyName">buttonUpFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription">Various buttons up fill.</span></li>
+
+		<li><span class="lookPropertyName">checkBoxSize</span> 
+			<span class="lookPropertyType"><a href="#Number">Number</a></span>
+			<span class="lookPropertyDescription">Check box width and height. Default is 13.</span></li>
+
+		<li><span class="lookPropertyName">color</span> 
+			<span class="lookPropertyType"><a href="#null">null</a></span>
+			<span class="lookPropertyDescription">Text color in the application.</span></li>
+
+		<li><span class="lookPropertyName">contentCornerRadius</span> 
+			<span class="lookPropertyType"><a href="#Number">Number</a></span>
+			<span class="lookPropertyDescription">Content areas border corner radius.</span></li>
+
+		<li><span class="lookPropertyName">contentFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription">Content areas background fill e.g. list background fill.</span></li>
+
+		<li><span class="lookPropertyName">contentStroke</span> 
+			<span class="lookPropertyType"><a href="#Stroke">Stroke</a></span>
+			<span class="lookPropertyDescription">Content areas border stroke.</span></li>
+
+		<li><span class="lookPropertyName">controlbarColor</span> 
+			<span class="lookPropertyType"><a href="#Color">Color</a></span>
+			<span class="lookPropertyDescription">Controlbar text color.</span></li>
+
+		<li><span class="lookPropertyName">controlbarFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription"><code>Controlbar</code> is a component introduced by FTheme is much like <code>mx:ControlBar</code> but it can be placed everywhere in the application. Background fill.</span></li>
+
+		<li><span class="lookPropertyName">controlbarStroke</span> 
+			<span class="lookPropertyType"><a href="#Stroke">Stroke</a></span>
+			<span class="lookPropertyDescription">Controlbar top border stroke.</span></li>
+
+		<li><span class="lookPropertyName">errorColor</span> 
+			<span class="lookPropertyType"><a href="#Color">Color</a></span>
+			<span class="lookPropertyDescription">Error text color.</span></li>
+
+		<li><span class="lookPropertyName">hScrollBarThumbDownFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription"/span></li>
+
+		<li><span class="lookPropertyName">hScrollBarThumbOverFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription"/span></li>
+
+		<li><span class="lookPropertyName">hScrollBarThumbUpFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription"/span></li>
+
+		<li><span class="lookPropertyName">hScrollBarTrackFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription"/span></li>
+
+		<li><span class="lookPropertyName">headerColors</span> 
+			<span class="lookPropertyType"><a href="#Array of colors">Array of colors</a></span>
+			<span class="lookPropertyDescription">Array of 2 colors for <code>mx:DateChooser</code> header fill.</span></li>
+
+		<li><span class="lookPropertyName">headerFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription">Data grid and some other components header fill.</span></li>
+
+		<li><span class="lookPropertyName">highlightStroke</span> 
+			<span class="lookPropertyType"><a href="#Stroke">Stroke</a></span>
+			<span class="lookPropertyDescription">Stroke that goes right next to the common interactive component border. Default is "0xFFFFFF alpha 0.2"/span></li>
+
+		<li><span class="lookPropertyName">inputCornerRadius</span> 
+			<span class="lookPropertyType"><a href="#Number">Number</a></span>
+			<span class="lookPropertyDescription">Various inputs border corner radius.</span></li>
+
+		<li><span class="lookPropertyName">inputFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription">Various inputs background fill.</span></li>
+
+		<li><span class="lookPropertyName">inputStroke</span> 
+			<span class="lookPropertyType"><a href="#Stroke">Stroke</a></span>
+			<span class="lookPropertyDescription">Various inputs border stroke.</span></li>
+
+		<li><span class="lookPropertyName">panelCornerRadius</span> 
+			<span class="lookPropertyType"><a href="#Number">Number</a></span>
+			<span class="lookPropertyDescription">Panel corner radius.</span></li>
+
+		<li><span class="lookPropertyName">panelFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription">Panel content area background fill.</span></li>
+
+		<li><span class="lookPropertyName">panelStroke</span> 
+			<span class="lookPropertyType"><a href="#Stroke">Stroke</a></span>
+			<span class="lookPropertyDescription">Panel border stroke.</span></li>
+
+		<li><span class="lookPropertyName">progressBarFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription">Progress bar fill.</span></li>
+
+		<li><span class="lookPropertyName">progressBarHeight</span> 
+			<span class="lookPropertyType"><a href="#Number">Number</a></span>
+			<span class="lookPropertyDescription">Progress bar height.</span></li>
+
+		<li><span class="lookPropertyName">progressBarStroke</span> 
+			<span class="lookPropertyType"><a href="#Stroke">Stroke</a></span>
+			<span class="lookPropertyDescription">Progress bar border stroke.</span></li>
+
+		<li><span class="lookPropertyName">progressBarTrackFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription">Progress bar track fill.</span></li>
+
+		<li><span class="lookPropertyName">radioButtonDotSize</span> 
+			<span class="lookPropertyType"><a href="#Number">Number</a></span>
+			<span class="lookPropertyDescription">Radio button dot size. Default is 5</span></li>
+
+		<li><span class="lookPropertyName">radioButtonSize</span> 
+			<span class="lookPropertyType"><a href="#Number">Number</a></span>
+			<span class="lookPropertyDescription">Radio button width and height. Default is 13</span></li>
+
+		<li><span class="lookPropertyName">rollOverColor</span> 
+			<span class="lookPropertyType"><a href="#Color">Color</a></span>
+			<span class="lookPropertyDescription">Background color for hovered item renderers.</span></li>
+
+		<li><span class="lookPropertyName">scrollBarButtonSize</span> 
+			<span class="lookPropertyType"><a href="#Number">Number</a></span>
+			<span class="lookPropertyDescription">Defailt is 17.</span></li>
+
+		<li><span class="lookPropertyName">scrollBarCornerRadius</span> 
+			<span class="lookPropertyType"><a href="#Number">Number</a></span>
+			<span class="lookPropertyDescription">Defailt is 0.</span></li>
+
+		<li><span class="lookPropertyName">scrollBarSize</span> 
+			<span class="lookPropertyType"><a href="#Number">Number</a></span>
+			<span class="lookPropertyDescription">Defailt is 14.</span></li>
+
+		<li><span class="lookPropertyName">scrollBarStroke</span> 
+			<span class="lookPropertyType"><a href="#Stroke">Stroke</a></span>
+			<span class="lookPropertyDescription"/span></li>
+
+		<li><span class="lookPropertyName">scrollBarThumbMinSize</span> 
+			<span class="lookPropertyType"><a href="#Number">Number</a></span>
+			<span class="lookPropertyDescription">Defailt is 17.</span></li>
+
+		<li><span class="lookPropertyName">selectionColor</span> 
+			<span class="lookPropertyType"><a href="#Color">Color</a></span>
+			<span class="lookPropertyDescription">Background color for selected item renderers.</span></li>
+
+		<li><span class="lookPropertyName">sliderThumbSize</span> 
+			<span class="lookPropertyType"><a href="#Number">Number</a></span>
+			<span class="lookPropertyDescription">Defailt is 11.</span></li>
+
+		<li><span class="lookPropertyName">sliderTrackCornerRadius</span> 
+			<span class="lookPropertyType"><a href="#Number">Number</a></span>
+			<span class="lookPropertyDescription">Defailt is 3.</span></li>
+
+		<li><span class="lookPropertyName">sliderTrackFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription"/span></li>
+
+		<li><span class="lookPropertyName">sliderTrackSize</span> 
+			<span class="lookPropertyType"><a href="#Number">Number</a></span>
+			<span class="lookPropertyDescription">Defailt is 6.</span></li>
+
+		<li><span class="lookPropertyName">sliderTrackStroke</span> 
+			<span class="lookPropertyType"><a href="#Stroke">Stroke</a></span>
+			<span class="lookPropertyDescription"/span></li>
+
+		<li><span class="lookPropertyName">symbolColor</span> 
+			<span class="lookPropertyType"><a href="#Color">Color</a></span>
+			<span class="lookPropertyDescription"/span></li>
+
+		<li><span class="lookPropertyName">symbolFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription"/span></li>
+
+		<li><span class="lookPropertyName">titlebarColor</span> 
+			<span class="lookPropertyType"><a href="#Color">Color</a></span>
+			<span class="lookPropertyDescription">Titlebar text color.</span></li>
+
+		<li><span class="lookPropertyName">titlebarFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription">Titlebar fill. Titlebar is the topmost area of panel with panel title inside.</span></li>
+
+		<li><span class="lookPropertyName">titlebarStroke</span> 
+			<span class="lookPropertyType"><a href="#Stroke">Stroke</a></span>
+			<span class="lookPropertyDescription"> Titlebar bottom border stroke.</span></li>
+
+		<li><span class="lookPropertyName">toolbarButtonDisabledFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription">Toolbar button disabled background fill.</span></li>
+
+		<li><span class="lookPropertyName">toolbarButtonDownFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription">Toolbar button down background fill.</span></li>
+
+		<li><span class="lookPropertyName">toolbarButtonOverFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription">Toolbar button over background fill.</span></li>
+
+		<li><span class="lookPropertyName">toolbarButtonUpFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription"><code>ToolbarButton</code> is a component introduced by FTheme. Button up background fill.</span></li>
+
+		<li><span class="lookPropertyName">toolbarColor</span> 
+			<span class="lookPropertyType"><a href="#Color">Color</a></span>
+			<span class="lookPropertyDescription">Toolbar text color.</span></li>
+
+		<li><span class="lookPropertyName">toolbarFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription">Toolbar background fill. <code>Toolbar</code> is a component introduced by FTheme. Is usually placed right below the panel titlebar.</span></li>
+
+		<li><span class="lookPropertyName">toolbarStroke</span> 
+			<span class="lookPropertyType"><a href="#Stroke">Stroke</a></span>
+			<span class="lookPropertyDescription">Toolbar bottom border stroke.</span></li>
+
+		<li><span class="lookPropertyName">vScrollBarThumbDownFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription"/span></li>
+
+		<li><span class="lookPropertyName">vScrollBarThumbOverFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription"/span></li>
+
+		<li><span class="lookPropertyName">vScrollBarThumbUpFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription"/span></li>
+
+		<li><span class="lookPropertyName">vScrollBarTrackFill</span> 
+			<span class="lookPropertyType"><a href="#Fill">Fill</a></span>
+			<span class="lookPropertyDescription"/span></li>
+
+	</ul>
+	
+	<hr/>
+	
+	<h1>Types</h1>
+	
+	<h3 id="Number">Number</h3>
+	
+	Simple number text form is supported e.g. <code>buttonCornerRadius: 4</code>
+	
+	<h3 id="Color">Color</h3>
+	
+	The following string color representations are supported:
+	
+	<ul>
+		<li><code>0xFFCC00</code></li>
+		<li><code>#FFCC00</code></li>
+		<li><code>0x333</code></li>
+		<li><code>#333</code></li>
+	</ul>
+	
+	<h3 id="Array of colors">Array of colors</h3>
+	
+	List of colors separated by spaces:
+	
+	<ul>
+		<li><code>0xFFCC00 0xFF0000 0xCC5500</code></li>
+		<li><code>#333 #222</code></li>
+		<li><code>0x333</code></li>
+	</ul>
+	
+	<h3 id="Fill">Fill</h3>
+	
+	<h4>Linear or solid color fill</h4>
+	
+	<ul>
+		<li><code>0xFFCC00</code></li>
+		<li><code>0xFFCC00 alpha 0.5</code></li>
+		<li><code>0xFFCC00 0xFF0000 rotation 45</code></li>
+		<li><code>0xFFCC00 alpha 0.5 ratio 0.2 0xFF0000 alpha 0.85 spreadMethod reflect scaleX 150</code></li>
+	</ul>
+	
+	<p>Valid values of <code>spreadMethod</code> are <code>pad</code>, <code>reflect</code> and <code>repeat</code>.</p>
+	
+	<p>Default <code>rotation</code> is <code>90</code> so that gradient draws vertically.</p>
+	
+	<h4>Radial fill</h4>
+	
+	<ul>
+		<li><code>radial 0xFFCC00</code></li>
+		<li><code>radial 0xFFCC00 alpha 0.5</code></li>
+		<li><code>radial 0xFFCC00 0xFF0000 rotation 45 scaleX 100 scaleY 200 focalPointRatio -1</code></li>
+	</ul>
+	
+	<p>Valid values of <code>spreadMethod</code> are <code>pad</code>, <code>reflect</code> and <code>repeat</code>.</p>
+	
+	<p>Default <code>rotation</code> is <code>90</code>.</p>
+	
+	<p>Valid values of <code>focalPointRatio</code> are from <code>-1.0</code> to <code>1.0</code>.</p>
+	
+	<h4>Bitmap fill</h4>
+	
+	<ul>
+		<li><code>bitmap <em>assetId</em></code></li>
+		<li><code>bitmap <em>assetId</em> fillMode clip horizontalAlign right verticalAlign bottom smooth true</code></li>
+		<li><code>bitmap <em>assetId</em> fillMode clip horizontalAlign right y -30</code></li>
+		<li><code>bitmap <em>assetId</em> fillMode scale maintainAspectRatio true</code></li>
+	</ul>
+	
+	<p>Before specifying bitmap fill ensure that you've got bitmaps with corresponding names in your ZIP archive:</p>
+	
+	<img src="wiki/japaneseTatoo.png"/>
+	
+	<h3 id="Stroke">Stroke</h3>
+	
+	Only solid strokes with <code>alpha</code> and <code>pixelHinting</code> are supported.</a>.
+	
+	<ul>
+		<li><code>0xFFCC00</code></li>
+		<li><code>#333 alpha 0.5 pixelHinting true</code></li>
+	</ul>
+	
+
+	
+	
+
+	
+</div>
+
+	
+<div class="footer">
+	By <a href="http://kachurovskiy.com/">Maxim Kachurovskiy</a>
+	<small><a href="javascript:Transpose_Email('slon.vsapogah','gmail.com','ftheme.com')">[mail]</a></small>. 
+	<a href="https://github.com/kachurovskiy/FTheme">FTheme source is available at GitHub</a> under 
+	<a href="http://creativecommons.org/licenses/MIT/">MIT license</a> however some library files are
+	modified Flex SDK skins and are subject to corresponding license.
+</div>
+
+</body>
+
+
+</html>

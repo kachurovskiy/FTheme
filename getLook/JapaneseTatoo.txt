@@ -1,0 +1,9 @@
+@author enguyen http://www.getpersonas.com/en-US/gallery/designer/enguyen
+@author Maxim Kachurovskiy http://kachurovskiy.com
+
+@license CC BY-NC-SA 3.0 http://creativecommons.org/licenses/by-nc-sa/3.0/
+
+titlebarFill: bitmap japaneseTatooHeader fillMode clip horizontalAlign right
+titlebarColor: 0xFFFFFF
+toolbarFill: bitmap japaneseTatooHeader fillMode clip horizontalAlign right y -30
+controlbarFill: bitmap japaneseTatooFooter fillMode clip horizontalAlign right

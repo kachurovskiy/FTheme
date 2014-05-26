@@ -1,0 +1,161 @@
+
+<!DOCTYPE html PUBLIC "/W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link type="text/css" rel="stylesheet" href="stylesheets/main.css" />
+	<title>FTheme - Gallery. Adobe Flex themes.</title>
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="rss">
+	<meta name="keywords" content="flex theme, change flex styles, adobe flex, spark skins">
+	<meta name="description" content="FTheme is a Flex 4 look and feel customization library">
+	<script type="text/javascript" src="/jquery-1.5.min.js"></script>
+	<script type="text/javascript" src="/main.js"></script>
+	<script type="text/javascript" src="/swfobject.js"></script>
+
+	<script type="text/javascript">
+	
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-4425250-6']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	
+	</script>
+
+</head>
+<body>
+
+	
+
+
+
+<div class="topBar">
+	<span class="siteTitle"><a href="index.html">FTheme</a></span>
+	<a href="quickStart.html">Quick Start</a>
+	<a href="wiki.html">Wiki</a>
+	<a href="gallery.html">Gallery</a>
+	
+	<a href="downloads.html">Downloads</a>
+	<a href="asdoc/index.html">ASDoc</a>
+	<a href="https://github.com/kachurovskiy/FTheme/issues">Issues <sup>on GitHub</sup></a>
+	
+</div>
+
+	
+
+
+
+
+	
+<script type="text/javascript">
+function getLook()
+{
+	return window.location.hash.substr(1);
+}
+
+function setLook(newName)
+{
+	if (this.look == newName)
+		return;
+	this.look = newName;
+	
+	window.location.hash = "#" + newName;
+
+	if (newName && newName.toLowerCase() != "default")
+	{
+		$.get("includes/lookInfo49de.html?name=" + newName, 
+			function(data) {
+				$("#lookInfo").html(data);
+				$("#lookInfo").show();
+			}).error(function() { $("#lookInfo").hide(); });
+
+		$.get("includes/commentsaf44.html?ownerName=" + newName + "&ownerType=com.ftheme.looks.Look", 
+			function(data) {
+				$("#comments").html(data);
+				$("#comments").show();
+			}).error(function() { $("#comments").hide(); });
+	}
+	else
+	{
+		$("#lookInfo").hide();
+		$("#comments").hide();
+	}
+}
+
+if (window.location.hash)
+	setLook(getLook());
+
+var flashvars = 
+{
+	lookLinksXMLURL: "/gallery/lookLinks.xml?rand=5593"
+};
+swfobject.embedSWF("gallery/gallery.swf", "galleryContainer", "100%", "390", "10.1", 
+	"playerProductInstall.swf", flashvars);
+</script>
+<div id="galleryContainer">
+	<div class="section">
+		<h1>Gallery</h1>
+		
+		<p>Look gallery is a Flex application. Please enable <strong>JavaScript</strong> and 
+			<strong>Flash Player</strong> in order to use it.</p>
+	</div>
+</div>
+
+<div style="display: none;" id="lookInfo"/div>
+
+<div style="display: none;" id="comments"/div>
+
+
+
+
+
+
+<div class="section">
+
+		<p class="quickLookLinks">
+
+			<a href="look/JapaneseTatoo.html">JapaneseTatoo</a>
+
+			<a href="look/KanagawaWave.html">KanagawaWave</a>
+
+			<a href="look/Keltern.html">Keltern</a>
+
+			<a href="look/NightSky.html">NightSky</a>
+
+			<a href="look/Plastic.html">Plastic</a>
+
+			<a href="look/Red.html">Red</a>
+
+			<a href="look/Sky.html">Sky</a>
+
+			<a href="look/Snow.html">Snow</a>
+
+			<a href="look/Winter.html">Winter</a>
+
+			<a href="look/Yakuza.html">Yakuza</a>
+
+			| <a href="rss">RSS Feed</a>
+		</p>
+
+</div>
+
+	
+<div class="footer">
+	By <a href="http://kachurovskiy.com/">Maxim Kachurovskiy</a>
+	<small><a href="javascript:Transpose_Email('slon.vsapogah','gmail.com','ftheme.com')">[mail]</a></small>. 
+	<a href="https://github.com/kachurovskiy/FTheme">FTheme source is available at GitHub</a> under 
+	<a href="http://creativecommons.org/licenses/MIT/">MIT license</a> however some library files are
+	modified Flex SDK skins and are subject to corresponding license.
+</div>
+
+</body>
+
+
+</html>
